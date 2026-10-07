@@ -338,3 +338,9 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .vs thead th { background: var(--bg-alt); }
 .hl { color: var(--brand); }
 .dot { box-shadow: none; }
+.text-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 6px 0 4px; }
+@media (max-width: 760px) { .text-pair { grid-template-columns: 1fr; } }
+.excerpt { margin: 0; padding: 16px 18px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
+.excerpt b { font: 700 16px var(--mono); color: var(--brand); }
+.excerpt p { margin: 6px 0 0; font-size: 16px; line-height: 1.65; }
+.res-h { font-size: 18px; margin: 26px 0 10px; }

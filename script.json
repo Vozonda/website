@@ -1,0 +1,61 @@
+{
+ "pairs": [
+  {
+   "id": "script-lightning",
+   "title": "Lightning Network",
+   "source": {
+    "title": "Wikipedia: Lightning Network",
+    "url": "https://en.wikipedia.org/wiki/Lightning_Network",
+    "license": "CC BY-SA 4.0"
+   },
+   "texts": [
+    {
+     "id": "0c25d7795f",
+     "text": "Second is privacy, because payments are routed through sequential channels so intermediate nodes only see their own hops, not a source or destination. Interesting. Third is speed, with sediment under a minute, sometimes milliseconds, compared to the 10-minute average for Bitcoin confirmation. Finally, there is no fundamental limit to throughput, only limited by node capacity. I see. So it solves the speed and cost issues. But are there limitations? Yes. The network relies on bi-directional payment channels. You still need on-chain transactions to open and close those channels. That introduces scalability constraints, because you are still interacting with a slower base layer for the setup and teardown phases. That makes sense. You cannot escape the base layer entirely. How does it handle routing payments across the network? It uses an onion routing protocol. Each node in the path only decrypts enough information to know the next hop. They do not know the origin or the final destination."
+    },
+    {
+     "id": "2e07f31d50",
+     "text": "And with every transaction, you're just cryptographically signing a new update to the distribution of that initial pot of money. Yeah, you're basically just passing digitally signed IOUs back and forth. And neither of us are broadcasting these updates to the blockchain yet. Not until you're both finished. Whenever you decide to close the payment channel, which could be an hour later or literally a year later, the smart contract takes your final mutually signed transaction record and distributes the committed funds on the main blockchain. OK, but I'm still stuck on my cheating scenario, though. Let's hear it. Let's say we started with 10 Bitcoin total. Over a year, I spent most of mine. And now the true balance is nine Bitcoin for you, one Bitcoin for me. OK. What happens if I go to the main blockchain and broadcast an older, outdated version of our tab from a month ago, back when the balance was nine Bitcoin for me and one for you?"
+    }
+   ]
+  },
+  {
+   "id": "script-attention",
+   "title": "Attention Is All You Need (research paper, PDF)",
+   "source": {
+    "title": "Vaswani et al. 2017, arXiv:1706.03762",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "license": "arXiv"
+   },
+   "texts": [
+    {
+     "id": "890761ad6d",
+     "text": "Yeah, if the AI is just taking in all those words in a single parallel flash, how does it know who is doing the biting? This raises a really important question, and the authors had to tackle it head-on. By abandoning recurrence, the model inherently loses its sense of sequence. It just doesn't know what comes first, second, or third. It genuinely doesn't. So, to solve the word soup problem, they had to inject temporal information directly into the data itself before the model even began processing it. And they accomplished this using positional encoding. Right. The paper mentions injecting these positional encodings at the bottom of the encoder and decoder stacks. But how did they actually give a word a sense of place without forcing the model to read in order? They used a fascinating mathematical solution involving continuous wave functions, specifically sine and cosine functions operating at different frequencies."
+    },
+    {
+     "id": "e5f0ce7dfe",
+     "text": "By using multiple heads, the model can jointly attend to information from different representation subspaces at different positions. Interesting. Think of it like having several experts look at the sentence, each focusing on a different grammatical or semantic aspect. So one head might catch the verb, another the subject, and they combine these views? Exactly. They project the queries, keys, and values into different subspaces, compute attention in parallel, and then concatenate the results. It allows the model to capture complex dependencies that a single attention head would miss. I'm curious about the structure. You mentioned encoder and decoder. How do they talk to each other? The encoder processes the input sequence and produces a set of representations. The decoder then generates the output sequence one element at a time. Oh wow! But here is the trick. The decoder attends to the encoder's output at every step. This is called encoder-decoder attention."
+    }
+   ]
+  },
+  {
+   "id": "script-nostr",
+   "title": "Nostr (short article)",
+   "source": {
+    "title": "Wikipedia: Nostr",
+    "url": "https://en.wikipedia.org/wiki/Nostr",
+    "license": "CC BY-SA 4.0"
+   },
+   "texts": [
+    {
+     "id": "e9f46fb54f",
+     "text": "Just like an email address. Right. And under the hood, your Noture client pings the example.com web server, queries a specific JSON file, and checks if that email alias maps back to your specific hex pub key. Oh, OK. That actually sounds a lot like how Activity Pub and the ET protocol work. It's remarkably similar. It bridges human-readable web domains with cryptographic identities. It's a very elegant architectural solution. But an elegant protocol is just dormant code sitting on a GitHub repository until there is an actual tangible incentive for people to adopt it. Oh, absolutely. A network needs a catalyst. Right. So how did a pseudonymous protocol from 2020 suddenly explode into the mainstream in 2023? Well, what's fascinating here is how the developers solved the cold start problem, because they introduced a specific NIP that integrated the protocol with the Lightning Network. And the Lightning Network is the layer two payment protocol operating on top of Bitcoin, right?"
+    },
+    {
+     "id": "f7077dc3f4",
+     "text": "So it is not just for posting text. In July 2026, Block announced Buzz. It is an open source collaboration platform for humans and AI agents built on DOS for CAP. That shows the protocol is expanding into complex collaboration tools, not just simple messaging. It is, and the user base is growing. As of May 2023, the protocol had over 18 million users. The client Damas is a microblogging app akin to Twitter. It was the first Nostar app listed on the App Store, but it was removed from the Chinese version of the App Store two days after launch in February 2023. Because of the cyberspace administration of China, Reason reported in August 2025 that some Chinese Nostars users were bypassing the Great Firewall via VPNs. Other clients include Primal on iOS, Amethyst on Android, and Coracle for the web. In June 2026, the Pascy manager Fanko Vault was launched with cross-device synchronization via Nostar relays."
+    }
+   ]
+  }
+ ]
+}

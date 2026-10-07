@@ -152,24 +152,32 @@ function showResult(card, pair, results, myPick) {
   card.append(box);
 }
 
-async function renderPairs() {
-  const box = document.getElementById("pairs");
+async function renderPairs(boxId = "pairs", mode = "audio") {
+  const box = document.getElementById(boxId);
   if (!box) return;
   let data, results = null;
   try { data = await getJSON(box.dataset.src); } catch { return; }
   const loadResults = async () => { try { results = await getJSON("/data/results.json"); } catch { /* not yet */ } };
   box.replaceChildren();
   for (const pair of data.pairs) {
+    if (mode === "text") pair.clips = pair.texts;
     const order = shuffle(pair);
     const card = el("article", { class: "pair" }, el("h3", { text: pair.title }), sourceLine([pair.source]));
-    order.forEach((c, i) => {
-      const label = i ? "B" : "A";
-      card.append(el("div", { class: "clip" }, el("b", { text: label }),
-        el("audio", { controls: "", preload: "none", src: c.src, "aria-label": "Clip " + label })));
-    });
+    if (mode === "text") {
+      const grid = el("div", { class: "text-pair" });
+      order.forEach((c, i) => grid.append(el("blockquote", { class: "excerpt" }, el("b", { text: i ? "B" : "A" }), el("p", { text: c.text }))));
+      card.append(grid);
+    } else {
+      order.forEach((c, i) => {
+        const label = i ? "B" : "A";
+        card.append(el("div", { class: "clip" }, el("b", { text: label }),
+          el("audio", { controls: "", preload: "none", src: c.src, "aria-label": "Clip " + label })));
+      });
+    }
     const choice = el("div", { class: "choice", role: "group", "aria-label": "Your pick" });
     const voted = store.get("vote." + pair.id);
-    for (const [label, pick] of [["I prefer A", order[0].id], ["I prefer B", order[1].id], ["No difference", "none"]]) {
+    const labels = mode === "text" ? ["A explains it better", "B explains it better"] : ["I prefer A", "I prefer B"];
+    for (const [label, pick] of [[labels[0], order[0].id], [labels[1], order[1].id], ["No difference", "none"]]) {
       const b = el("button", { type: "button", class: "btn", text: label });
       if (voted) { b.disabled = true; if (voted === pick) b.setAttribute("aria-pressed", "true"); }
       b.addEventListener("click", async () => {
@@ -239,11 +247,11 @@ async function liveKpis() {
 }
 
 // ---- compare page: results of all pairings ------------------------------------------------
-async function renderResults() {
-  const tb = document.getElementById("results-body");
+async function renderResults(tbodyId = "results-body", src = "/compare.json") {
+  const tb = document.getElementById(tbodyId);
   if (!tb) return;
   let pairs, r;
-  try { [pairs, r] = await Promise.all([getJSON("/compare.json"), getJSON("/data/results.json")]); } catch { return; }
+  try { [pairs, r] = await Promise.all([getJSON(src), getJSON("/data/results.json")]); } catch { return; }
   tb.replaceChildren();
   for (const p of pairs.pairs) {
     const res = (r.pairs || {})[p.id] || { counts: {}, total: 0, systems: {} };
@@ -276,6 +284,8 @@ heroPlayer();
 tableFilter();
 liveKpis();
 renderResults();
+renderResults("results-script", "/script.json");
 renderSamples();
 renderPairs();
+renderPairs("text-pairs", "text");
 interest();
