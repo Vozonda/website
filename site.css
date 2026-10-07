@@ -184,7 +184,7 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .final { text-align: center; padding: 96px 0; background: var(--brand-soft); border-top: 1px solid var(--line); }
 .final p { color: var(--soft); font-size: 18px; margin: 0 0 28px; }
 .foot { border-top: 1px solid var(--line); padding: 56px 0 32px; }
-.foot-in { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px; }
+.foot-in { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 28px; }
 @media (max-width: 760px) { .foot-in { grid-template-columns: 1fr 1fr; } }
 .foot h4, .foot .foot-h { font-size: 14px; margin: 0 0 10px; letter-spacing: 0; }
 .foot a { display: block; color: var(--soft); text-decoration: none; font-size: 15px; margin-bottom: 6px; }
@@ -264,3 +264,5 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .seg-filter .btn[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 .vs-cols.oss-only thead th:not(:first-child):not([data-oss]), .vs-cols.oss-only td:not([data-oss]) { display: none; }
 .vs-cols.oss-only { min-width: 0; }
+.cta.left { justify-content: flex-start; }
+.road-h { display: flex; align-items: center; gap: 8px; font-size: 16px; margin: 0 0 8px; letter-spacing: 0; }

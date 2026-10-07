@@ -21,7 +21,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a two-host podcast in your own feed.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
-<link rel="stylesheet" href="/site.css?v=e5387fd5a2">
+<link rel="stylesheet" href="/site.css?v=58d3a69a6e">
 <script src="/site.js?v=d562f00ae8" defer></script>
 </head>
 <body>
@@ -37,10 +37,10 @@
     </a>
     <nav aria-label="Main">
       <a href="#features">Features</a>
-      <a href="#listen">Listen</a>
+      <a href="#listen">Samples</a>
       <a href="/compare/">Compare</a>
-      <a href="#pricing">Self-host &amp; cloud</a>
-      <a href="#faq">FAQ</a>
+      <a href="/blind-test/">Blind test</a>
+      <a href="/changelog/">Changelog</a>
     </nav>
     <div class="nav-cta">
       <a class="btn ghost" href="https://github.com/Vozonda/vozonda"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Star on GitHub</a>
@@ -170,7 +170,7 @@
       <p class="kicker">How it compares</p>
       <h2>Honest numbers, not claims</h2>
       <p class="sub">We put Vozonda next to NotebookLM, ElevenLabs GenFM, Jellypod, Wondercraft, Audioread, Open Notebook and Podcastfy, feature by feature, and let listeners judge it in a blind test. Every vote is public.</p>
-      <a class="btn primary" href="/compare/">See the comparison and the blind test</a>
+      <div class="cta left"><a class="btn primary" href="/compare/">See the comparison</a><a class="btn ghost" href="/blind-test/">Take the blind test</a></div>
     </div>
     <ul class="ticks big">
       <li>The only one that is open source, runs on your hardware <em>and</em> gives you your own podcast feed</li>
@@ -229,7 +229,6 @@ docker compose up -d</code></pre>
     <details><summary>What hardware do I need?</summary><p>For the default setup, a recent computer with about 16 GB RAM: voices run on the CPU and a small local model writes the script. An NVIDIA GPU gives you the studio voices and bigger models.</p></details>
     <details><summary>Can I trust what the hosts say?</summary><p>The script is written from your sources only and you can read and fix it before it is voiced. Like any language model it can still get a detail wrong, which is exactly why the review step exists.</p></details>
     <details><summary>Which podcast apps work?</summary><p>All of them. Vozonda writes a standard RSS feed with Podcasting 2.0 chapters and transcripts. Keep it private with a feed key, or publish it.</p></details>
-    <details hidden><summary>Why is only NotebookLM in the blind test?</summary><p>A fair blind test needs episodes made from the same sources with default settings. We can make those ourselves for NotebookLM and for open-source tools; cloud tools that need a paid account follow when we can test them fairly.</p></details>
     <details><summary>How does the blind test work?</summary><p>You hear the same minute of the same source from both tools, in random order and at the same loudness, and pick one. Results and raw votes are public and update every five minutes.</p></details>
   </div>
 </section>
@@ -255,8 +254,9 @@ docker compose up -d</code></pre>
       </picture>
       <p class="muted">Turn sources into your podcast.<br>MIT-licensed open source.</p>
     </div>
-    <div><h2 class="foot-h">Product</h2><a href="#features">Features</a><a href="#listen">Samples</a><a href="/compare/">Compare</a><a href="#pricing">Self-host &amp; cloud</a></div>
-    <div><h2 class="foot-h">Open source</h2><a href="https://github.com/Vozonda/vozonda">GitHub</a><a href="/changelog/">Changelog</a><a href="https://github.com/Vozonda/vozonda/issues">Issues</a><a href="https://github.com/Vozonda/website">Website source</a></div>
+    <div><h2 class="foot-h">Product</h2><a href="#features">Features</a><a href="#listen">Samples</a><a href="#pricing">Self-host &amp; cloud</a><a href="#faq">FAQ</a></div>
+    <div><h2 class="foot-h">Compare</h2><a href="/compare/">All tools</a><a href="/blind-test/">Blind test</a><a href="/blind-test/#results">Test results</a></div>
+    <div><h2 class="foot-h">Resources</h2><a href="/changelog/">Changelog</a><a href="/roadmap/">Roadmap</a><a href="https://github.com/Vozonda/vozonda">GitHub</a><a href="https://github.com/Vozonda/website">Website source</a></div>
     <div><h2 class="foot-h">Community</h2><a href="https://njump.me/npub1zhu0mwyswndlldn2r5qxh6dz24l5st6vw6xdnk5g4t6x5ln7hs3q0cz0e2">Nostr</a><a href="mailto:vozonda@proton.me">Email</a><a href="/.well-known/security.txt">Security</a></div>
   </div>
   <p class="wrap fine">No cookies. No tracking. Nothing loaded from third parties.</p>
