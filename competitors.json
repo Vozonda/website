@@ -1,0 +1,339 @@
+{
+ "as_of": "October 2026",
+ "params": [
+  "Open source",
+  "Runs on your hardware",
+  "Own podcast feed",
+  "Edit the script",
+  "Hosts",
+  "Voice cloning",
+  "Nostr & Lightning",
+  "API / MCP",
+  "Languages",
+  "Price"
+ ],
+ "tools": [
+  {
+   "name": "Vozonda",
+   "us": true,
+   "cells": {
+    "Open source": {
+     "text": "MIT",
+     "mark": "y"
+    },
+    "Runs on your hardware": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Own podcast feed": {
+     "text": "Private, Podcasting 2.0",
+     "mark": "y"
+    },
+    "Edit the script": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts": {
+     "text": "1 to 3",
+     "mark": "y"
+    },
+    "Voice cloning": {
+     "text": "Yes (Voxtral engine)",
+     "mark": "y"
+    },
+    "Nostr & Lightning": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "API / MCP": {
+     "text": "HTTP API + MCP",
+     "mark": "y"
+    },
+    "Languages": {
+     "text": "10",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free",
+     "mark": "y"
+    }
+   }
+  },
+  {
+   "name": "NotebookLM",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Runs on your hardware": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Edit the script": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Hosts": {
+     "text": "2",
+     "mark": ""
+    },
+    "Voice cloning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "Enterprise only",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "50+",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free; paid plans",
+     "mark": ""
+    }
+   }
+  },
+  {
+   "name": "ElevenLabs GenFM",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Runs on your hardware": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Edit the script": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Hosts": {
+     "text": "2",
+     "mark": ""
+    },
+    "Voice cloning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "ElevenLabs API + MCP",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "32",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free tier; paid plans",
+     "mark": ""
+    }
+   }
+  },
+  {
+   "name": "Jellypod",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Runs on your hardware": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Own podcast feed": {
+     "text": "Hosted",
+     "mark": "y"
+    },
+    "Edit the script": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts": {
+     "text": "Custom hosts",
+     "mark": "y"
+    },
+    "Voice cloning": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "API",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "70+",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free tier; from $29/mo",
+     "mark": ""
+    }
+   }
+  },
+  {
+   "name": "Wondercraft",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Runs on your hardware": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Own podcast feed": {
+     "text": "Hosted page",
+     "mark": ""
+    },
+    "Edit the script": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts": {
+     "text": "Multi-speaker",
+     "mark": "y"
+    },
+    "Voice cloning": {
+     "text": "Yes (paid)",
+     "mark": "y"
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "API (Pro plan)",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "30+",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free tier; from $29/mo",
+     "mark": ""
+    }
+   }
+  },
+  {
+   "name": "Audioread",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Runs on your hardware": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Own podcast feed": {
+     "text": "Yes (paid)",
+     "mark": "y"
+    },
+    "Edit the script": {
+     "text": "Reads text, no dialogue",
+     "mark": "n"
+    },
+    "Hosts": {
+     "text": "1 reader",
+     "mark": "n"
+    },
+    "Voice cloning": {
+     "text": "Unknown",
+     "mark": ""
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Languages": {
+     "text": "150+",
+     "mark": ""
+    },
+    "Price": {
+     "text": "From about $10/mo",
+     "mark": ""
+    }
+   }
+  },
+  {
+   "name": "Open Notebook",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "MIT",
+     "mark": "y"
+    },
+    "Runs on your hardware": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Edit the script": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts": {
+     "text": "1 to 4",
+     "mark": "y"
+    },
+    "Voice cloning": {
+     "text": "Depends on voices",
+     "mark": ""
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "REST API",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "Depends on voices",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free",
+     "mark": "y"
+    }
+   }
+  }
+ ]
+}

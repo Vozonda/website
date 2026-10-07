@@ -245,3 +245,13 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .vs-wide th:first-child { position: sticky; left: 0; z-index: 1; background: var(--card); box-shadow: 1px 0 0 var(--line); }
 .vs-wide thead th:first-child { background: var(--bg-alt); }
 .vs-wide tr.us th:first-child { background: color-mix(in srgb, var(--brand-soft) 100%, var(--card)); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.vs-cols { min-width: 1000px; font-size: 15px; }
+.vs-cols th, .vs-cols td { padding: 12px 14px; vertical-align: top; }
+.vs-cols thead th { white-space: nowrap; }
+.vs-cols tbody th { font-weight: 600; white-space: nowrap; width: auto; }
+.vs-cols th:first-child { position: sticky; left: 0; z-index: 1; background: var(--card); box-shadow: 1px 0 0 var(--line); }
+.vs-cols thead th:first-child { background: var(--bg-alt); }
+.vs-cols thead th.us { color: var(--brand); }
+.vs-cols td[data-us] { background: var(--brand-soft); font-weight: 600; }
+.vs-cols td, .vs-cols thead th:not(:first-child) { min-width: 150px; }
