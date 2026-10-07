@@ -255,3 +255,7 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .vs-cols thead th.us { color: var(--brand); }
 .vs-cols td[data-us] { background: var(--brand-soft); font-weight: 600; }
 .vs-cols td, .vs-cols thead th:not(:first-child) { min-width: 150px; }
+.ticks.big li { font-size: 17px; margin-bottom: 14px; }
+.results { min-width: 640px; }
+.results td, .results th { white-space: nowrap; }
+.cmp-top { padding-bottom: 0; }

@@ -238,8 +238,30 @@ async function liveKpis() {
   }
 }
 
+// ---- compare page: results of all pairings ------------------------------------------------
+async function renderResults() {
+  const tb = document.getElementById("results-body");
+  if (!tb) return;
+  let pairs, r;
+  try { [pairs, r] = await Promise.all([getJSON("/compare.json"), getJSON("/data/results.json")]); } catch { return; }
+  tb.replaceChildren();
+  for (const p of pairs.pairs) {
+    const res = (r.pairs || {})[p.id] || { counts: {}, total: 0, systems: {} };
+    const other = Object.values(res.systems || {}).find((n) => n !== "Vozonda") || "–";
+    const c = res.counts || {};
+    const voz = c.Vozonda || 0, oth = c[other] || 0, none = c["no difference"] || 0;
+    const pref = voz + oth;
+    const pct = (n) => (pref >= 20 ? Math.round((100 * n) / pref) + " %" : `${n}`);
+    tb.append(el("tr", {},
+      el("th", { scope: "row", text: p.title }), el("td", { text: other }),
+      el("td", { text: pct(voz) }), el("td", { text: pct(oth) }), el("td", { text: String(none) }),
+      el("td", { text: String(res.total || 0) })));
+  }
+}
+
 heroPlayer();
 liveKpis();
+renderResults();
 renderSamples();
 renderPairs();
 interest();

@@ -21,8 +21,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a two-host podcast in your own feed.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
-<link rel="stylesheet" href="/site.css?v=54f09ba2da">
-<script src="/site.js?v=0acfa9b026" defer></script>
+<link rel="stylesheet" href="/site.css?v=a4ac96cfe0">
+<script src="/site.js?v=90932fb432" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -38,7 +38,7 @@
     <nav aria-label="Main">
       <a href="#features">Features</a>
       <a href="#listen">Listen</a>
-      <a href="#compare">Blind test</a>
+      <a href="/compare/">Compare</a>
       <a href="#pricing">Self-host &amp; cloud</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -165,35 +165,23 @@
 </section>
 
 <section id="compare" class="section alt">
-  <div class="wrap">
-    <p class="kicker">Blind test</p>
-    <h2>Can you tell Vozonda from NotebookLM?</h2>
-    <p class="sub">Same source, default settings on both sides, one minute from the middle of each episode, matched in loudness. Pick the one you would rather keep listening to. Every vote is published.</p>
-    <div id="pairs" class="pairs" data-src="/compare.json"><p class="muted">The blind test needs JavaScript.</p></div>
-    <details class="method">
-      <summary>Method and fine print</summary>
-      <ul>
-        <li>Pairwise preference test with a "no difference" option, as used to evaluate speech synthesis. A and B are in random order for each visitor.</li>
-        <li>60 seconds from 30 % into each episode, so the intros do not give it away; loudness normalised to −16 LUFS (EBU R 128); same format and bit rate.</li>
-        <li>Default settings on both sides; Vozonda used local Qwen3-TTS voices and an unedited script. Nothing was regenerated or picked.</li>
-        <li>One vote per pair and visitor. No cookies; duplicates are caught with a salted hash, no IP address is stored with the votes, server logs are deleted after 14 days.</li>
-        <li>Raw data: <a href="/data/results.json">results.json</a> · <a href="/data/votes.csv">votes.csv</a>, updated every five minutes.</li>
-      </ul>
-    </details>
+  <div class="wrap split">
+    <div>
+      <p class="kicker">How it compares</p>
+      <h2>Honest numbers, not claims</h2>
+      <p class="sub">We put Vozonda next to NotebookLM, ElevenLabs GenFM, Jellypod, Wondercraft, Audioread and Open Notebook, feature by feature, and let listeners judge it in a blind test. Every vote is public.</p>
+      <a class="btn primary" href="/compare/">See the comparison and the blind test</a>
+    </div>
+    <ul class="ticks big">
+      <li>The only one that is open source, runs on your hardware <em>and</em> gives you your own podcast feed</li>
+      <li>Read and fix the script before it is voiced</li>
+      <li>API and MCP for your agents, Nostr and Lightning built in</li>
+      <li>Where others are ahead, we say so: longer, smoother episodes in the cloud tools</li>
+    </ul>
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <p class="kicker">Honest comparison</p>
-    <h2>How Vozonda compares</h2>
-    <p class="sub">The AI podcast tools people use today, side by side. Cloud tools are smoother and need no setup; Vozonda is the one you can own.</p>
-    <!-- compare:start (generated from competitors.json by build_site.py) -->
-<div class="table-wrap"><table class="vs vs-cols"><thead><tr><th scope="col"><span class="sr">Feature</span></th><th scope="col" class="us">Vozonda</th><th scope="col">NotebookLM</th><th scope="col">ElevenLabs GenFM</th><th scope="col">Jellypod</th><th scope="col">Wondercraft</th><th scope="col">Audioread</th><th scope="col">Open Notebook</th></tr></thead><tbody><tr><th scope="row">Open source</th><td data-us="1" class="y">MIT</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="y">MIT</td></tr><tr><th scope="row">Runs on your hardware</th><td data-us="1" class="y">Yes</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="y">Yes</td></tr><tr><th scope="row">Own podcast feed</th><td data-us="1" class="y">Private, Podcasting 2.0</td><td class="n">No</td><td class="n">No</td><td class="y">Hosted</td><td>Hosted page</td><td class="y">Yes (paid)</td><td class="n">No</td></tr><tr><th scope="row">Edit the script</th><td data-us="1" class="y">Yes</td><td class="n">No</td><td class="n">No</td><td class="y">Yes</td><td class="y">Yes</td><td class="n">Reads text, no dialogue</td><td class="y">Yes</td></tr><tr><th scope="row">Hosts</th><td data-us="1" class="y">1 to 3</td><td>2</td><td>2</td><td class="y">Custom hosts</td><td class="y">Multi-speaker</td><td class="n">1 reader</td><td class="y">1 to 4</td></tr><tr><th scope="row">Voice cloning</th><td data-us="1" class="y">Yes (Voxtral engine)</td><td class="n">No</td><td class="n">No</td><td class="y">Yes</td><td class="y">Yes (paid)</td><td>Unknown</td><td>Depends on voices</td></tr><tr><th scope="row">Nostr &amp; Lightning</th><td data-us="1" class="y">Yes</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td></tr><tr><th scope="row">API / MCP</th><td data-us="1" class="y">HTTP API + MCP</td><td>Enterprise only</td><td>ElevenLabs API + MCP</td><td>API</td><td>API (Pro plan)</td><td class="n">No</td><td>REST API</td></tr><tr><th scope="row">Languages</th><td data-us="1">10</td><td>50+</td><td>32</td><td>70+</td><td>30+</td><td>150+</td><td>Depends on voices</td></tr><tr><th scope="row">Price</th><td data-us="1" class="y">Free</td><td>Free; paid plans</td><td>Free tier; paid plans</td><td>Free tier; from $29/mo</td><td>Free tier; from $29/mo</td><td>From about $10/mo</td><td class="y">Free</td></tr></tbody></table></div>
-<!-- compare:end -->
-    <p class="fine">As of <span data-asof>October 2026</span>, from each vendor's public pages. Something wrong or missing? <a href="https://github.com/Vozonda/website/issues">Tell us</a> and we fix it.</p>
-  </div>
-</section>
+
 
 <section id="pricing" class="section alt">
   <div class="wrap">
@@ -241,7 +229,7 @@ docker compose up -d</code></pre>
     <details><summary>What hardware do I need?</summary><p>For the default setup, a recent computer with about 16 GB RAM: voices run on the CPU and a small local model writes the script. An NVIDIA GPU gives you the studio voices and bigger models.</p></details>
     <details><summary>Can I trust what the hosts say?</summary><p>The script is written from your sources only and you can read and fix it before it is voiced. Like any language model it can still get a detail wrong, which is exactly why the review step exists.</p></details>
     <details><summary>Which podcast apps work?</summary><p>All of them. Vozonda writes a standard RSS feed with Podcasting 2.0 chapters and transcripts. Keep it private with a feed key, or publish it.</p></details>
-    <details><summary>Why is only NotebookLM in the blind test?</summary><p>A fair blind test needs episodes made from the same sources with default settings. We can make those ourselves for NotebookLM and for open-source tools; cloud tools that need a paid account follow when we can test them fairly.</p></details>
+    <details hidden><summary>Why is only NotebookLM in the blind test?</summary><p>A fair blind test needs episodes made from the same sources with default settings. We can make those ourselves for NotebookLM and for open-source tools; cloud tools that need a paid account follow when we can test them fairly.</p></details>
     <details><summary>How does the blind test work?</summary><p>You hear the same minute of the same source from both tools, in random order and at the same loudness, and pick one. Results and raw votes are public and update every five minutes.</p></details>
   </div>
 </section>
@@ -267,7 +255,7 @@ docker compose up -d</code></pre>
       </picture>
       <p class="muted">Turn sources into your podcast.<br>MIT-licensed open source.</p>
     </div>
-    <div><h2 class="foot-h">Product</h2><a href="#features">Features</a><a href="#listen">Samples</a><a href="#compare">Blind test</a><a href="#pricing">Self-host &amp; cloud</a></div>
+    <div><h2 class="foot-h">Product</h2><a href="#features">Features</a><a href="#listen">Samples</a><a href="/compare/">Compare</a><a href="#pricing">Self-host &amp; cloud</a></div>
     <div><h2 class="foot-h">Open source</h2><a href="https://github.com/Vozonda/vozonda">GitHub</a><a href="/changelog/">Changelog</a><a href="https://github.com/Vozonda/vozonda/issues">Issues</a><a href="https://github.com/Vozonda/website">Website source</a></div>
     <div><h2 class="foot-h">Community</h2><a href="https://njump.me/npub1zhu0mwyswndlldn2r5qxh6dz24l5st6vw6xdnk5g4t6x5ln7hs3q0cz0e2">Nostr</a><a href="mailto:vozonda@proton.me">Email</a><a href="/.well-known/security.txt">Security</a></div>
   </div>
