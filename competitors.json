@@ -334,6 +334,52 @@
      "mark": "y"
     }
    }
+  },
+  {
+   "name": "Podcastfy",
+   "us": false,
+   "cells": {
+    "Open source": {
+     "text": "Apache 2.0",
+     "mark": "y"
+    },
+    "Runs on your hardware": {
+     "text": "Partly: voices from a cloud service",
+     "mark": ""
+    },
+    "Own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Edit the script": {
+     "text": "Via the transcript file",
+     "mark": ""
+    },
+    "Hosts": {
+     "text": "2",
+     "mark": ""
+    },
+    "Voice cloning": {
+     "text": "Via ElevenLabs",
+     "mark": ""
+    },
+    "Nostr & Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API / MCP": {
+     "text": "Python library + CLI",
+     "mark": ""
+    },
+    "Languages": {
+     "text": "Depends on voices",
+     "mark": ""
+    },
+    "Price": {
+     "text": "Free; cloud voices may cost",
+     "mark": ""
+    }
+   }
   }
  ]
 }

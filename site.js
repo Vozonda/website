@@ -259,7 +259,21 @@ async function renderResults() {
   }
 }
 
+// ---- compare table filter -----------------------------------------------------------------
+function tableFilter() {
+  const bar = document.querySelector(".seg-filter");
+  const table = document.querySelector(".vs-cols");
+  if (!bar || !table) return;
+  bar.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-filter]");
+    if (!b) return;
+    table.classList.toggle("oss-only", b.dataset.filter === "oss");
+    bar.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  });
+}
+
 heroPlayer();
+tableFilter();
 liveKpis();
 renderResults();
 renderSamples();

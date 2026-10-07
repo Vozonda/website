@@ -259,3 +259,8 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .results { min-width: 640px; }
 .results td, .results th { white-space: nowrap; }
 .cmp-top { padding-bottom: 0; }
+.seg-filter { display: inline-flex; gap: 6px; margin: 8px 0 14px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-alt); }
+.seg-filter .btn { border: 0; background: transparent; padding: 7px 14px; }
+.seg-filter .btn[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.vs-cols.oss-only thead th:not(:first-child):not([data-oss]), .vs-cols.oss-only td:not([data-oss]) { display: none; }
+.vs-cols.oss-only { min-width: 0; }
