@@ -266,3 +266,75 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
 .vs-cols.oss-only { min-width: 0; }
 .cta.left { justify-content: flex-start; }
 .road-h { display: flex; align-items: center; gap: 8px; font-size: 16px; margin: 0 0 8px; letter-spacing: 0; }
+
+/* ======================================================================================
+   Calm Grid: the app's identity (apps/web/src/lib/styles/tokens.css). Same colours, same
+   fonts (Source Serif 4 for text, JetBrains Mono for interface), square corners, lowercase UI.
+   ====================================================================================== */
+@font-face { font-family: "Source Serif 4"; src: url("/fonts/source-serif-4.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+:root {
+  --bg: #faf6ef;
+  --bg-alt: #f3ede2;
+  --card: #fffcf6;
+  --ink: #1a1815;
+  --soft: #4a453c;
+  --line: #cfc6b4;
+  --line-strong: #8f8776;
+  --brand: #4a7300;
+  --brand-ink: #faf6ef;
+  --brand-soft: #ebefdc;
+  --sans: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 2px;
+  --shadow: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f1d14;
+    --bg-alt: #19170f;
+    --card: #24221a;
+    --ink: #ede8dd;
+    --soft: #b0a99a;
+    --line: #3d392c;
+    --line-strong: #766e58;
+    --brand: #84b832;
+    --brand-ink: #1f1d14;
+    --brand-soft: #29301a;
+  }
+}
+body { font: 18px/1.6 var(--serif); }
+h1, h2, h3, .cl-h1, .price, .stats b, .kpi b, .rel-v { font-family: var(--serif); font-weight: 600; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.4rem, 6.4vw, 4.2rem); line-height: 1.06; }
+h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); }
+.lead, .sub { font-family: var(--serif); }
+nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, .meta, .pc-meta span, .pc-time,
+.vs thead th, .vs tbody th, .seg-filter .btn, .tag, .foot, .foot a, .foot .foot-h, .rel-meta time, .choice .btn, .road-col li span,
+.trust, .ticks li, .steps li, .card p, .personas p, #faq summary, .method summary {
+  font-family: var(--mono);
+}
+.ticks li, .steps li, .card p { font-size: 15px; line-height: 1.6; }
+.btn, nav a, .pill, .kicker, .seg-filter .btn, .choice .btn, .foot .foot-h { text-transform: lowercase; }
+.kicker { letter-spacing: .02em; font-weight: 600; }
+.btn { border-radius: var(--radius); font-weight: 500; }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.primary:hover { background: var(--brand); color: var(--brand-ink); filter: none; }
+.btn.ghost { background: transparent; border: 1.5px solid var(--ink); }
+.btn.ghost:hover { border-color: var(--brand); color: var(--brand); }
+.pill, .seg-filter, .seg-filter .btn { border-radius: var(--radius); }
+.card, .sample, .pair, .plan, .kpi, .road-col, .personas article, .player-card, .table-wrap, .shot img, .hero-shot img, pre {
+  border-radius: var(--radius); border-color: var(--line-strong); box-shadow: none;
+}
+.plan.featured { box-shadow: none; border: 1.5px solid var(--brand); }
+.player-card { border-width: 1.5px; }
+.pc-play { border-radius: 50%; background: var(--brand); }
+.pc-wave i { background: var(--line); border-radius: 0; }
+.fi { border-radius: var(--radius); }
+.nav { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom-color: var(--line-strong); }
+.section.alt { background: var(--bg-alt); border-color: var(--line); }
+.final { background: var(--bg-alt); }
+.vs th, .vs td { border-bottom-color: var(--line); }
+.vs thead th { background: var(--bg-alt); }
+.hl { color: var(--brand); }
+.dot { box-shadow: none; }
