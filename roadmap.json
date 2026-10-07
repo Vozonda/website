@@ -1,0 +1,12 @@
+{
+ "updated": "2026-10-07",
+ "items": [
+  {"status": "In progress", "title": "Public launch", "text": "Open the repository, this website, and a Docker quickstart checked on a clean machine."},
+  {"status": "In progress", "title": "Source citations in every episode", "text": "Each line points to the source it came from, shown in the transcript."},
+  {"status": "Next", "title": "Audio and podcast sources", "text": "Drop in an MP3 or a podcast episode; it is transcribed locally and discussed like any other source."},
+  {"status": "Next", "title": "Saved source trays", "text": "Save a mix of feeds and notes as a template that a watchlist refills on a schedule."},
+  {"status": "Next", "title": "Longer, smoother episodes", "text": "Closer to NotebookLM in length and flow, measured in the blind test."},
+  {"status": "Later", "title": "Vozonda Cloud", "text": "Hosted, pay per episode with Lightning, if enough people ask for it."},
+  {"status": "Later", "title": "Hosts with a stance", "text": "Give each host a position on a topic for real debates."}
+ ]
+}

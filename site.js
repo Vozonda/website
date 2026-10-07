@@ -210,7 +210,20 @@ async function interest() {
   } catch { /* not yet */ }
 }
 
+// ---- changelog live numbers --------------------------------------------------------------
+async function liveKpis() {
+  const els = document.querySelectorAll("[data-live]");
+  if (!els.length) return;
+  try {
+    const r = await getJSON("/data/results.json");
+    const votes = Object.values(r.pairs || {}).reduce((a, p) => a + (p.total || 0), 0);
+    const wait = (r.interest || {}).hosted || 0;
+    els.forEach((e) => { e.textContent = (e.dataset.live === "votes" ? votes : wait).toLocaleString("en"); });
+  } catch { /* keep the dash */ }
+}
+
 heroPlayer();
+liveKpis();
 renderSamples();
 renderPairs();
 interest();
