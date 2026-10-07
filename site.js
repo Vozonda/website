@@ -214,12 +214,28 @@ async function interest() {
 async function liveKpis() {
   const els = document.querySelectorAll("[data-live]");
   if (!els.length) return;
-  try {
-    const r = await getJSON("/data/results.json");
-    const votes = Object.values(r.pairs || {}).reduce((a, p) => a + (p.total || 0), 0);
-    const wait = (r.interest || {}).hosted || 0;
-    els.forEach((e) => { e.textContent = (e.dataset.live === "votes" ? votes : wait).toLocaleString("en"); });
-  } catch { /* keep the dash */ }
+  let r;
+  try { r = await getJSON("/data/results.json"); } catch { return; }
+  const pairs = Object.values(r.pairs || {});
+  const voz = pairs.reduce((a, p) => a + ((p.counts || {}).Vozonda || 0), 0);
+  const nlm = pairs.reduce((a, p) => a + ((p.counts || {}).NotebookLM || 0), 0);
+  const total = pairs.reduce((a, p) => a + (p.total || 0), 0);
+  for (const e of els) {
+    const sub = e.parentElement.querySelector(".kpi-sub");
+    if (e.dataset.live === "prefer") {
+      if (voz + nlm >= 20) {
+        e.textContent = Math.round((100 * voz) / (voz + nlm)) + " %";
+        sub.textContent = `of ${voz + nlm} votes with a preference, blind test vs NotebookLM`;
+      } else {
+        sub.textContent = `collecting votes (${total} so far)`;
+      }
+    } else if (e.dataset.live === "waitlist") {
+      e.textContent = ((r.interest || {}).hosted || 0).toLocaleString("en");
+    } else if (e.dataset.live === "stars" && r.github && typeof r.github.stars === "number") {
+      e.textContent = r.github.stars.toLocaleString("en");
+      sub.textContent = "on GitHub";
+    }
+  }
 }
 
 heroPlayer();
