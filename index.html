@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vozonda · Turn sources into your podcast</title>
-<meta name="description" content="The open-source alternative to NotebookLM's audio overviews. Turn articles, papers, PDFs and notes into a two-host podcast in your own feed. Self-host it free; a managed cloud is coming.">
+<meta name="description" content="The open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod. Turn articles, papers, PDFs and notes into a two-host podcast in your own feed. Self-host it free; a managed cloud is coming.">
 <link rel="canonical" href="https://vozonda.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
@@ -20,8 +20,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM's audio overviews: turn articles, papers, PDFs and notes into a two-host podcast in your own feed.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
-<link rel="stylesheet" href="/site.css?v=995af536fc">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a two-host podcast in your own feed.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
+<link rel="stylesheet" href="/site.css?v=97165a8cb1">
 <script src="/site.js?v=0acfa9b026" defer></script>
 </head>
 <body>
@@ -55,8 +55,8 @@
   <div class="wrap">
     <a class="pill" href="/changelog/"><span class="dot"></span>Open source · MIT · v0.6 is out</a>
     <h1>Turn sources into<br><span class="hl">your podcast</span></h1>
-    <p class="lead">Vozonda reads them, voices make waves, you listen. The open-source alternative to NotebookLM's
-      audio overviews: two hosts talk your articles, papers and notes through, and every episode lands in your own
+    <p class="lead">Vozonda reads them, voices make waves, you listen. The open-source alternative to NotebookLM,
+      ElevenLabs GenFM and Jellypod: two hosts talk your articles, papers and notes through, and every episode lands in your own
       podcast feed.</p>
     <div class="cta">
       <a class="btn primary lg" href="#pricing">Get started, it's free</a>
@@ -100,7 +100,7 @@
 <section id="features" class="section">
   <div class="wrap">
     <p class="kicker">Features</p>
-    <h2>Everything NotebookLM's audio does,<br>on your terms</h2>
+    <h2>Everything the AI podcast tools do,<br>on your terms</h2>
     <div class="grid3">
       <article class="card">
         <svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4zM4 10h16v4H4zM4 16h10v4H4z"/></svg>
@@ -186,23 +186,15 @@
 <section class="section">
   <div class="wrap">
     <p class="kicker">Honest comparison</p>
-    <h2>Vozonda vs NotebookLM</h2>
+    <h2>How Vozonda compares</h2>
+    <p class="sub">The AI podcast tools people use today, side by side. Cloud tools are smoother and need no setup; Vozonda is the one you can own.</p>
     <div class="table-wrap">
-      <table class="vs">
-        <thead><tr><th></th><th>Vozonda</th><th>NotebookLM</th></tr></thead>
-        <tbody>
-          <tr><th>Open source</th><td class="y">Yes, MIT</td><td class="n">No</td></tr>
-          <tr><th>Runs on your hardware, offline</th><td class="y">Yes</td><td class="n">No, Google cloud</td></tr>
-          <tr><th>Your sources stay private</th><td class="y">Yes</td><td class="n">Uploaded to Google</td></tr>
-          <tr><th>Your own podcast feed (RSS)</th><td class="y">Yes, with chapters and transcripts</td><td class="n">No, download only</td></tr>
-          <tr><th>Read and edit the script first</th><td class="y">Yes</td><td class="n">No</td></tr>
-          <tr><th>Shows, voices, languages</th><td class="y">14 shows, many voices, 10 languages</td><td>Several formats, many languages</td></tr>
-          <tr><th>Nostr, Lightning, API for agents</th><td class="y">Yes</td><td class="n">No</td></tr>
-          <tr><th>Episode length and polish</th><td class="n">Shorter, still improving</td><td class="y">Longer, very smooth</td></tr>
-          <tr><th>Setup</th><td class="n">Docker and a model server</td><td class="y">Nothing, it's a website</td></tr>
-        </tbody>
+      <table class="vs vs-wide">
+        <thead><tr><th scope="col">Tool</th><th scope="col">Open source</th><th scope="col">Runs on your hardware</th><th scope="col">Own podcast feed</th><th scope="col">Edit the script</th><th scope="col">API / MCP</th><th scope="col">Languages</th><th scope="col">Price</th></tr></thead>
+        <tbody><tr class="us"><th scope="row">Vozonda</th><td class="y">MIT</td><td class="y">Yes</td><td class="y">Private, Podcasting 2.0</td><td class="y">Yes</td><td class="y">HTTP API + MCP</td><td>10</td><td class="y">Free</td></tr><tr><th scope="row">NotebookLM</th><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td>Enterprise only</td><td>50+</td><td>Free; paid plans</td></tr><tr><th scope="row">ElevenLabs GenFM</th><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td>ElevenLabs API + MCP</td><td>32</td><td>Free tier; paid plans</td></tr><tr><th scope="row">Jellypod</th><td class="n">No</td><td class="n">No</td><td class="y">Hosted</td><td class="y">Yes</td><td>API</td><td>70+</td><td>Free tier; from $29/mo</td></tr><tr><th scope="row">Wondercraft</th><td class="n">No</td><td class="n">No</td><td>Hosted page</td><td class="y">Yes</td><td>API (Pro plan)</td><td>30+</td><td>Free tier; from $29/mo</td></tr><tr><th scope="row">Audioread</th><td class="n">No</td><td class="n">No</td><td class="y">Yes (paid)</td><td class="n">Reads text, no dialogue</td><td class="n">No</td><td>150+</td><td>From about $10/mo</td></tr><tr><th scope="row">Open Notebook</th><td class="y">MIT</td><td class="y">Yes</td><td class="n">No</td><td class="y">Yes</td><td>REST API</td><td>Depends on voices</td><td class="y">Free</td></tr></tbody>
       </table>
     </div>
+    <p class="fine">As of October 2026, from each vendor's public pages. Something wrong or missing? <a href="https://github.com/Vozonda/website/issues">Tell us</a> and we fix it.</p>
   </div>
 </section>
 
@@ -252,6 +244,7 @@ docker compose up -d</code></pre>
     <details><summary>What hardware do I need?</summary><p>For the default setup, a recent computer with about 16 GB RAM: voices run on the CPU and a small local model writes the script. An NVIDIA GPU gives you the studio voices and bigger models.</p></details>
     <details><summary>Can I trust what the hosts say?</summary><p>The script is written from your sources only and you can read and fix it before it is voiced. Like any language model it can still get a detail wrong, which is exactly why the review step exists.</p></details>
     <details><summary>Which podcast apps work?</summary><p>All of them. Vozonda writes a standard RSS feed with Podcasting 2.0 chapters and transcripts. Keep it private with a feed key, or publish it.</p></details>
+    <details><summary>Why is only NotebookLM in the blind test?</summary><p>A fair blind test needs episodes made from the same sources with default settings. We can make those ourselves for NotebookLM and for open-source tools; cloud tools that need a paid account follow when we can test them fairly.</p></details>
     <details><summary>How does the blind test work?</summary><p>You hear the same minute of the same source from both tools, in random order and at the same loudness, and pick one. Results and raw votes are public and update every five minutes.</p></details>
   </div>
 </section>

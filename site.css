@@ -236,3 +236,9 @@ pre { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1
   .tag-removed, .tag-deprecated { background: #3a1b17; }
   .tag-security { background: #2a1d40; color: #c4a6ff; }
 }
+.vs-wide { min-width: 860px; font-size: 15px; }
+.vs-wide th, .vs-wide td { padding: 12px 14px; }
+.vs-wide tbody th { width: auto; white-space: nowrap; }
+.vs-wide tr.us { background: var(--brand-soft); }
+.vs-wide tr.us th { color: var(--brand); }
+.fine a { color: var(--brand); }
