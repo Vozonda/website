@@ -32,6 +32,59 @@
    ],
    "audio": "/audio/sample-dst.mp3",
    "transcript": "/audio/sample-dst.vtt"
+  },
+  {
+   "title": "Three NASA missions, one question",
+   "settings": "style balanced · 2 hosts · English · three sources in one conversation",
+   "blurb": "Europa Clipper, the James Webb Space Telescope and Perseverance, connected by the search for life.",
+   "sources": [
+    {
+     "title": "NASA: Europa Clipper",
+     "url": "https://science.nasa.gov/mission/europa-clipper/",
+     "license": "public domain (NASA)"
+    },
+    {
+     "title": "NASA: Webb",
+     "url": "https://science.nasa.gov/mission/webb/",
+     "license": "public domain (NASA)"
+    },
+    {
+     "title": "NASA: Perseverance",
+     "url": "https://science.nasa.gov/mission/mars-2020-perseverance/",
+     "license": "public domain (NASA)"
+    }
+   ],
+   "audio": "/audio/sample-nasa.mp3",
+   "transcript": "/audio/sample-nasa.vtt"
+  },
+  {
+   "title": "The Tell-Tale Heart, retold",
+   "settings": "style storyteller · 2 hosts · English · dramatic",
+   "blurb": "Edgar Allan Poe's 1843 story, told and then taken apart: is it madness, or guilt?",
+   "sources": [
+    {
+     "title": "Poe, The Tell-Tale Heart (Wikisource)",
+     "url": "https://en.wikisource.org/wiki/Poe%27s_Tales_of_Mystery_and_Imagination/The_Tell-Tale_Heart",
+     "license": "public domain"
+    }
+   ],
+   "audio": "/audio/sample-poe.mp3",
+   "transcript": "/audio/sample-poe.vtt"
+  },
+  {
+   "lang": "de",
+   "title": "Energiewende (auf Deutsch)",
+   "settings": "style balanced · 2 hosts · German · warm",
+   "blurb": "The same app in German: what the energy transition covers, what it costs, and where it stalls.",
+   "sources": [
+    {
+     "title": "Wikipedia (de): Energiewende",
+     "url": "https://de.wikipedia.org/wiki/Energiewende",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "audio": "/audio/sample-energiewende.mp3",
+   "transcript": "/audio/sample-energiewende.vtt"
   }
  ]
 }
