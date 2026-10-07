@@ -1,0 +1,5 @@
+# large media and generated data live only on the server
+audio/*.mp3
+audio/*.m4a
+audio/*.vtt
+data/

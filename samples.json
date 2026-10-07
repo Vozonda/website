@@ -1,0 +1,37 @@
+{
+ "samples": [
+  {
+   "title": "Attention Is All You Need, explained",
+   "settings": "style serious · 2 hosts · English · three sources: PDF paper, article, a note",
+   "blurb": "The paper behind today's language models, read together with the Wikipedia article and a note about the listener. The 100k-character article was condensed to fit.",
+   "sources": [
+    {
+     "title": "Vaswani et al. 2017, arXiv:1706.03762",
+     "url": "https://arxiv.org/abs/1706.03762",
+     "license": "arXiv"
+    },
+    {
+     "title": "Wikipedia: Transformer (deep learning)",
+     "url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "audio": "/audio/sample-transformer.mp3",
+   "transcript": "/audio/sample-transformer.vtt"
+  },
+  {
+   "title": "Daylight saving time: keep it or drop it?",
+   "settings": "style debate · 2 hosts · English · energetic",
+   "blurb": "Two hosts argue it out, with the numbers from the source: energy savings, heart attacks, the candy lobby, and who already stopped switching.",
+   "sources": [
+    {
+     "title": "Wikipedia: Daylight saving time",
+     "url": "https://en.wikipedia.org/wiki/Daylight_saving_time",
+     "license": "CC BY-SA 4.0"
+    }
+   ],
+   "audio": "/audio/sample-dst.mp3",
+   "transcript": "/audio/sample-dst.vtt"
+  }
+ ]
+}
