@@ -366,14 +366,22 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
   .vs tr.compact th, .vs tr.compact td { font-size: 12.5px; padding-top: 6px; padding-bottom: 6px; }
 }
 
-/* positioning map on /compare/ */
-.posmap { margin: 24px 0 0; }
-.posmap svg { display: block; width: 100%; height: auto; max-width: 960px; font-family: var(--mono); }
-.posmap .pm-q { fill: var(--brand-soft); }
-.posmap .pm-axis { stroke: var(--line); stroke-width: 2; }
-.posmap .pm-lab { fill: var(--soft); font-size: 24px; }
-.posmap .pm-dot circle { fill: var(--soft); }
-.posmap .pm-dot text { fill: var(--ink); font-size: 27px; }
-.posmap .pm-dot.us circle { fill: var(--brand); }
-.posmap .pm-dot.us text { fill: var(--brand); font-weight: 700; font-size: 31px; }
-@media (max-width: 640px) { .posmap .pm-dot text { font-size: 34px; } .posmap .pm-lab { font-size: 30px; } .posmap .pm-dot.us text { font-size: 38px; } }
+/* positioning grid on /compare/: where it runs (columns) x what it is made for (rows) */
+.posgrid-wrap { margin-top: 24px; }
+.posgrid { width: 100%; border-collapse: collapse; font-size: 16px; }
+.posgrid th, .posgrid td { padding: 14px 16px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.posgrid thead th { background: var(--bg-alt); font: 600 14px var(--mono); }
+.posgrid thead th span { display: block; margin-top: 4px; font: 400 13px var(--sans); color: var(--soft); }
+.posgrid tbody th { width: 22%; font-weight: 600; background: var(--bg-alt); }
+.posgrid td { line-height: 1.7; }
+.posgrid td.us { background: var(--brand-soft); color: var(--brand); font-weight: 700; }
+.posgrid td.none { color: var(--soft); }
+@media (max-width: 640px) {
+  .posgrid, .posgrid tbody, .posgrid tr, .posgrid th, .posgrid td { display: block; width: auto; }
+  .posgrid thead { display: none; }
+  .posgrid tr { border: 1px solid var(--line); margin-bottom: 14px; }
+  .posgrid th, .posgrid td { border: 0; border-top: 1px solid var(--line); }
+  .posgrid tbody th { border-top: 0; width: auto; }
+  .posgrid td::before { content: attr(data-col); display: block; font: 600 12px var(--mono); color: var(--soft); text-transform: lowercase; }
+  .posgrid td.none { display: none; }
+}

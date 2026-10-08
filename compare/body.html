@@ -9,22 +9,24 @@
 <section id="map" class="section">
   <div class="wrap">
     <h2>Where each tool sits</h2>
-    <p class="sub">Two questions sort these tools better than any feature list: does it run as a service or on your own machine, and is it built for research and reading or for making a podcast?</p>
-    <figure class="posmap">
-      <svg viewBox="0 0 1000 680" role="img" aria-labelledby="pm-t pm-d">
-        <title id="pm-t">Where each tool sits</title>
-        <desc id="pm-d">Two axes: hosted service to runs on your own hardware, and research and reading to podcast production. Podcast production, hosted: Jellypod, Wondercraft. Podcast production, on your hardware: Vozonda, and Podcastfy as a developer library. Research and reading, hosted: NotebookLM, ElevenLabs GenFM, Audioread. Research, on your hardware: Open Notebook.</desc>
-        <rect class="pm-q" x="510" y="40" width="440" height="280"/>
-        <line class="pm-axis" x1="70" y1="320" x2="950" y2="320"/>
-        <line class="pm-axis" x1="510" y1="40" x2="510" y2="600"/>
-        <text class="pm-lab" x="70" y="644">← hosted service</text>
-        <text class="pm-lab" x="950" y="644" text-anchor="end">runs on your hardware →</text>
-        <text class="pm-lab" x="522" y="66">↑ podcast production</text>
-        <text class="pm-lab" x="522" y="588">↓ research and reading</text>
-        <g class="pm-dot us"><circle cx="844" cy="118" r="11"/><text x="826" y="102" text-anchor="end">Vozonda</text></g><g class="pm-dot"><circle cx="158" cy="118" r="8"/><text x="174" y="124" text-anchor="start">Jellypod</text></g><g class="pm-dot"><circle cx="264" cy="208" r="8"/><text x="280" y="214" text-anchor="start">Wondercraft</text></g><g class="pm-dot"><circle cx="651" cy="275" r="8"/><text x="635" y="281" text-anchor="end">Podcastfy</text></g><g class="pm-dot"><circle cx="193" cy="387" r="8"/><text x="209" y="393" text-anchor="start">NotebookLM</text></g><g class="pm-dot"><circle cx="158" cy="477" r="8"/><text x="174" y="483" text-anchor="start">ElevenLabs GenFM</text></g><g class="pm-dot"><circle cx="334" cy="555" r="8"/><text x="350" y="561" text-anchor="start">Audioread</text></g><g class="pm-dot"><circle cx="827" cy="432" r="8"/><text x="811" y="438" text-anchor="end">Open Notebook</text></g>
-      </svg>
-      <figcaption class="fine">Our reading of what each tool is built for, from the vendors' public pages. A map of focus, not a score.</figcaption>
-    </figure>
+    <p class="sub">Two questions sort these tools better than any feature list: where does it run, and what is it made for? The columns answer the first, the rows the second.</p>
+    <div class="table-wrap posgrid-wrap"><table class="posgrid">
+      <caption class="sr">Each tool by where it runs (columns) and what it is made for (rows)</caption>
+      <thead><tr><th scope="col"><span class="sr">Made for</span></th>
+        <th scope="col">Cloud service<span>runs on the vendor's servers, account needed</span></th>
+        <th scope="col">Open source, cloud APIs by default<span>you run the code, it calls hosted models</span></th>
+        <th scope="col">Open source, runs on your machine<span>local models and voices, your data stays home</span></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Made to produce podcasts</th>
+          <td data-col="Cloud service">Jellypod<br>Wondercraft</td>
+          <td data-col="Open source, cloud APIs by default">Podcastfy</td>
+          <td data-col="Open source, runs on your machine" class="us">Vozonda</td></tr>
+        <tr><th scope="row">Made for research and reading; audio is one feature</th>
+          <td data-col="Cloud service">NotebookLM<br>ElevenLabs GenFM<br>Audioread</td>
+          <td data-col="Open source, cloud APIs by default" class="none">–</td>
+          <td data-col="Open source, runs on your machine">Open Notebook</td></tr>
+      </tbody></table></div>
+    <p class="fine">Our reading of what each tool is built for, from the vendors' public pages. Each tool sits in one box; the order inside a box means nothing. A map of focus, not a score.</p>
   </div>
 </section>
 <section id="table" class="section">
