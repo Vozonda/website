@@ -218,6 +218,43 @@ async function interest() {
   } catch { /* not yet */ }
 }
 
+// ---- launch countdown: until the repo goes public, GitHub links would 404 -----------------
+// Shows a bar with the time left and keeps clicks on GitHub links on the page. At the launch time
+// both disappear on their own, no redeploy needed.
+const LAUNCH = Date.parse("2026-10-08T13:00:00Z"); // 15:00 CEST
+function launchCountdown() {
+  if (Date.now() >= LAUNCH) return;
+  const left = el("span", { class: "lc-left" });
+  const opt = { hour: "2-digit", minute: "2-digit" };
+  const local = new Date(LAUNCH).toLocaleTimeString([], opt);
+  const berlin = new Date(LAUNCH).toLocaleTimeString([], { ...opt, timeZone: "Europe/Berlin" });
+  const when = "today 15:00 CEST" + (local === berlin ? "" : ` (${local} your time)`);
+  const bar = el("div", { class: "launch-bar", role: "status" },
+    el("span", { text: "Open source on GitHub in " }), left,
+    el("span", { class: "lc-note", text: ` · ${when}` }));
+  document.body.prepend(bar);
+  const fmt = (ms) => {
+    const t = Math.max(0, Math.floor(ms / 1000));
+    const h = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), sec = t % 60;
+    return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+  };
+  const onClick = (e) => {
+    const a = e.target.closest('a[href^="https://github.com/Vozonda/"]');
+    if (!a || Date.now() >= LAUNCH) return;
+    e.preventDefault();
+    bar.classList.remove("lc-flash"); void bar.offsetWidth; bar.classList.add("lc-flash");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  document.addEventListener("click", onClick);
+  const tick = () => {
+    const ms = LAUNCH - Date.now();
+    if (ms <= 0) { bar.remove(); document.removeEventListener("click", onClick); clearInterval(timer); return; }
+    left.textContent = fmt(ms);
+  };
+  const timer = setInterval(tick, 1000);
+  tick();
+}
+
 // ---- changelog live numbers --------------------------------------------------------------
 async function liveKpis() {
   const els = document.querySelectorAll("[data-live]");
@@ -289,3 +326,4 @@ renderSamples();
 renderPairs();
 renderPairs("text-pairs", "text");
 interest();
+launchCountdown();
