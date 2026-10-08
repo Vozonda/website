@@ -4,6 +4,18 @@
    "title": "Attention Is All You Need, explained",
    "settings": "style serious · 2 hosts · English · three sources: PDF paper, article, a note",
    "blurb": "The paper behind today's language models, read together with the Wikipedia article and a note about the listener. The 100k-character article was condensed to fit.",
+   "made": {
+    "script_model": "Qwen3.6-35B-A3B (NVFP4) on vLLM, local",
+    "tts": "Qwen3-TTS 12Hz 1.7B CustomVoice, local",
+    "hardware": "one NVIDIA DGX Spark at home",
+    "target": "8 minutes",
+    "review": "script read and corrected by hand before voicing",
+    "voices": "Ryan, Serena",
+    "minutes": 8.6,
+    "words": 961,
+    "render_min": 9.6,
+    "note": "the 100k-character article condensed to 53k to fit"
+   },
    "sources": [
     {
      "title": "Vaswani et al. 2017, arXiv:1706.03762",
@@ -23,6 +35,17 @@
    "title": "Daylight saving time: keep it or drop it?",
    "settings": "style debate · 2 hosts · English · energetic",
    "blurb": "Two hosts argue it out, with the numbers from the source: energy savings, heart attacks, the candy lobby, and who already stopped switching.",
+   "made": {
+    "script_model": "Qwen3.6-35B-A3B (NVFP4) on vLLM, local",
+    "tts": "Qwen3-TTS 12Hz 1.7B CustomVoice, local",
+    "hardware": "one NVIDIA DGX Spark at home",
+    "target": "8 minutes",
+    "review": "script read and corrected by hand before voicing",
+    "voices": "Ryan, Serena",
+    "minutes": 8.7,
+    "words": 1005,
+    "render_min": 8.7
+   },
    "sources": [
     {
      "title": "Wikipedia: Daylight saving time",
@@ -37,6 +60,17 @@
    "title": "Three NASA missions, one question",
    "settings": "style balanced · 2 hosts · English · three sources in one conversation",
    "blurb": "Europa Clipper, the James Webb Space Telescope and Perseverance, connected by the search for life.",
+   "made": {
+    "script_model": "Qwen3.6-35B-A3B (NVFP4) on vLLM, local",
+    "tts": "Qwen3-TTS 12Hz 1.7B CustomVoice, local",
+    "hardware": "one NVIDIA DGX Spark at home",
+    "target": "8 minutes",
+    "review": "script read and corrected by hand before voicing",
+    "voices": "Ryan, Serena",
+    "minutes": 8.2,
+    "words": 1057,
+    "render_min": 6.7
+   },
    "sources": [
     {
      "title": "NASA: Europa Clipper",
@@ -61,6 +95,17 @@
    "title": "The Tell-Tale Heart, retold",
    "settings": "style storyteller · 2 hosts · English · dramatic",
    "blurb": "Edgar Allan Poe's 1843 story, told and then taken apart: is it madness, or guilt?",
+   "made": {
+    "script_model": "Qwen3.6-35B-A3B (NVFP4) on vLLM, local",
+    "tts": "Qwen3-TTS 12Hz 1.7B CustomVoice, local",
+    "hardware": "one NVIDIA DGX Spark at home",
+    "target": "8 minutes",
+    "review": "script read and corrected by hand before voicing",
+    "voices": "Ryan, Serena",
+    "minutes": 9.4,
+    "words": 1217,
+    "render_min": 8.1
+   },
    "sources": [
     {
      "title": "Poe, The Tell-Tale Heart (Wikisource)",
@@ -76,6 +121,17 @@
    "title": "Energiewende (auf Deutsch)",
    "settings": "style balanced · 2 hosts · German · warm",
    "blurb": "The same app in German: what the energy transition covers, what it costs, and where it stalls.",
+   "made": {
+    "script_model": "Qwen3.6-35B-A3B (NVFP4) on vLLM, local",
+    "tts": "Qwen3-TTS 12Hz 1.7B CustomVoice, local",
+    "hardware": "one NVIDIA DGX Spark at home",
+    "target": "8 minutes",
+    "review": "script read and corrected by hand before voicing",
+    "voices": "Dylan, Sohee",
+    "minutes": 8.7,
+    "words": 1018,
+    "render_min": 7.3
+   },
    "sources": [
     {
      "title": "Wikipedia (de): Energiewende",

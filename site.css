@@ -362,3 +362,8 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .ln-custom input { width: 9.5em; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); font: 15px var(--mono); }
 .ln-qr svg { display: block; width: 200px; height: 200px; margin: 10px 0; background: #fff; }
 .support-cards { padding-top: 8px; }
+.made-with { margin: 12px 0 0; }
+.made-with summary { cursor: pointer; color: var(--soft); font-size: 15px; }
+.made { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 10px 0 0; font-size: 14px; }
+.made dt { color: var(--soft); font-family: var(--mono); font-size: 13px; }
+.made dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }

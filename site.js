@@ -97,6 +97,19 @@ function sourceLine(sources) {
   return p;
 }
 
+// "How it was made": the real settings of each sample, from the job record (samples.py).
+function madeWith(m) {
+  if (!m) return null;
+  const rows = [
+    ["Script", m.script_model], ["Voices", `${m.tts} (${m.voices})`], ["Hardware", m.hardware],
+    ["Length", `${m.minutes} min, ${m.words.toLocaleString("en")} words (target ${m.target})`],
+    ["Render time", `${m.render_min} min of machine time`], ["Review", m.review], ["Note", m.note],
+  ].filter((r) => r[1]);
+  const dl = el("dl", { class: "made" });
+  for (const [k, v] of rows) dl.append(el("dt", { text: k }), el("dd", { text: v }));
+  return el("details", { class: "made-with" }, el("summary", { text: "How it was made" }), dl);
+}
+
 async function renderSamples() {
   const box = document.getElementById("samples");
   if (!box) return;
@@ -111,6 +124,7 @@ async function renderSamples() {
         el("p", { class: "meta", text: s.settings }),
         el("p", { text: s.blurb }),
         audio,
+        madeWith(s.made),
         sourceLine(s.sources)));
     }
   } catch {
