@@ -121,11 +121,16 @@ async function renderSamples() {
 // ---- blind test ----------------------------------------------------------------------------
 function shuffle(pair) {
   const saved = store.get("order." + pair.id);
-  if (saved && saved.length === 2) {
+  const n = pair.clips.length;
+  if (saved && saved.length === n) {  // an order saved for a two-way pairing is not reused for three
     const o = saved.map((id) => pair.clips.find((c) => c.id === id)).filter(Boolean);
-    if (o.length === 2) return o;
+    if (o.length === n) return o;
   }
-  const order = Math.random() < 0.5 ? [pair.clips[0], pair.clips[1]] : [pair.clips[1], pair.clips[0]];
+  const order = [...pair.clips];
+  for (let i = order.length - 1; i > 0; i--) {  // Fisher-Yates
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
   store.set("order." + pair.id, order.map((c) => c.id));
   return order;
 }
@@ -165,19 +170,21 @@ async function renderPairs(boxId = "pairs", mode = "audio") {
     const card = el("article", { class: "pair" }, el("h3", { text: pair.title }), sourceLine([pair.source]));
     if (mode === "text") {
       const grid = el("div", { class: "text-pair" });
-      order.forEach((c, i) => grid.append(el("blockquote", { class: "excerpt" }, el("b", { text: i ? "B" : "A" }), el("p", { text: c.text }))));
+      grid.classList.toggle("three", order.length === 3);
+      order.forEach((c, i) => grid.append(el("blockquote", { class: "excerpt" }, el("b", { text: "ABC"[i] }), el("p", { text: c.text }))));
       card.append(grid);
     } else {
       order.forEach((c, i) => {
-        const label = i ? "B" : "A";
+        const label = "ABC"[i];
         card.append(el("div", { class: "clip" }, el("b", { text: label }),
           el("audio", { controls: "", preload: "none", src: c.src, "aria-label": "Clip " + label })));
       });
     }
     const choice = el("div", { class: "choice", role: "group", "aria-label": "Your pick" });
     const voted = store.get("vote." + pair.id);
-    const labels = mode === "text" ? ["A explains it better", "B explains it better"] : ["I prefer A", "I prefer B"];
-    for (const [label, pick] of [[labels[0], order[0].id], [labels[1], order[1].id], ["No difference", "none"]]) {
+    const best = order.length > 2 ? "best" : "better";
+    const options = order.map((c, i) => [mode === "text" ? `${"ABC"[i]} explains it ${best}` : `I prefer ${"ABC"[i]}`, c.id]);
+    for (const [label, pick] of [...options, ["No difference", "none"]]) {
       const b = el("button", { type: "button", class: "btn", text: label });
       if (voted) { b.disabled = true; if (voted === pick) b.setAttribute("aria-pressed", "true"); }
       b.addEventListener("click", async () => {
@@ -291,18 +298,16 @@ async function renderResults(tbodyId = "results-body", src = "/compare.json") {
   if (!tb) return;
   let pairs, r;
   try { [pairs, r] = await Promise.all([getJSON(src), getJSON("/data/results.json")]); } catch { return; }
+  const SYSTEMS = ["Vozonda", "NotebookLM", "Open Notebook"];
   tb.replaceChildren();
   for (const p of pairs.pairs) {
-    const res = (r.pairs || {})[p.id] || { counts: {}, total: 0, systems: {} };
-    const other = Object.values(res.systems || {}).find((n) => n !== "Vozonda") || "–";
+    const res = (r.pairs || {})[p.id] || { counts: {}, total: 0 };
     const c = res.counts || {};
-    const voz = c.Vozonda || 0, oth = c[other] || 0, none = c["no difference"] || 0;
-    const pref = voz + oth;
+    const pref = SYSTEMS.reduce((a, n) => a + (c[n] || 0), 0);
     const pct = (n) => (pref >= 20 ? Math.round((100 * n) / pref) + " %" : `${n}`);
-    tb.append(el("tr", {},
-      el("th", { scope: "row", text: p.title }), el("td", { text: other }),
-      el("td", { text: pct(voz) }), el("td", { text: pct(oth) }), el("td", { text: String(none) }),
-      el("td", { text: String(res.total || 0) })));
+    tb.append(el("tr", {}, el("th", { scope: "row", text: p.title.split(":")[0].replace(/ (script|sound sample)$/, "") }),
+      ...SYSTEMS.map((n) => el("td", { text: pct(c[n] || 0) })),
+      el("td", { text: String(c["no difference"] || 0) }), el("td", { text: String(res.total || 0) })));
   }
 }
 

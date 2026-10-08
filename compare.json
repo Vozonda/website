@@ -2,7 +2,7 @@
  "pairs": [
   {
    "id": "lightning",
-   "title": "Lightning Network · vs NotebookLM",
+   "title": "Lightning Network sound sample: Vozonda vs NotebookLM vs Open Notebook",
    "source": {
     "title": "Wikipedia: Lightning Network",
     "url": "https://en.wikipedia.org/wiki/Lightning_Network",
@@ -14,6 +14,10 @@
      "src": "/audio/31a19fddaa.m4a"
     },
     {
+     "id": "4cfaf0bcaa",
+     "src": "/audio/4cfaf0bcaa.m4a"
+    },
+    {
      "id": "bc943c07de",
      "src": "/audio/bc943c07de.m4a"
     }
@@ -21,13 +25,17 @@
   },
   {
    "id": "attention",
-   "title": "Attention Is All You Need (research paper, PDF) · vs NotebookLM",
+   "title": "Attention Is All You Need (research paper, PDF) sound sample: Vozonda vs NotebookLM vs Open Notebook",
    "source": {
     "title": "Vaswani et al. 2017, arXiv:1706.03762",
     "url": "https://arxiv.org/abs/1706.03762",
     "license": "arXiv"
    },
    "clips": [
+    {
+     "id": "38980b2f01",
+     "src": "/audio/38980b2f01.m4a"
+    },
     {
      "id": "549ee9269e",
      "src": "/audio/549ee9269e.m4a"
@@ -40,7 +48,7 @@
   },
   {
    "id": "nostr",
-   "title": "Nostr (short article) · vs NotebookLM",
+   "title": "Nostr (short article) sound sample: Vozonda vs NotebookLM vs Open Notebook",
    "source": {
     "title": "Wikipedia: Nostr",
     "url": "https://en.wikipedia.org/wiki/Nostr",
@@ -52,65 +60,12 @@
      "src": "/audio/3d3b756a40.m4a"
     },
     {
-     "id": "a144423385",
-     "src": "/audio/a144423385.m4a"
-    }
-   ]
-  },
-  {
-   "id": "lightning-onb",
-   "title": "Lightning Network · vs Open Notebook",
-   "source": {
-    "title": "Wikipedia: Lightning Network",
-    "url": "https://en.wikipedia.org/wiki/Lightning_Network",
-    "license": "CC BY-SA 4.0"
-   },
-   "clips": [
-    {
-     "id": "4cfaf0bcaa",
-     "src": "/audio/4cfaf0bcaa.m4a"
-    },
-    {
-     "id": "eb3498cbb7",
-     "src": "/audio/eb3498cbb7.m4a"
-    }
-   ]
-  },
-  {
-   "id": "attention-onb",
-   "title": "Attention Is All You Need (research paper, PDF) · vs Open Notebook",
-   "source": {
-    "title": "Vaswani et al. 2017, arXiv:1706.03762",
-    "url": "https://arxiv.org/abs/1706.03762",
-    "license": "arXiv"
-   },
-   "clips": [
-    {
-     "id": "38980b2f01",
-     "src": "/audio/38980b2f01.m4a"
-    },
-    {
-     "id": "6efb7ca3b9",
-     "src": "/audio/6efb7ca3b9.m4a"
-    }
-   ]
-  },
-  {
-   "id": "nostr-onb",
-   "title": "Nostr (short article) · vs Open Notebook",
-   "source": {
-    "title": "Wikipedia: Nostr",
-    "url": "https://en.wikipedia.org/wiki/Nostr",
-    "license": "CC BY-SA 4.0"
-   },
-   "clips": [
-    {
-     "id": "27d1dee1dc",
-     "src": "/audio/27d1dee1dc.m4a"
-    },
-    {
      "id": "78e50b5986",
      "src": "/audio/78e50b5986.m4a"
+    },
+    {
+     "id": "a144423385",
+     "src": "/audio/a144423385.m4a"
     }
    ]
   }

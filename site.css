@@ -365,3 +365,8 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
   .vs-cols td, .vs-cols thead th:not(:first-child) { min-width: 7.25rem; }
   .vs tr.compact th, .vs tr.compact td { font-size: 12.5px; padding-top: 6px; padding-bottom: 6px; }
 }
+
+/* three-way blind test: three excerpts side by side on wide screens, stacked below 1000px */
+.text-pair.three { grid-template-columns: repeat(3, 1fr); }
+.text-pair.three .excerpt p { font-size: 15px; }
+@media (max-width: 1000px) { .text-pair.three { grid-template-columns: 1fr; } }
