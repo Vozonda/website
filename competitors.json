@@ -1,60 +1,36 @@
 {
  "as_of": "October 2026",
  "params": [
-  "Open source",
+  "Open-source app",
   "Runs on your hardware",
-  "Own podcast feed",
-  "Feeds in, episodes out",
-  "Edit the script",
-  "Hosts",
+  "Your own podcast feed",
+  "Auto episodes from your RSS feeds",
+  "Read and edit the script first",
+  "Hosts (voices)",
   "Voice cloning",
-  "Nostr & Lightning",
-  "API / MCP",
+  "Nostr & Bitcoin Lightning",
+  "API for apps and AI agents (MCP)",
   "Languages",
   "Price",
-  "§Sources",
-  "Links, PDF, text",
+  "§Content sources: what you can feed in",
+  "Web links, PDF, text",
   "Images",
-  "YouTube",
-  "Word, slides",
-  "Audio",
-  "Web research"
+  "YouTube videos",
+  "Word files, slides",
+  "Audio files (MP3 and similar)",
+  "Digs beyond your sources"
  ],
  "tools": [
   {
    "name": "Vozonda",
    "us": true,
    "cells": {
-    "Open source": {
-     "text": "MIT",
-     "mark": "y"
-    },
     "Runs on your hardware": {
      "text": "Yes",
      "mark": "y"
     },
-    "Own podcast feed": {
-     "text": "Private, Podcasting 2.0",
-     "mark": "y"
-    },
-    "Edit the script": {
-     "text": "Yes",
-     "mark": "y"
-    },
-    "Hosts": {
-     "text": "1 to 3",
-     "mark": "y"
-    },
     "Voice cloning": {
      "text": "Yes (Voxtral engine)",
-     "mark": "y"
-    },
-    "Nostr & Lightning": {
-     "text": "Yes",
-     "mark": "y"
-    },
-    "API / MCP": {
-     "text": "HTTP API + MCP",
      "mark": "y"
     },
     "Languages": {
@@ -65,34 +41,58 @@
      "text": "Free",
      "mark": "y"
     },
-    "Feeds in, episodes out": {
-     "text": "RSS watchlists, daily or weekly digest show",
-     "mark": "y"
-    },
     "Images": {
      "text": "upload or link, up to 25 MB",
      "mark": "y"
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "MIT",
+     "mark": "y"
+    },
+    "Your own podcast feed": {
+     "text": "Private, Podcasting 2.0",
+     "mark": "y"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "RSS watchlists, daily or weekly digest show",
+     "mark": "y"
+    },
+    "Read and edit the script first": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts (voices)": {
+     "text": "1 to 3",
+     "mark": "y"
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "HTTP API + MCP",
+     "mark": "y"
+    },
+    "Web links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "YouTube videos": {
      "text": "subtitles",
      "mark": "y"
     },
-    "Audio": {
+    "Word files, slides": {
+     "text": "",
+     "mark": "n"
+    },
+    "Audio files (MP3 and similar)": {
      "text": "planned",
      "mark": "",
      "url": "/roadmap/#audio-and-podcast-sources"
     },
-    "Web research": {
+    "Digs beyond your sources": {
      "text": "citations, counterpoints",
      "mark": "y"
-    },
-    "Links, PDF, text": {
-     "text": "",
-     "mark": "y"
-    },
-    "Word, slides": {
-     "text": "",
-     "mark": "n"
     }
    }
   },
@@ -100,37 +100,13 @@
    "name": "NotebookLM",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "No",
-     "mark": "n"
-    },
     "Runs on your hardware": {
      "text": "No",
      "mark": "n"
     },
-    "Own podcast feed": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Edit the script": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Hosts": {
-     "text": "2",
-     "mark": ""
-    },
     "Voice cloning": {
      "text": "No",
      "mark": "n"
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "Enterprise only",
-     "mark": ""
     },
     "Languages": {
      "text": "50+",
@@ -140,32 +116,56 @@
      "text": "Free; paid plans",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "No",
-     "mark": "n"
-    },
     "Images": {
      "text": "",
      "mark": "y"
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Your own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Read and edit the script first": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Hosts (voices)": {
+     "text": "2",
+     "mark": ""
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "Enterprise only",
+     "mark": ""
+    },
+    "Web links, PDF, text": {
      "text": "",
      "mark": "y"
     },
-    "Audio": {
+    "YouTube videos": {
      "text": "",
      "mark": "y"
     },
-    "Web research": {
+    "Word files, slides": {
+     "text": "",
+     "mark": "y"
+    },
+    "Audio files (MP3 and similar)": {
+     "text": "",
+     "mark": "y"
+    },
+    "Digs beyond your sources": {
      "text": "Deep Research",
-     "mark": "y"
-    },
-    "Links, PDF, text": {
-     "text": "",
-     "mark": "y"
-    },
-    "Word, slides": {
-     "text": "",
      "mark": "y"
     }
    }
@@ -174,37 +174,13 @@
    "name": "ElevenLabs GenFM",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "No",
-     "mark": "n"
-    },
     "Runs on your hardware": {
      "text": "No",
      "mark": "n"
     },
-    "Own podcast feed": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Edit the script": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Hosts": {
-     "text": "2",
-     "mark": ""
-    },
     "Voice cloning": {
      "text": "No",
      "mark": "n"
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "ElevenLabs API + MCP",
-     "mark": ""
     },
     "Languages": {
      "text": "32",
@@ -214,33 +190,57 @@
      "text": "Free tier; paid plans",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "No",
-     "mark": "n"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Your own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Read and edit the script first": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Hosts (voices)": {
+     "text": "2",
+     "mark": ""
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "ElevenLabs API + MCP",
+     "mark": ""
+    },
+    "Web links, PDF, text": {
      "text": "",
      "mark": "y"
     },
-    "Audio": {
+    "YouTube videos": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word files, slides": {
+     "text": "",
+     "mark": "y"
+    },
+    "Audio files (MP3 and similar)": {
      "text": "?",
      "mark": ""
     },
-    "Web research": {
+    "Digs beyond your sources": {
      "text": "?",
      "mark": ""
-    },
-    "Links, PDF, text": {
-     "text": "",
-     "mark": "y"
-    },
-    "Word, slides": {
-     "text": "",
-     "mark": "y"
     }
    }
   },
@@ -248,37 +248,13 @@
    "name": "Jellypod",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "No",
-     "mark": "n"
-    },
     "Runs on your hardware": {
      "text": "No",
      "mark": "n"
     },
-    "Own podcast feed": {
-     "text": "Hosted",
-     "mark": "y"
-    },
-    "Edit the script": {
-     "text": "Yes",
-     "mark": "y"
-    },
-    "Hosts": {
-     "text": "Custom hosts",
-     "mark": "y"
-    },
     "Voice cloning": {
      "text": "Yes",
      "mark": "y"
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "API",
-     "mark": ""
     },
     "Languages": {
      "text": "70+",
@@ -288,33 +264,57 @@
      "text": "Free tier; from $29/mo",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "Newsletters, daily digest",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Your own podcast feed": {
+     "text": "Hosted",
+     "mark": "y"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "Newsletters, daily digest",
+     "mark": "y"
+    },
+    "Read and edit the script first": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts (voices)": {
+     "text": "Custom hosts",
+     "mark": "y"
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "API",
+     "mark": ""
+    },
+    "Web links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "YouTube videos": {
      "text": "?",
      "mark": ""
     },
-    "Audio": {
+    "Word files, slides": {
      "text": "",
      "mark": "y"
     },
-    "Web research": {
+    "Audio files (MP3 and similar)": {
+     "text": "",
+     "mark": "y"
+    },
+    "Digs beyond your sources": {
      "text": "?",
      "mark": ""
-    },
-    "Links, PDF, text": {
-     "text": "",
-     "mark": "y"
-    },
-    "Word, slides": {
-     "text": "",
-     "mark": "y"
     }
    }
   },
@@ -322,37 +322,13 @@
    "name": "Wondercraft",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "No",
-     "mark": "n"
-    },
     "Runs on your hardware": {
      "text": "No",
      "mark": "n"
     },
-    "Own podcast feed": {
-     "text": "Hosted page",
-     "mark": ""
-    },
-    "Edit the script": {
-     "text": "Yes",
-     "mark": "y"
-    },
-    "Hosts": {
-     "text": "Multi-speaker",
-     "mark": "y"
-    },
     "Voice cloning": {
      "text": "Yes (paid)",
      "mark": "y"
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "API (Pro plan)",
-     "mark": ""
     },
     "Languages": {
      "text": "30+",
@@ -362,33 +338,57 @@
      "text": "Free tier; from $29/mo",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "No",
-     "mark": "n"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
-    "YouTube": {
-     "text": "?",
+    "Open-source app": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Your own podcast feed": {
+     "text": "Hosted page",
      "mark": ""
     },
-    "Audio": {
-     "text": "?",
+    "Auto episodes from your RSS feeds": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Read and edit the script first": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Hosts (voices)": {
+     "text": "Multi-speaker",
+     "mark": "y"
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "API (Pro plan)",
      "mark": ""
     },
-    "Web research": {
-     "text": "?",
-     "mark": ""
-    },
-    "Links, PDF, text": {
+    "Web links, PDF, text": {
      "text": "",
      "mark": "y"
     },
-    "Word, slides": {
+    "YouTube videos": {
+     "text": "?",
+     "mark": ""
+    },
+    "Word files, slides": {
      "text": "",
      "mark": "y"
+    },
+    "Audio files (MP3 and similar)": {
+     "text": "?",
+     "mark": ""
+    },
+    "Digs beyond your sources": {
+     "text": "?",
+     "mark": ""
     }
    }
   },
@@ -396,37 +396,13 @@
    "name": "Audioread",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "No",
-     "mark": "n"
-    },
     "Runs on your hardware": {
      "text": "No",
-     "mark": "n"
-    },
-    "Own podcast feed": {
-     "text": "Yes (paid)",
-     "mark": "y"
-    },
-    "Edit the script": {
-     "text": "Reads text, no dialogue",
-     "mark": "n"
-    },
-    "Hosts": {
-     "text": "1 reader",
      "mark": "n"
     },
     "Voice cloning": {
      "text": "Unknown",
      "mark": ""
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "No",
-     "mark": "n"
     },
     "Languages": {
      "text": "150+",
@@ -436,33 +412,57 @@
      "text": "From about $10/mo",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "RSS read aloud, no show",
-     "mark": ""
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Your own podcast feed": {
+     "text": "Yes (paid)",
+     "mark": "y"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "RSS read aloud, no show",
+     "mark": ""
+    },
+    "Read and edit the script first": {
+     "text": "Reads text, no dialogue",
+     "mark": "n"
+    },
+    "Hosts (voices)": {
+     "text": "1 reader",
+     "mark": "n"
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Web links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "YouTube videos": {
      "text": "?",
      "mark": ""
     },
-    "Audio": {
-     "text": "",
-     "mark": "n"
-    },
-    "Web research": {
-     "text": "",
-     "mark": "n"
-    },
-    "Links, PDF, text": {
+    "Word files, slides": {
      "text": "",
      "mark": "y"
     },
-    "Word, slides": {
+    "Audio files (MP3 and similar)": {
      "text": "",
-     "mark": "y"
+     "mark": "n"
+    },
+    "Digs beyond your sources": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -470,36 +470,12 @@
    "name": "Open Notebook",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "MIT",
-     "mark": "y"
-    },
     "Runs on your hardware": {
      "text": "Yes",
      "mark": "y"
     },
-    "Own podcast feed": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Edit the script": {
-     "text": "Yes",
-     "mark": "y"
-    },
-    "Hosts": {
-     "text": "1 to 4",
-     "mark": "y"
-    },
     "Voice cloning": {
      "text": "Depends on voices",
-     "mark": ""
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "REST API",
      "mark": ""
     },
     "Languages": {
@@ -510,33 +486,57 @@
      "text": "Free",
      "mark": "y"
     },
-    "Feeds in, episodes out": {
-     "text": "No",
-     "mark": "n"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
-    "YouTube": {
-     "text": "",
+    "Open-source app": {
+     "text": "MIT",
      "mark": "y"
     },
-    "Audio": {
-     "text": "",
+    "Your own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Read and edit the script first": {
+     "text": "Yes",
      "mark": "y"
     },
-    "Web research": {
-     "text": "?",
+    "Hosts (voices)": {
+     "text": "1 to 4",
+     "mark": "y"
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "REST API",
      "mark": ""
     },
-    "Links, PDF, text": {
+    "Web links, PDF, text": {
      "text": "",
      "mark": "y"
     },
-    "Word, slides": {
+    "YouTube videos": {
      "text": "",
      "mark": "y"
+    },
+    "Word files, slides": {
+     "text": "",
+     "mark": "y"
+    },
+    "Audio files (MP3 and similar)": {
+     "text": "",
+     "mark": "y"
+    },
+    "Digs beyond your sources": {
+     "text": "?",
+     "mark": ""
     }
    }
   },
@@ -544,36 +544,12 @@
    "name": "Podcastfy",
    "us": false,
    "cells": {
-    "Open source": {
-     "text": "Apache 2.0",
-     "mark": "y"
-    },
     "Runs on your hardware": {
      "text": "Partly: voices from a cloud service",
      "mark": ""
     },
-    "Own podcast feed": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Edit the script": {
-     "text": "Via the transcript file",
-     "mark": ""
-    },
-    "Hosts": {
-     "text": "2",
-     "mark": ""
-    },
     "Voice cloning": {
      "text": "Via ElevenLabs",
-     "mark": ""
-    },
-    "Nostr & Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
-    "API / MCP": {
-     "text": "Python library + CLI",
      "mark": ""
     },
     "Languages": {
@@ -584,31 +560,55 @@
      "text": "Free; cloud voices may cost",
      "mark": ""
     },
-    "Feeds in, episodes out": {
-     "text": "No",
-     "mark": "n"
-    },
     "Images": {
      "text": "",
      "mark": "y"
     },
-    "YouTube": {
+    "Open-source app": {
+     "text": "Apache 2.0",
+     "mark": "y"
+    },
+    "Your own podcast feed": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Auto episodes from your RSS feeds": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Read and edit the script first": {
+     "text": "Via the transcript file",
+     "mark": ""
+    },
+    "Hosts (voices)": {
+     "text": "2",
+     "mark": ""
+    },
+    "Nostr & Bitcoin Lightning": {
+     "text": "No",
+     "mark": "n"
+    },
+    "API for apps and AI agents (MCP)": {
+     "text": "Python library + CLI",
+     "mark": ""
+    },
+    "Web links, PDF, text": {
      "text": "",
      "mark": "y"
     },
-    "Audio": {
-     "text": "",
-     "mark": "n"
-    },
-    "Web research": {
-     "text": "",
-     "mark": "n"
-    },
-    "Links, PDF, text": {
+    "YouTube videos": {
      "text": "",
      "mark": "y"
     },
-    "Word, slides": {
+    "Word files, slides": {
+     "text": "",
+     "mark": "n"
+    },
+    "Audio files (MP3 and similar)": {
+     "text": "",
+     "mark": "n"
+    },
+    "Digs beyond your sources": {
      "text": "",
      "mark": "n"
     }
@@ -616,11 +616,11 @@
   }
  ],
  "compact": [
-  "Links, PDF, text",
+  "Web links, PDF, text",
   "Images",
-  "YouTube",
-  "Word, slides",
-  "Audio",
-  "Web research"
+  "YouTube videos",
+  "Word files, slides",
+  "Audio files (MP3 and similar)",
+  "Digs beyond your sources"
  ]
 }
