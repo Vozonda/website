@@ -367,3 +367,10 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .made { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 10px 0 0; font-size: 14px; }
 .made dt { color: var(--soft); font-family: var(--mono); font-size: 13px; }
 .made dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+/* launch countdown bar (removes itself at the launch time) */
+.launch-bar { position: relative; z-index: 30; padding: 9px 16px; text-align: center; font: 14px/1.4 var(--mono); background: var(--brand); color: var(--brand-ink); }
+.launch-bar .lc-left { font-weight: 700; font-variant-numeric: tabular-nums; }
+.launch-bar.lc-flash { animation: lc-flash .9s ease-out; }
+@keyframes lc-flash { 0% { filter: brightness(1.35); } 100% { filter: none; } }
+@media (prefers-reduced-motion: reduce) { .launch-bar.lc-flash { animation: none; outline: 2px solid var(--ink); } }
