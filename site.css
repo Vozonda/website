@@ -414,3 +414,7 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
   .posgrid td.none { display: none; }
 }
 .result .reveal { font: 600 14px var(--mono); color: var(--brand); margin: 6px 0 10px; }
+
+/* roadmap: a fourth column for ideas (not planned yet) */
+.road { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.st-ideas { background: transparent; border: 1px dashed var(--soft); }
