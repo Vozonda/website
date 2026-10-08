@@ -6,18 +6,19 @@
   "Own podcast feed",
   "Feeds in, episodes out",
   "Edit the script",
-  "Links & PDF",
-  "Images",
-  "YouTube",
-  "Office files",
-  "Audio files",
-  "Research beyond your sources",
   "Hosts",
   "Voice cloning",
   "Nostr & Lightning",
   "API / MCP",
   "Languages",
-  "Price"
+  "Price",
+  "§Sources",
+  "Links, PDF, text",
+  "Images",
+  "YouTube",
+  "Word, slides",
+  "Audio",
+  "Web research"
  ],
  "tools": [
   {
@@ -68,30 +69,30 @@
      "text": "RSS watchlists, daily or weekly digest show",
      "mark": "y"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
-     "text": "Yes, read by a local vision model",
+     "text": "local",
      "mark": "y"
     },
     "YouTube": {
-     "text": "Yes, via subtitles",
+     "text": "subtitles",
      "mark": "y"
     },
-    "Office files": {
-     "text": "No (PDF, TXT, MD)",
-     "mark": "n"
-    },
-    "Audio files": {
-     "text": "Planned",
+    "Audio": {
+     "text": "planned",
      "mark": "",
      "url": "/roadmap/#audio-and-podcast-sources"
     },
-    "Research beyond your sources": {
-     "text": "Subpages, cited sources, counterpoints",
+    "Web research": {
+     "text": "citations, counterpoints",
      "mark": "y"
+    },
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -143,28 +144,28 @@
      "text": "No",
      "mark": "n"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
-     "text": "Yes",
+     "text": "",
      "mark": "y"
     },
     "YouTube": {
-     "text": "Yes, via captions",
+     "text": "",
      "mark": "y"
     },
-    "Office files": {
-     "text": "Word, Docs, Slides, Sheets",
+    "Audio": {
+     "text": "",
      "mark": "y"
     },
-    "Audio files": {
-     "text": "Yes, transcribed",
+    "Web research": {
+     "text": "Deep Research",
      "mark": "y"
     },
-    "Research beyond your sources": {
-     "text": "Deep Research on the web",
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
      "mark": "y"
     }
    }
@@ -217,29 +218,29 @@
      "text": "No",
      "mark": "n"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
     "YouTube": {
-     "text": "Yes",
+     "text": "",
      "mark": "y"
     },
-    "Office files": {
-     "text": "Documents, ebooks",
-     "mark": "y"
-    },
-    "Audio files": {
+    "Audio": {
      "text": "?",
      "mark": ""
     },
-    "Research beyond your sources": {
+    "Web research": {
      "text": "?",
      "mark": ""
+    },
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -291,10 +292,6 @@
      "text": "Newsletters, daily digest",
      "mark": "y"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
@@ -303,17 +300,21 @@
      "text": "?",
      "mark": ""
     },
-    "Office files": {
-     "text": "Docs, slides",
+    "Audio": {
+     "text": "",
      "mark": "y"
     },
-    "Audio files": {
-     "text": "Recordings",
-     "mark": "y"
-    },
-    "Research beyond your sources": {
+    "Web research": {
      "text": "?",
      "mark": ""
+    },
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -365,10 +366,6 @@
      "text": "No",
      "mark": "n"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
@@ -377,17 +374,21 @@
      "text": "?",
      "mark": ""
     },
-    "Office files": {
-     "text": "Docs",
+    "Audio": {
+     "text": "?",
+     "mark": ""
+    },
+    "Web research": {
+     "text": "?",
+     "mark": ""
+    },
+    "Links, PDF, text": {
+     "text": "",
      "mark": "y"
     },
-    "Audio files": {
-     "text": "?",
-     "mark": ""
-    },
-    "Research beyond your sources": {
-     "text": "?",
-     "mark": ""
+    "Word, slides": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -439,10 +440,6 @@
      "text": "RSS read aloud, no show",
      "mark": ""
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
@@ -451,17 +448,21 @@
      "text": "?",
      "mark": ""
     },
-    "Office files": {
-     "text": "Word",
+    "Audio": {
+     "text": "",
+     "mark": "n"
+    },
+    "Web research": {
+     "text": "",
+     "mark": "n"
+    },
+    "Links, PDF, text": {
+     "text": "",
      "mark": "y"
     },
-    "Audio files": {
-     "text": "No",
-     "mark": "n"
-    },
-    "Research beyond your sources": {
-     "text": "No",
-     "mark": "n"
+    "Word, slides": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -513,29 +514,29 @@
      "text": "No",
      "mark": "n"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
      "text": "?",
      "mark": ""
     },
     "YouTube": {
-     "text": "Yes",
+     "text": "",
      "mark": "y"
     },
-    "Office files": {
-     "text": "DOCX, PPTX, EPUB",
+    "Audio": {
+     "text": "",
      "mark": "y"
     },
-    "Audio files": {
-     "text": "Yes, speech to text",
-     "mark": "y"
-    },
-    "Research beyond your sources": {
+    "Web research": {
      "text": "?",
      "mark": ""
+    },
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -587,31 +588,39 @@
      "text": "No",
      "mark": "n"
     },
-    "Links & PDF": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "Images": {
-     "text": "Yes",
+     "text": "",
      "mark": "y"
     },
     "YouTube": {
-     "text": "Yes",
+     "text": "",
      "mark": "y"
     },
-    "Office files": {
-     "text": "No",
+    "Audio": {
+     "text": "",
      "mark": "n"
     },
-    "Audio files": {
-     "text": "No",
+    "Web research": {
+     "text": "",
      "mark": "n"
     },
-    "Research beyond your sources": {
-     "text": "No",
+    "Links, PDF, text": {
+     "text": "",
+     "mark": "y"
+    },
+    "Word, slides": {
+     "text": "",
      "mark": "n"
     }
    }
   }
+ ],
+ "compact": [
+  "Links, PDF, text",
+  "Images",
+  "YouTube",
+  "Word, slides",
+  "Audio",
+  "Web research"
  ]
 }
