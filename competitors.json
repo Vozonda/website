@@ -9,10 +9,15 @@
   "Read and edit the script first",
   "Hosts (voices)",
   "Voice cloning",
-  "Nostr & Bitcoin Lightning",
   "API for apps and AI agents (MCP)",
   "Languages",
   "Price",
+  "§Nostr & Bitcoin Lightning",
+  "Publish shows on Nostr",
+  "Log in with Nostr",
+  "Zap episodes, stream sats while listening",
+  "Lightning split in your podcast feed",
+  "Share transcript highlights to Nostr",
   "§Content sources: what you can feed in",
   "Web links, PDF, text",
   "Images",
@@ -66,10 +71,6 @@
      "text": "1 to 3",
      "mark": "y"
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "Yes",
-     "mark": "y"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "HTTP API + MCP",
      "mark": "y"
@@ -98,6 +99,26 @@
     "Made for": {
      "text": "Your own podcast from your sources, in your own feed",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "episodes as Nostr events, audio on Blossom",
+     "mark": "y"
+    },
+    "Log in with Nostr": {
+     "text": "browser extension or Amber",
+     "mark": "y"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "WebLN, NWC or QR code",
+     "mark": "y"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "you 70, source author 20, app 10 by default",
+     "mark": "y"
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "y"
     }
    }
   },
@@ -145,10 +166,6 @@
      "text": "2",
      "mark": ""
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "Enterprise only",
      "mark": ""
@@ -176,6 +193,26 @@
     "Made for": {
      "text": "Research notebook; audio is one of several outputs",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "",
+     "mark": "n"
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -223,10 +260,6 @@
      "text": "2",
      "mark": ""
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "ElevenLabs API + MCP",
      "mark": ""
@@ -254,6 +287,26 @@
     "Made for": {
      "text": "Podcast feature of the ElevenReader listening app",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "",
+     "mark": "n"
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -301,10 +354,6 @@
      "text": "Custom hosts",
      "mark": "y"
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "API",
      "mark": ""
@@ -332,6 +381,26 @@
     "Made for": {
      "text": "Podcast studio for creators who publish",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "?",
+     "mark": ""
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -379,10 +448,6 @@
      "text": "Multi-speaker",
      "mark": "y"
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "API (Pro plan)",
      "mark": ""
@@ -410,6 +475,26 @@
     "Made for": {
      "text": "Audio studio for podcasts, ads and audiobooks",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "?",
+     "mark": ""
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -457,10 +542,6 @@
      "text": "1 reader",
      "mark": "n"
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "No",
      "mark": "n"
@@ -488,6 +569,26 @@
     "Made for": {
      "text": "Reads your articles and PDFs aloud",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "?",
+     "mark": ""
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -535,10 +636,6 @@
      "text": "1 to 4",
      "mark": "y"
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "REST API",
      "mark": ""
@@ -566,6 +663,26 @@
     "Made for": {
      "text": "Self-hosted research notebook; podcasts are one feature",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "",
+     "mark": "n"
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   },
@@ -613,10 +730,6 @@
      "text": "2",
      "mark": ""
     },
-    "Nostr & Bitcoin Lightning": {
-     "text": "No",
-     "mark": "n"
-    },
     "API for apps and AI agents (MCP)": {
      "text": "Python library + CLI",
      "mark": ""
@@ -644,6 +757,26 @@
     "Made for": {
      "text": "Python library for developers",
      "mark": ""
+    },
+    "Publish shows on Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Log in with Nostr": {
+     "text": "",
+     "mark": "n"
+    },
+    "Zap episodes, stream sats while listening": {
+     "text": "",
+     "mark": "n"
+    },
+    "Lightning split in your podcast feed": {
+     "text": "",
+     "mark": "n"
+    },
+    "Share transcript highlights to Nostr": {
+     "text": "",
+     "mark": "n"
     }
    }
   }
@@ -654,6 +787,11 @@
   "YouTube videos",
   "Word files, slides",
   "Audio files (MP3 and similar)",
-  "Digs beyond your sources"
+  "Digs beyond your sources",
+  "Publish shows on Nostr",
+  "Log in with Nostr",
+  "Zap episodes, stream sats while listening",
+  "Lightning split in your podcast feed",
+  "Share transcript highlights to Nostr"
  ]
 }
