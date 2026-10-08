@@ -263,14 +263,16 @@ async function liveKpis() {
   try { r = await getJSON("/data/results.json"); } catch { return; }
   const pairs = Object.values(r.pairs || {});
   const voz = pairs.reduce((a, p) => a + ((p.counts || {}).Vozonda || 0), 0);
-  const nlm = pairs.reduce((a, p) => a + ((p.counts || {}).NotebookLM || 0), 0);
+  // every opponent counts (NotebookLM, Open Notebook, ...): votes for anyone but Vozonda or "no difference"
+  const nlm = pairs.reduce((a, p) => a + Object.entries(p.counts || {})
+    .filter(([k]) => k !== "Vozonda" && k !== "no difference").reduce((s, [, v]) => s + v, 0), 0);
   const total = pairs.reduce((a, p) => a + (p.total || 0), 0);
   for (const e of els) {
     const sub = e.parentElement.querySelector(".kpi-sub");
     if (e.dataset.live === "prefer") {
       if (voz + nlm >= 20) {
         e.textContent = Math.round((100 * voz) / (voz + nlm)) + " %";
-        sub.textContent = `of ${voz + nlm} votes with a preference, blind test vs NotebookLM`;
+        sub.textContent = `of ${voz + nlm} votes with a preference, blind tests vs NotebookLM and Open Notebook`;
       } else {
         sub.textContent = `collecting votes (${total} so far)`;
       }
