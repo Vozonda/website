@@ -418,3 +418,7 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 /* roadmap: a fourth column for ideas (not planned yet) */
 .road { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
 .st-ideas { background: transparent; border: 1px dashed var(--soft); }
+/* roadmap items link their GitHub issue; the thumbs-up count is the vote */
+.road-col li b a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); }
+.road-col li b a:hover { text-decoration-color: var(--brand); }
+.road-col .road-votes { display: block; margin-top: 6px; font: 600 13px var(--mono); color: var(--soft); }

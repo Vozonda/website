@@ -1,45 +1,62 @@
 {
  "updated": "2026-10-08",
+ "source": "https://github.com/Vozonda/vozonda/issues?q=is%3Aopen+label%3Aroadmap",
  "items": [
   {
    "status": "In progress",
-   "title": "Public launch",
-   "text": "Open the repository, this website, and a Docker quickstart checked on a clean machine."
-  },
-  {
-   "status": "In progress",
    "title": "Source citations in every episode",
-   "text": "Each line points to the source it came from, shown in the transcript."
+   "text": "Each line of a script points to the source it came from, and the transcript shows it, so a listener can check any claim. Multi-source episodes already cite every content turn (see CHANGELOG, Unreleased); what remains is showing the citations in the transcript and the episode page.",
+   "url": "https://github.com/Vozonda/vozonda/issues/28",
+   "number": 28,
+   "votes": 0
   },
   {
    "status": "Next",
    "title": "Audio and podcast sources",
-   "text": "Drop in an MP3 or a podcast episode; it is transcribed locally and discussed like any other source."
+   "text": "Drop in an MP3 or a podcast episode as a source: it is transcribed locally (Whisper), punctuation is restored with a word-for-word check, and it is discussed like any other source. A first implementation exists and is in review.",
+   "url": "https://github.com/Vozonda/vozonda/issues/29",
+   "number": 29,
+   "votes": 0
   },
   {
    "status": "Next",
    "title": "Saved source trays",
-   "text": "Save a mix of feeds and notes as a template that a watchlist refills on a schedule."
+   "text": "Save a mix of feeds and notes as a template that a watchlist refills on a schedule, so a recurring show needs no clicks.",
+   "url": "https://github.com/Vozonda/vozonda/issues/30",
+   "number": 30,
+   "votes": 0
   },
   {
    "status": "Next",
    "title": "Longer, smoother episodes",
-   "text": "Closer to NotebookLM in length and flow, measured in the blind test."
+   "text": "Get closer to NotebookLM in length and flow. Measured, not guessed: the public blind test at https://vozonda.com/test/ compares Vozonda, NotebookLM and Open Notebook on the same sources.",
+   "url": "https://github.com/Vozonda/vozonda/issues/31",
+   "number": 31,
+   "votes": 0
   },
   {
    "status": "Later",
    "title": "Vozonda Cloud",
-   "text": "Hosted, pay per episode with Lightning, if enough people ask for it."
+   "text": "A hosted version, paid per episode with Lightning and without accounts, if enough people ask for it. The waitlist is one anonymous click on https://vozonda.com/#cloud.",
+   "url": "https://github.com/Vozonda/vozonda/issues/32",
+   "number": 32,
+   "votes": 0
   },
   {
    "status": "Later",
    "title": "Hosts with a stance",
-   "text": "Give each host a position on a topic for real debates."
+   "text": "Give each host a position on a topic, so a debate is a real debate instead of two people agreeing politely.",
+   "url": "https://github.com/Vozonda/vozonda/issues/33",
+   "number": 33,
+   "votes": 0
   },
   {
    "status": "Ideas",
    "title": "Nostr bookmarks as a source",
-   "text": "Bookmark an article in your Nostr app and it becomes an episode, read from your public bookmark list (NIP-51)."
+   "text": "Bookmark an article in your Nostr app and it becomes an episode, read from your public bookmark list (NIP-51). Not built yet; the About and FAQ pages described it by mistake until #24.",
+   "url": "https://github.com/Vozonda/vozonda/issues/34",
+   "number": 34,
+   "votes": 0
   }
  ]
 }
