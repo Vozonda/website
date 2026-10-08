@@ -344,3 +344,21 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .excerpt b { font: 700 16px var(--mono); color: var(--brand); }
 .excerpt p { margin: 6px 0 0; font-size: 16px; line-height: 1.65; }
 .res-h { font-size: 18px; margin: 26px 0 10px; }
+
+/* support page */
+.support-grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
+@media (max-width: 1000px) { .support-grid { grid-template-columns: 1fr; max-width: 560px; } }
+.support-grid .plan .btn.block { margin-top: 10px; }
+.support-grid .plan > .muted { margin: 0 0 14px; }
+.copy-row { display: flex; gap: 6px; align-items: stretch; margin: 4px 0 6px; min-width: 0; }
+.copy-row code { flex: 1; min-width: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-alt); font: 14px/1.45 var(--mono); overflow-wrap: anywhere; user-select: all; }
+.ln-amounts { display: flex; flex-wrap: wrap; }
+.ln-invoice { margin: 0 0 8px; }
+.ln-invoice .cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.qr { margin-top: 14px; }
+.qr summary { cursor: pointer; color: var(--soft); font-size: 15px; }
+.qr img { display: block; margin: 12px 0 0; width: 180px; height: 180px; border-radius: var(--radius); border: 1px solid var(--line); }
+.ln-custom { display: flex; gap: 8px; align-items: center; margin: 0 0 12px; }
+.ln-custom input { width: 9.5em; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); font: 15px var(--mono); }
+.ln-qr svg { display: block; width: 200px; height: 200px; margin: 10px 0; background: #fff; }
+.support-cards { padding-top: 8px; }

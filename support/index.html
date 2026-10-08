@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support · Vozonda</title>
+<meta name="description" content="Ways to support Vozonda: boost it over Lightning, contribute code and ideas, or spread the word. All optional, no account needed.">
+<link rel="canonical" href="https://vozonda.com/support/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="theme-color" content="#faf6ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1f1d14" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vozonda">
+<meta property="og:url" content="https://vozonda.com/">
+<meta property="og:title" content="Vozonda · Turn sources into your podcast">
+<meta property="og:description" content="Open source and self-hosted. Vozonda reads your sources, voices make waves, you listen.">
+<meta property="og:image" content="https://vozonda.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css?v=853d21b6c4">
+<script src="/site.js?v=778a07e74d" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="brand" aria-label="Vozonda home">
+      <picture>
+        <source srcset="/img/vozonda-lockup-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/img/vozonda-lockup.svg" alt="Vozonda" width="165" height="40">
+      </picture>
+    </a>
+    <nav aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#listen">Samples</a>
+      <a href="/compare/">Compare</a>
+      <a href="/test/">Tests</a>
+      <a href="/changelog/">Changelog</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn ghost" href="https://github.com/Vozonda/vozonda"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>Star on GitHub</a>
+      <a class="btn primary" href="/#pricing">Get started</a>
+    </div>
+  </div>
+</header>
+<main id="main" class="cmp-page">
+<section class="section cl-top cmp-top">
+  <div class="wrap">
+    <p class="kicker">Support</p>
+    <h1 class="cl-h1">Ways to give back. All optional, no account needed.</h1>
+    <p class="sub">Vozonda is free and MIT-licensed, and it stays that way. It took seven weeks of work to reach the first
+      public release. If it saves you time or makes you a show you love, here is how to say thanks.
+      <a href="https://sovgrid.org/blog/vozonda-open-source-release/">How it was built</a>.</p>
+  </div>
+</section>
+<section class="section support-cards">
+  <div class="wrap">
+    <div class="plans support-grid">
+      <article class="plan" id="lightning">
+        <h3>Boost Vozonda</h3>
+        <p class="price">Pay what you want <span>in sats, over Lightning</span></p>
+        <p class="muted">A boost says "this was worth it". Pick an amount for a ready invoice, or send any amount to the address. Any Lightning wallet works, no account and no sign-up.</p>
+        <div class="seg-filter ln-amounts" id="ln-amounts" role="group" aria-label="Boost amount">
+          <button type="button" class="btn ghost" data-sats="1000" aria-pressed="false">1,000 sats</button>
+          <button type="button" class="btn ghost" data-sats="5000" aria-pressed="false">5,000 sats</button>
+          <button type="button" class="btn ghost" data-sats="21000" aria-pressed="false">21,000 sats</button>
+        </div>
+        <form class="ln-custom" id="ln-custom">
+          <label for="ln-sats" class="sr">Custom amount in sats</label>
+          <input id="ln-sats" name="sats" type="number" inputmode="numeric" min="1" max="25000000" step="1" placeholder="other amount">
+          <span class="muted">sats</span>
+          <button type="submit" class="btn ghost">Boost</button>
+        </form>
+        <div id="ln-invoice" class="ln-invoice" aria-live="polite" hidden></div>
+        <div class="copy-row">
+          <code id="ln-addr">vozonda@rizful.com</code>
+          <button type="button" class="btn ghost" data-copy="ln-addr">Copy</button>
+        </div>
+        <a class="btn ghost block" href="lightning:vozonda@rizful.com">Open the address in your wallet</a>
+        <details class="qr">
+          <summary>Show QR code</summary>
+          <img src="/img/lightning-qr.svg" alt="QR code for the Lightning address vozonda@rizful.com" width="180" height="180">
+          <p class="fine">Scan with any wallet and choose the amount there.</p>
+        </details>
+      </article>
+      <article class="plan" id="contribute">
+        <h3>Code and ideas</h3>
+        <p class="price">Time and talent <span>count as much as sats</span></p>
+        <ul class="ticks">
+          <li>Try the quickstart on your hardware and report what breaks</li>
+          <li>Pick a good first issue, add a show format, a voice engine or a language</li>
+          <li>Bring ideas and questions to Discussions</li>
+        </ul>
+        <a class="btn primary block" href="https://github.com/Vozonda/vozonda/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">Good first issues</a>
+        <a class="btn ghost block" href="https://github.com/Vozonda/vozonda/discussions">Discussions</a>
+      </article>
+      <article class="plan" id="share">
+        <h3>Spread the word</h3>
+        <p class="price">A star or a repost <span>moves it further than you think</span></p>
+        <p class="muted">Open source lives on discovery. Star the repo, follow on Nostr, or paste this line anywhere:</p>
+        <div class="copy-row">
+          <code id="share-line">Vozonda turns your sources into your own podcast, self-hosted and open source: https://vozonda.com</code>
+          <button type="button" class="btn ghost" data-copy="share-line">Copy</button>
+        </div>
+        <a class="btn primary block" href="https://github.com/Vozonda/vozonda">Star on GitHub</a>
+        <a class="btn ghost block" href="https://njump.me/npub1zhu0mwyswndlldn2r5qxh6dz24l5st6vw6xdnk5g4t6x5ln7hs3q0cz0e2">Follow on Nostr</a>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <picture>
+        <source srcset="/img/vozonda-lockup-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="/img/vozonda-lockup.svg" alt="Vozonda" width="132" height="32">
+      </picture>
+      <p class="muted">Turn sources into your podcast.<br>MIT-licensed open source.</p>
+    </div>
+    <div><h2 class="foot-h">Product</h2><a href="/#features">Features</a><a href="/#listen">Samples</a><a href="/#pricing">Self-host &amp; cloud</a><a href="/#faq">FAQ</a></div>
+    <div><h2 class="foot-h">Compare</h2><a href="/compare/">All tools</a><a href="/test/">Tests</a><a href="/test/#results">Test results</a></div>
+    <div><h2 class="foot-h">Resources</h2><a href="/changelog/">Changelog</a><a href="/roadmap/">Roadmap</a><a href="https://github.com/Vozonda/vozonda">GitHub</a><a href="https://github.com/Vozonda/website">Website source</a><a href="https://sovgrid.org/blog/agent-fleet-gates-prove-code-runs-not-claims/">Behind the scenes</a></div>
+    <div><h2 class="foot-h">Community</h2><a href="https://njump.me/npub1zhu0mwyswndlldn2r5qxh6dz24l5st6vw6xdnk5g4t6x5ln7hs3q0cz0e2">Nostr</a><a href="/support/">Support</a><a href="mailto:vozonda@proton.me">Email</a><a href="/.well-known/security.txt">Security</a></div>
+  </div>
+  <p class="wrap fine">No cookies. No tracking. Nothing loaded from third parties.</p>
+</footer>
+</body>
+</html>

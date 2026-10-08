@@ -218,6 +218,75 @@ async function interest() {
   } catch { /* not yet */ }
 }
 
+// ---- support page: copy buttons and Lightning amounts ------------------------------------
+function copyButtons() {
+  for (const b of document.querySelectorAll("[data-copy]")) {
+    b.addEventListener("click", async () => {
+      const text = (document.getElementById(b.dataset.copy)?.textContent || "").trim();
+      const prev = b.textContent;
+      try { await navigator.clipboard.writeText(text); b.textContent = "Copied"; }
+      catch { b.textContent = "Select and copy"; }
+      setTimeout(() => { b.textContent = prev; }, 1800);
+    });
+  }
+}
+
+// Same pattern as sovgrid.org's zap: the invoice comes from the Lightning address via LNURL-pay,
+// proxied by vozonda.com (/api/ln/callback, amount only), so the browser never talks to the provider.
+// The QR library is loaded only when someone picks an amount.
+function loadQr() {
+  if (window.qrcode) return Promise.resolve(window.qrcode);
+  return new Promise((ok, fail) => {
+    const s = el("script", { src: "/vendor/qrcode.js" });
+    s.onload = () => ok(window.qrcode);
+    s.onerror = fail;
+    document.head.append(s);
+  });
+}
+
+function lightningAmounts() {
+  const box = document.getElementById("ln-amounts");
+  const out = document.getElementById("ln-invoice");
+  const form = document.getElementById("ln-custom");
+  if (!box || !out) return;
+  const say = (t) => out.replaceChildren(el("p", { class: "fine" }, t));
+  const pick = async (sats) => {
+    if (!Number.isInteger(sats) || sats < 1 || sats > 25000000) { out.hidden = false; say("Enter a whole number of sats, 1 or more."); return; }
+    box.querySelectorAll("[data-sats]").forEach((x) => x.setAttribute("aria-pressed", String(Number(x.dataset.sats) === sats)));
+    out.hidden = false;
+    say("Building the invoice…");
+    let pr = null;
+    try {
+      const r = await fetch(`/api/ln/callback?amount=${sats * 1000}`, { cache: "no-store" });
+      if (r.ok) pr = (await r.json()).pr || null;
+    } catch { /* offline */ }
+    if (!pr) { say("No invoice right now. Send any amount to the address below instead."); return; }
+    const qrBox = el("div", { class: "ln-qr" });
+    try {
+      const qr = (await loadQr())(0, "M");
+      qr.addData(`lightning:${pr}`.toUpperCase(), "Alphanumeric");
+      qr.make();
+      qrBox.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true, alt: `Lightning invoice for ${sats} sats` });
+    } catch { /* copy and wallet link still work */ }
+    const copy = el("button", { type: "button", class: "btn ghost" }, "Copy invoice");
+    copy.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(pr); copy.textContent = "Copied"; } catch { copy.textContent = "Copy failed"; }
+    });
+    const actions = el("div", { class: "cta" }, el("a", { class: "btn primary", href: `lightning:${pr}` }, "Open in wallet"), copy);
+    if (window.webln) {
+      const wl = el("button", { type: "button", class: "btn ghost" }, "Pay with Alby / WebLN");
+      wl.addEventListener("click", async () => {
+        try { await window.webln.enable(); await window.webln.sendPayment(pr); say("Thank you. Boost sent."); }
+        catch { wl.textContent = "Payment not sent"; }
+      });
+      actions.append(wl);
+    }
+    out.replaceChildren(el("p", { class: "fine" }, `${sats.toLocaleString("en")} sats: scan, open in your wallet, or copy.`), qrBox, actions);
+  };
+  box.addEventListener("click", (e) => { const b = e.target.closest("[data-sats]"); if (b) pick(Number(b.dataset.sats)); });
+  form?.addEventListener("submit", (e) => { e.preventDefault(); pick(parseInt(form.elements.sats.value, 10)); });
+}
+
 // ---- changelog live numbers --------------------------------------------------------------
 async function liveKpis() {
   const els = document.querySelectorAll("[data-live]");
@@ -289,3 +358,5 @@ renderSamples();
 renderPairs();
 renderPairs("text-pairs", "text");
 interest();
+copyButtons();
+lightningAmounts();
