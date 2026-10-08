@@ -351,3 +351,7 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .launch-bar.lc-flash { animation: lc-flash .9s ease-out; }
 @keyframes lc-flash { 0% { filter: brightness(1.35); } 100% { filter: none; } }
 @media (prefers-reduced-motion: reduce) { .launch-bar.lc-flash { animation: none; outline: 2px solid var(--ink); } }
+
+/* comparison: group header and compact rows (sources) */
+.vs tr.vs-group th { padding: 10px 18px 6px; background: var(--bg-alt); font: 600 13px var(--mono); text-transform: lowercase; letter-spacing: .03em; color: var(--soft); }
+.vs tr.compact th, .vs tr.compact td { padding-top: 7px; padding-bottom: 7px; font-size: 15px; }
