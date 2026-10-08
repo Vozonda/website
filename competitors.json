@@ -4,7 +4,14 @@
   "Open source",
   "Runs on your hardware",
   "Own podcast feed",
+  "Feeds in, episodes out",
   "Edit the script",
+  "Links & PDF",
+  "Images",
+  "YouTube",
+  "Office files",
+  "Audio files",
+  "Research beyond your sources",
   "Hosts",
   "Voice cloning",
   "Nostr & Lightning",
@@ -56,6 +63,35 @@
     "Price": {
      "text": "Free",
      "mark": "y"
+    },
+    "Feeds in, episodes out": {
+     "text": "RSS watchlists, daily or weekly digest show",
+     "mark": "y"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "Yes, read by a local vision model",
+     "mark": "y"
+    },
+    "YouTube": {
+     "text": "Yes, via subtitles",
+     "mark": "y"
+    },
+    "Office files": {
+     "text": "No (PDF, TXT, MD)",
+     "mark": "n"
+    },
+    "Audio files": {
+     "text": "Planned",
+     "mark": "",
+     "url": "/roadmap/#audio-and-podcast-sources"
+    },
+    "Research beyond your sources": {
+     "text": "Subpages, cited sources, counterpoints",
+     "mark": "y"
     }
    }
   },
@@ -102,6 +138,34 @@
     "Price": {
      "text": "Free; paid plans",
      "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "YouTube": {
+     "text": "Yes, via captions",
+     "mark": "y"
+    },
+    "Office files": {
+     "text": "Word, Docs, Slides, Sheets",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "Yes, transcribed",
+     "mark": "y"
+    },
+    "Research beyond your sources": {
+     "text": "Deep Research on the web",
+     "mark": "y"
     }
    }
   },
@@ -147,6 +211,34 @@
     },
     "Price": {
      "text": "Free tier; paid plans",
+     "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "?",
+     "mark": ""
+    },
+    "YouTube": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Office files": {
+     "text": "Documents, ebooks",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "?",
+     "mark": ""
+    },
+    "Research beyond your sources": {
+     "text": "?",
      "mark": ""
     }
    }
@@ -194,6 +286,34 @@
     "Price": {
      "text": "Free tier; from $29/mo",
      "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "Newsletters, daily digest",
+     "mark": "y"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "?",
+     "mark": ""
+    },
+    "YouTube": {
+     "text": "?",
+     "mark": ""
+    },
+    "Office files": {
+     "text": "Docs, slides",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "Recordings",
+     "mark": "y"
+    },
+    "Research beyond your sources": {
+     "text": "?",
+     "mark": ""
     }
    }
   },
@@ -239,6 +359,34 @@
     },
     "Price": {
      "text": "Free tier; from $29/mo",
+     "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "?",
+     "mark": ""
+    },
+    "YouTube": {
+     "text": "?",
+     "mark": ""
+    },
+    "Office files": {
+     "text": "Docs",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "?",
+     "mark": ""
+    },
+    "Research beyond your sources": {
+     "text": "?",
      "mark": ""
     }
    }
@@ -286,6 +434,34 @@
     "Price": {
      "text": "From about $10/mo",
      "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "RSS read aloud, no show",
+     "mark": ""
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "?",
+     "mark": ""
+    },
+    "YouTube": {
+     "text": "?",
+     "mark": ""
+    },
+    "Office files": {
+     "text": "Word",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Research beyond your sources": {
+     "text": "No",
+     "mark": "n"
     }
    }
   },
@@ -332,6 +508,34 @@
     "Price": {
      "text": "Free",
      "mark": "y"
+    },
+    "Feeds in, episodes out": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "?",
+     "mark": ""
+    },
+    "YouTube": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Office files": {
+     "text": "DOCX, PPTX, EPUB",
+     "mark": "y"
+    },
+    "Audio files": {
+     "text": "Yes, speech to text",
+     "mark": "y"
+    },
+    "Research beyond your sources": {
+     "text": "?",
+     "mark": ""
     }
    }
   },
@@ -378,6 +582,34 @@
     "Price": {
      "text": "Free; cloud voices may cost",
      "mark": ""
+    },
+    "Feeds in, episodes out": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Links & PDF": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Images": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "YouTube": {
+     "text": "Yes",
+     "mark": "y"
+    },
+    "Office files": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Audio files": {
+     "text": "No",
+     "mark": "n"
+    },
+    "Research beyond your sources": {
+     "text": "No",
+     "mark": "n"
     }
    }
   }
