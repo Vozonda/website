@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Test · Vozonda</title>
-<meta name="description" content="Listen to two clips from the same source and pick the one you prefer: Vozonda vs NotebookLM, results published live.">
+<meta name="description" content="Read three scripts and hear three clips from the same source, blind: Vozonda vs NotebookLM vs Open Notebook, results published live.">
 <link rel="canonical" href="https://vozonda.com/test/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
@@ -21,8 +21,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=dfb4fece43">
-<script src="/site.js?v=330a22285c" defer></script>
+<link rel="stylesheet" href="/site.css?v=b2f4b89e5a">
+<script src="/site.js?v=51ec784a05" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -51,16 +51,16 @@
 <section class="section cl-top cmp-top">
   <div class="wrap">
     <p class="kicker">Test</p>
-    <h1 class="cl-h1">Vozonda or NotebookLM? You decide, blind.</h1>
-    <p class="sub">Two short blind tests on the same sources, default settings on both sides. The script test judges the writing, the voice test judges the voices. Every vote is published; results update every five minutes.</p>
+    <h1 class="cl-h1">Vozonda, NotebookLM, Open Notebook: you decide, blind.</h1>
+    <p class="sub">Two short blind tests on the same sources, default settings on every side: Vozonda against Google's NotebookLM and against the open-source Open Notebook. The script test judges the writing, the voice test judges the voices. Every vote is published; results update every five minutes.</p>
   </div>
 </section>
 <section id="script-test" class="section">
   <div class="wrap">
     <p class="kicker">Test 1 · script</p>
     <h2>Script test: read and pick</h2>
-    <p class="sub">What Vozonda really does is write the conversation. Here you read the same part of two episodes about the
-      same source, as plain text, without voices or names. Which one explains the topic better?</p>
+    <p class="sub">What Vozonda really does is write the conversation. Here you read the same part of three episodes about the
+      same source, as plain text, without voices or names. Which one explains the topic best?</p>
     <div id="text-pairs" class="pairs" data-src="/script.json"><p class="muted">The test needs JavaScript.</p></div>
   </div>
 </section>
@@ -75,11 +75,12 @@
     <details class="method">
       <summary>Method and fine print (both tests)</summary>
       <ul>
-        <li>Script test: about 150 words from 30 % into each episode, cut at sentence ends, as plain text without speaker names. Vozonda: the episode script, default settings, unedited. NotebookLM: a Whisper transcript of its Audio Overview, so it keeps the spoken fillers.</li>
-        <li>Pairwise preference test with a "no difference" option, as used to evaluate speech synthesis. A and B are in random order for each visitor.</li>
+        <li>Script test: about 150 words from 30 % into each episode, cut at sentence ends, as plain text without speaker names. Every side is transcribed the same way from its audio (Whisper medium, then punctuation restored by the local model with a word-for-word check), so fillers and punctuation do not give a side away.</li>
+        <li>Preference test with three options and a "no difference" option, a multi-choice form of the pairwise tests used to evaluate speech synthesis. A, B and C are in random order for each visitor.</li>
         <li>60 seconds from 30 % into each episode, so the intros do not give it away; loudness normalised to −16 LUFS (EBU R 128); same format and bit rate.</li>
-        <li>Default settings on both sides; Vozonda used local Qwen3-TTS voices and an unedited script. Nothing was regenerated or picked.</li>
-        <li>One vote per pair and visitor. No cookies; duplicates are caught with a salted hash, no IP address is stored with the votes, server logs are deleted after 14 days.</li>
+        <li>Default settings on every side; Vozonda used local Qwen3-TTS voices and an unedited script. Nothing was regenerated or picked.</li>
+        <li>Open Notebook (lfnovo/open-notebook, Docker image v1-latest, October 2026): its default two-host "tech_discussion" profile, the same local model as Vozonda (Qwen3.6-35B) with the model's thinking turned off, as Vozonda runs it. Its first run failed with thinking on (the model returned empty JSON); after that every episode was used as it came. Its scripts are voiced with Vozonda's own voices, so the voice test compares writing and pacing, not voice engines.</li>
+        <li>One vote per source, test and visitor. No cookies; duplicates are caught with a salted hash, no IP address is stored with the votes, server logs are deleted after 14 days.</li>
         <li>Raw data: <a href="/data/results.json">results.json</a> · <a href="/data/votes.csv">votes.csv</a>, updated every five minutes.</li>
       </ul>
     </details>
@@ -89,11 +90,11 @@
   <div class="wrap">
     <p class="kicker">Results</p>
     <h2>Results so far</h2>
-    <p class="sub">Live from the published votes. A percentage appears once a pairing has 20 votes with a preference.</p>
+    <p class="sub">Live from the published votes. Each column counts who was picked; percentages appear once a source has 20 votes with a preference.</p>
     <h3 class="res-h">Script test</h3>
-    <div class="table-wrap"><table class="vs results"><thead><tr><th scope="col">Source</th><th scope="col">Against</th><th scope="col">Prefer Vozonda</th><th scope="col">Prefer the other</th><th scope="col">No difference</th><th scope="col">Votes</th></tr></thead><tbody id="results-script"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
+    <div class="table-wrap"><table class="vs results"><thead><tr><th scope="col">Source</th><th scope="col">Vozonda</th><th scope="col">NotebookLM</th><th scope="col">Open Notebook</th><th scope="col">No difference</th><th scope="col">Votes</th></tr></thead><tbody id="results-script"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
     <h3 class="res-h">Voice test</h3>
-    <div class="table-wrap"><table class="vs results"><thead><tr><th scope="col">Source</th><th scope="col">Against</th><th scope="col">Prefer Vozonda</th><th scope="col">Prefer the other</th><th scope="col">No difference</th><th scope="col">Votes</th></tr></thead><tbody id="results-body"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
+    <div class="table-wrap"><table class="vs results"><thead><tr><th scope="col">Source</th><th scope="col">Vozonda</th><th scope="col">NotebookLM</th><th scope="col">Open Notebook</th><th scope="col">No difference</th><th scope="col">Votes</th></tr></thead><tbody id="results-body"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody></table></div>
     <p class="fine">Raw data: <a href="/data/results.json">results.json</a> · <a href="/data/votes.csv">votes.csv</a>, updated every five minutes.</p>
   </div>
 </section>
