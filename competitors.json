@@ -1,6 +1,7 @@
 {
  "as_of": "October 2026",
  "params": [
+  "Made for",
   "Open-source app",
   "Runs on your hardware",
   "Your own podcast feed",
@@ -93,6 +94,10 @@
     "Digs beyond your sources": {
      "text": "citations, counterpoints",
      "mark": "y"
+    },
+    "Made for": {
+     "text": "Your own podcast from your sources, in your own feed",
+     "mark": ""
     }
    }
   },
@@ -167,6 +172,10 @@
     "Digs beyond your sources": {
      "text": "Deep Research",
      "mark": "y"
+    },
+    "Made for": {
+     "text": "Research notebook; audio is one of several outputs",
+     "mark": ""
     }
    }
   },
@@ -240,6 +249,10 @@
     },
     "Digs beyond your sources": {
      "text": "?",
+     "mark": ""
+    },
+    "Made for": {
+     "text": "Podcast feature of the ElevenReader listening app",
      "mark": ""
     }
    }
@@ -315,6 +328,10 @@
     "Digs beyond your sources": {
      "text": "?",
      "mark": ""
+    },
+    "Made for": {
+     "text": "Podcast studio for creators who publish",
+     "mark": ""
     }
    }
   },
@@ -388,6 +405,10 @@
     },
     "Digs beyond your sources": {
      "text": "?",
+     "mark": ""
+    },
+    "Made for": {
+     "text": "Audio studio for podcasts, ads and audiobooks",
      "mark": ""
     }
    }
@@ -463,6 +484,10 @@
     "Digs beyond your sources": {
      "text": "",
      "mark": "n"
+    },
+    "Made for": {
+     "text": "Reads your articles and PDFs aloud",
+     "mark": ""
     }
    }
   },
@@ -536,6 +561,10 @@
     },
     "Digs beyond your sources": {
      "text": "?",
+     "mark": ""
+    },
+    "Made for": {
+     "text": "Self-hosted research notebook; podcasts are one feature",
      "mark": ""
     }
    }
@@ -611,6 +640,10 @@
     "Digs beyond your sources": {
      "text": "",
      "mark": "n"
+    },
+    "Made for": {
+     "text": "Python library for developers",
+     "mark": ""
     }
    }
   }

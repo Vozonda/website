@@ -370,3 +370,23 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .text-pair.three { grid-template-columns: repeat(3, 1fr); }
 .text-pair.three .excerpt p { font-size: 15px; }
 @media (max-width: 1000px) { .text-pair.three { grid-template-columns: 1fr; } }
+
+/* positioning grid on /compare/: where it runs (columns) x what it is made for (rows) */
+.posgrid-wrap { margin-top: 24px; }
+.posgrid { width: 100%; border-collapse: collapse; font-size: 16px; }
+.posgrid th, .posgrid td { padding: 14px 16px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.posgrid thead th { background: var(--bg-alt); font: 600 14px var(--mono); }
+.posgrid thead th span { display: block; margin-top: 4px; font: 400 13px var(--sans); color: var(--soft); }
+.posgrid tbody th { width: 22%; font-weight: 600; background: var(--bg-alt); }
+.posgrid td { line-height: 1.7; }
+.posgrid td.us { background: var(--brand-soft); color: var(--brand); font-weight: 700; }
+.posgrid td.none { color: var(--soft); }
+@media (max-width: 640px) {
+  .posgrid, .posgrid tbody, .posgrid tr, .posgrid th, .posgrid td { display: block; width: auto; }
+  .posgrid thead { display: none; }
+  .posgrid tr { border: 1px solid var(--line); margin-bottom: 14px; }
+  .posgrid th, .posgrid td { border: 0; border-top: 1px solid var(--line); }
+  .posgrid tbody th { border-top: 0; width: auto; }
+  .posgrid td::before { content: attr(data-col); display: block; font: 600 12px var(--mono); color: var(--soft); text-transform: lowercase; }
+  .posgrid td.none { display: none; }
+}
