@@ -365,3 +365,15 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
   .vs-cols td, .vs-cols thead th:not(:first-child) { min-width: 7.25rem; }
   .vs tr.compact th, .vs tr.compact td { font-size: 12.5px; padding-top: 6px; padding-bottom: 6px; }
 }
+
+/* positioning map on /compare/ */
+.posmap { margin: 24px 0 0; }
+.posmap svg { display: block; width: 100%; height: auto; max-width: 960px; font-family: var(--mono); }
+.posmap .pm-q { fill: var(--brand-soft); }
+.posmap .pm-axis { stroke: var(--line); stroke-width: 2; }
+.posmap .pm-lab { fill: var(--soft); font-size: 24px; }
+.posmap .pm-dot circle { fill: var(--soft); }
+.posmap .pm-dot text { fill: var(--ink); font-size: 27px; }
+.posmap .pm-dot.us circle { fill: var(--brand); }
+.posmap .pm-dot.us text { fill: var(--brand); font-weight: 700; font-size: 31px; }
+@media (max-width: 640px) { .posmap .pm-dot text { font-size: 34px; } .posmap .pm-lab { font-size: 30px; } .posmap .pm-dot.us text { font-size: 38px; } }
