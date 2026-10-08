@@ -35,6 +35,14 @@
    "votes": 0
   },
   {
+   "status": "Next",
+   "title": "More voice engines, including commercial ones (ElevenLabs, OpenAI, Google, Azure)",
+   "text": "The first wish from a potential user after the launch: more voice engines, including the commercial top models, so a show can sound as good as the best voices available today.",
+   "url": "https://github.com/Vozonda/vozonda/issues/35",
+   "number": 35,
+   "votes": 0
+  },
+  {
    "status": "Later",
    "title": "Vozonda Cloud",
    "text": "A hosted version, paid per episode with Lightning and without accounts, if enough people ask for it. The waitlist is one anonymous click on https://vozonda.com/#cloud.",
