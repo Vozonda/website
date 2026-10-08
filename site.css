@@ -413,3 +413,4 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
   .posgrid td::before { content: attr(data-col); display: block; font: 600 12px var(--mono); color: var(--soft); text-transform: lowercase; }
   .posgrid td.none { display: none; }
 }
+.result .reveal { font: 600 14px var(--mono); color: var(--brand); margin: 6px 0 10px; }

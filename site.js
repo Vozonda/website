@@ -149,14 +149,22 @@ function shuffle(pair) {
   return order;
 }
 
-function showResult(card, pair, results, myPick) {
+function showResult(card, pair, results, myPick, order = []) {
   card.querySelector(".result")?.remove();
   const box = el("div", { class: "result", "aria-live": "polite" });
   const r = results && results.pairs && results.pairs[pair.id];
   const sys = (r && r.systems) || {};
-  if (myPick === "none") box.append(el("p", { text: "You heard no difference." }));
+  if (myPick === "none") box.append(el("p", { text: "You picked no difference." }));
   else if (sys[myPick]) box.append(el("p", { text: "You picked " + sys[myPick] + "." }));
   else box.append(el("p", { text: "Thanks, your vote is in." }));
+  // after the vote, reveal who wrote or voiced each letter, on the labels and in one line
+  if (order.length && order.every((c) => sys[c.id])) {
+    const letters = card.querySelectorAll(".excerpt > b, .clip > b");
+    order.forEach((c, i) => { if (letters[i]) letters[i].textContent = `${"ABC"[i]} · ${sys[c.id]}`; });
+    box.append(el("p", { class: "reveal", text: order.map((c, i) => `${"ABC"[i]}: ${sys[c.id]}`).join(" · ") }));
+  } else {
+    box.append(el("p", { class: "meta", text: "Which was which appears here within five minutes." }));
+  }
   if (r && r.total) {
     for (const [label, n] of Object.entries(r.counts || {})) {
       const pct = Math.round((100 * n) / r.total);
@@ -208,13 +216,13 @@ async function renderPairs(boxId = "pairs", mode = "audio") {
         b.setAttribute("aria-pressed", "true");
         try { await fetch(`/api/vote?pair=${encodeURIComponent(pair.id)}&pick=${encodeURIComponent(pick)}`, { cache: "no-store" }); } catch { /* offline */ }
         await loadResults();
-        showResult(card, pair, results, pick);
+        showResult(card, pair, results, pick, order);
       });
       choice.append(b);
     }
     card.append(choice);
     box.append(card);
-    if (voted) { if (!results) await loadResults(); showResult(card, pair, results, voted); }
+    if (voted) { if (!results) await loadResults(); showResult(card, pair, results, voted, order); }
   }
 }
 
