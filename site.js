@@ -37,6 +37,14 @@ async function heroPlayer() {
   let peaks = [];
   try { peaks = await getJSON("/img/sample-dst.peaks.json"); } catch { peaks = Array.from({ length: 96 }, (_, i) => 0.35 + 0.3 * Math.abs(Math.sin(i / 3))); }
   const bars = peaks.map((p) => { const b = el("i"); b.style.height = Math.max(8, Math.round(p * 100)) + "%"; wave.append(b); return b; });
+  // the voice panel of "How it works" plays the same episode with the same waveform and transcript
+  const voicePanels = [...document.querySelectorAll(".panel-voice")];
+  const storyBars = voicePanels.flatMap((panel) => peaks.map((p, i) => {
+    const b = el("i", { style: `height:${Math.max(6, Math.round(p * 100))}%;--i:${i}` });
+    panel.querySelector(".pv-wave").append(b);
+    return b;
+  }));
+  const lines = [line, ...document.querySelectorAll(".pv-line")];
 
   let cues = [];
   const loadCues = async () => {
@@ -55,13 +63,14 @@ async function heroPlayer() {
     for (let k = 0; k < cues.length && cues[k].t <= t + 0.05; k++) i = k;
     if (i === shown || i < 0) return;
     shown = i;
-    line.replaceChildren(el("b", { text: names[cues[i].who] || cues[i].who }), cues[i].text);
+    for (const l of lines) l.replaceChildren(el("b", { text: names[cues[i].who] || cues[i].who, class: cues[i].who === "B" ? "vb" : "va" }), cues[i].text);
   };
   const paint = () => {
     const d = audio.duration || 0;
     const f = d ? audio.currentTime / d : 0;
     const on = Math.round(f * bars.length);
     bars.forEach((b, i) => b.classList.toggle("on", i < on));
+    storyBars.forEach((b, i) => b.classList.toggle("on", i % bars.length < on));
     time.textContent = d ? `${fmt(audio.currentTime)} / ${fmt(d)}` : time.textContent;
     show(audio.currentTime);
   };
@@ -69,10 +78,11 @@ async function heroPlayer() {
     await loadCues();
     if (audio.paused) { await audio.play().catch(() => {}); } else { audio.pause(); }
   };
-  audio.addEventListener("play", () => card.classList.add("playing"));
-  audio.addEventListener("pause", () => card.classList.remove("playing"));
+  audio.addEventListener("play", () => [card, ...voicePanels].forEach((x) => x.classList.add("playing")));
+  audio.addEventListener("pause", () => [card, ...voicePanels].forEach((x) => x.classList.remove("playing")));
   audio.addEventListener("timeupdate", paint);
   document.getElementById("hero-play").addEventListener("click", toggle);
+  document.querySelectorAll('[data-play="hero"]').forEach((b) => b.addEventListener("click", toggle));
   document.getElementById("hero-play-cta")?.addEventListener("click", () => {
     card.scrollIntoView({ behavior: "smooth", block: "center" });
     if (audio.paused) toggle();
@@ -277,11 +287,33 @@ function lightningAmounts() {
   const box = document.getElementById("ln-amounts");
   const out = document.getElementById("ln-invoice");
   const form = document.getElementById("ln-custom");
+  const picker = document.getElementById("ln-picker");
+  const addr = document.getElementById("ln-addr-box");
   if (!box || !out) return;
+  // One QR code on screen at a time: the address QR (any amount) or the invoice QR (fixed amount).
+  // Each request has a number; an answer that arrives after a newer request is dropped (website #1).
+  let seq = 0;
+  const controls = () => [...box.querySelectorAll("button"), ...(form ? form.querySelectorAll("input, button") : [])];
+  const busy = (on) => controls().forEach((c) => { c.disabled = on; });
   const say = (t) => out.replaceChildren(el("p", { class: "fine" }, t));
+  const back = () => {
+    seq++;
+    busy(false);
+    out.hidden = true;
+    out.replaceChildren();
+    if (picker) picker.hidden = false;
+    if (addr) addr.hidden = false;
+    form?.elements.sats.focus();
+  };
+  const backBtn = () => {
+    const b = el("button", { type: "button", class: "btn ghost ln-back" }, "← other amount");
+    b.addEventListener("click", back);
+    return b;
+  };
   const pick = async (sats) => {
     if (!Number.isInteger(sats) || sats < 1 || sats > 25000000) { out.hidden = false; say("Enter a whole number of sats, 1 or more."); return; }
-    box.querySelectorAll("[data-sats]").forEach((x) => x.setAttribute("aria-pressed", String(Number(x.dataset.sats) === sats)));
+    const id = ++seq;
+    busy(true);
     out.hidden = false;
     say("Building the invoice…");
     let pr = null;
@@ -289,7 +321,9 @@ function lightningAmounts() {
       const r = await fetch(`/api/ln/callback?amount=${sats * 1000}`, { cache: "no-store" });
       if (r.ok) pr = (await r.json()).pr || null;
     } catch { /* offline */ }
-    if (!pr) { say("No invoice right now. Send any amount to the address below instead."); return; }
+    if (id !== seq) return;
+    busy(false);
+    if (!pr) { say("No invoice right now. Scan the address code instead and choose the amount in your wallet."); return; }
     const qrBox = el("div", { class: "ln-qr" });
     try {
       const qr = (await loadQr())(0, "M");
@@ -297,6 +331,7 @@ function lightningAmounts() {
       qr.make();
       qrBox.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true, alt: `Lightning invoice for ${sats} sats` });
     } catch { /* copy and wallet link still work */ }
+    if (id !== seq) return;
     const copy = el("button", { type: "button", class: "btn ghost" }, "Copy invoice");
     copy.addEventListener("click", async () => {
       try { await navigator.clipboard.writeText(pr); copy.textContent = "Copied"; } catch { copy.textContent = "Copy failed"; }
@@ -310,7 +345,12 @@ function lightningAmounts() {
       });
       actions.append(wl);
     }
-    out.replaceChildren(el("p", { class: "fine" }, `${sats.toLocaleString("en")} sats: scan, open in your wallet, or copy.`), qrBox, actions);
+    if (picker) picker.hidden = true;
+    if (addr) addr.hidden = true;
+    out.replaceChildren(
+      el("p", { class: "ln-amount" }, `${sats.toLocaleString("en")} sats`),
+      el("p", { class: "fine" }, "Invoice for exactly this amount, valid for one hour: scan, open in your wallet, or copy."),
+      qrBox, actions, backBtn());
   };
   box.addEventListener("click", (e) => { const b = e.target.closest("[data-sats]"); if (b) pick(Number(b.dataset.sats)); });
   form?.addEventListener("submit", (e) => { e.preventDefault(); pick(parseInt(form.elements.sats.value, 10)); });
@@ -415,6 +455,122 @@ function tableFilter() {
   });
 }
 
+// ---- how it works: on wide screens the panels share one sticky stage that follows the step in
+// view; on narrow screens each panel stays under its step and animates when it scrolls in
+function storyMode() {
+  const grid = document.querySelector(".story-grid");
+  const stage = grid?.querySelector(".story-stage");
+  if (!stage || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const steps = [...grid.querySelectorAll(".story-step")];
+  const panels = steps.map((s) => s.querySelector(".panel"));
+  if (panels.some((p) => !p)) return;
+  grid.querySelectorAll(".src-text mark").forEach((m, i) => m.style.setProperty("--i", i));
+  const root = document.documentElement;
+  const wide = matchMedia("(min-width: 901px)");
+  let cur = 0, queued = false;
+  const set = (n) => {
+    if (n === cur) return;
+    cur = n;
+    stage.dataset.n = String(n).padStart(2, "0");
+    steps.forEach((s, i) => s.classList.toggle("is-on", i + 1 === n));
+    panels.forEach((p, i) => {
+      p.classList.toggle("is-on", i + 1 === n);
+      p.classList.toggle("is-past", i + 1 < n);
+      p.inert = i + 1 !== n;
+    });
+  };
+  const update = () => {
+    queued = false;
+    if (!wide.matches) return;
+    const mid = window.innerHeight * 0.55;
+    let n = 1;
+    steps.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) n = i + 1; });
+    set(n);
+    const r = grid.getBoundingClientRect();
+    stage.style.setProperty("--p", Math.min(1, Math.max(0, (mid - r.top) / r.height)).toFixed(3));
+  };
+  const reveal = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("is-on"); reveal.unobserve(e.target); }
+  }, { threshold: 0.35 });
+  const apply = () => {
+    reveal.disconnect();
+    cur = 0;
+    panels.forEach((p) => { p.classList.remove("is-on", "is-past"); p.inert = false; });
+    steps.forEach((s) => s.classList.remove("is-on"));
+    root.classList.toggle("story-live", wide.matches);
+    root.classList.toggle("story-reveal", !wide.matches);
+    if (wide.matches) { stage.append(...panels); update(); }
+    else { panels.forEach((p, i) => { steps[i].append(p); reveal.observe(p); }); }
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  wide.addEventListener("change", apply);
+  apply();
+}
+
+// ---- reveal: sections ease in once as they scroll into view (never with reduced motion) ------
+function revealOnScroll() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const items = [...document.querySelectorAll("main .section .kicker, main .section h2, main .section .sub, .stats > div, .grid3 > *, .plan, #faq details, .final h2, .final p, .final .cta")]
+    .filter((n) => !n.closest(".story-grid") && n.getBoundingClientRect().top > window.innerHeight);
+  if (!items.length) return;
+  for (const n of items) {
+    const sibs = [...n.parentElement.children].filter((c) => items.includes(c));
+    n.style.setProperty("--rv-i", Math.min(sibs.indexOf(n), 5));
+    n.classList.add("rv");
+  }
+  document.documentElement.classList.add("rv-on");
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("rv-in"); io.unobserve(e.target); }
+  }, { rootMargin: "0px 0px -8% 0px" });
+  items.forEach((n) => io.observe(n));
+}
+
+// ---- where am I: current page and section in the main nav, back to top -------------------
+// The nav link of this page gets aria-current="page"; on a page whose nav links point at its own
+// sections, the link of the section in view gets aria-current="location" while scrolling.
+function navOrientation() {
+  const nav = document.querySelector('header nav[aria-label="Main"]');
+  const spy = [];
+  if (nav) {
+    for (const a of nav.querySelectorAll("a")) {
+      const u = new URL(a.href, location.href);
+      if (u.pathname !== location.pathname) continue;
+      if (!u.hash) { a.setAttribute("aria-current", "page"); continue; }
+      const target = document.getElementById(decodeURIComponent(u.hash.slice(1)));
+      if (target) spy.push([a, target]);
+    }
+  }
+  const top = el("button", { type: "button", class: "to-top", "aria-label": "Back to top", hidden: "" });
+  top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  top.addEventListener("click", () => {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    document.querySelector(".brand")?.focus({ preventScroll: true });
+  });
+  document.body.append(top);
+  let active = null, queued = false;
+  const update = () => {
+    queued = false;
+    top.hidden = window.scrollY < window.innerHeight;
+    if (!spy.length) return;
+    const line = window.innerHeight * 0.3;
+    const hit = spy.find(([, t]) => { const r = t.getBoundingClientRect(); return r.top <= line && r.bottom > line; });
+    const a = hit ? hit[0] : null;
+    if (a === active) return;
+    active?.removeAttribute("aria-current");
+    active = a;
+    if (!a) return;
+    a.setAttribute("aria-current", "location");
+    if (nav.scrollWidth > nav.clientWidth) nav.scrollLeft = a.offsetLeft - nav.offsetLeft - 16;
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  update();
+}
+
 heroPlayer();
 tableFilter();
 liveKpis();
@@ -427,3 +583,6 @@ interest();
 copyButtons();
 lightningAmounts();
 launchCountdown();
+navOrientation();
+storyMode();
+revealOnScroll();
