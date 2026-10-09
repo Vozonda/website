@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-08",
+ "updated": "2026-10-09",
  "source": "https://github.com/Vozonda/vozonda/issues?q=is%3Aopen+label%3Aroadmap",
  "items": [
   {
    "status": "In progress",
    "title": "Source citations in every episode",
-   "text": "Each line of a script points to the source it came from, and the transcript shows it, so a listener can check any claim. Multi-source episodes already cite every content turn (see CHANGELOG, Unreleased); what remains is showing the citations in the transcript and the episode page.",
+   "text": "Every line of a script points to the source it came from, and the transcript shows it, so a listener can check any claim. Scripts already carry the citations; next is showing them in the transcript and on the episode page.",
    "url": "https://github.com/Vozonda/vozonda/issues/28",
    "number": 28,
    "votes": 0
@@ -21,7 +21,7 @@
   {
    "status": "Next",
    "title": "Longer, smoother episodes",
-   "text": "Get closer to NotebookLM in length and flow. Measured, not guessed: the public blind test at https://vozonda.com/test/ compares Vozonda, NotebookLM and Open Notebook on the same sources.",
+   "text": "Get closer to NotebookLM in length and flow, measured in the public [blind test](https://vozonda.com/test/) against NotebookLM and Open Notebook rather than guessed.",
    "url": "https://github.com/Vozonda/vozonda/issues/31",
    "number": 31,
    "votes": 0
@@ -29,7 +29,7 @@
   {
    "status": "Next",
    "title": "More voice engines, including commercial ones (ElevenLabs, OpenAI, Google, Azure)",
-   "text": "The first wish from a potential user after the launch: more voice engines, including the commercial top models, so a show can sound as good as the best voices available today.",
+   "text": "The commercial top voices as engines you can switch on per show, with your own API key, so a show can sound as good as the best voices available today. Local engines stay the default.",
    "url": "https://github.com/Vozonda/vozonda/issues/35",
    "number": 35,
    "votes": 0
@@ -37,7 +37,7 @@
   {
    "status": "Later",
    "title": "Vozonda Cloud",
-   "text": "A hosted version, paid per episode with Lightning and without accounts, if enough people ask for it. The waitlist is one anonymous click on https://vozonda.com/#cloud.",
+   "text": "A hosted version, paid per episode with Lightning and without accounts, if enough people ask for it. The [waitlist](https://vozonda.com/#cloud) is one anonymous click.",
    "url": "https://github.com/Vozonda/vozonda/issues/32",
    "number": 32,
    "votes": 0
@@ -53,7 +53,7 @@
   {
    "status": "Ideas",
    "title": "Nostr bookmarks as a source",
-   "text": "Bookmark an article in your Nostr app and it becomes an episode, read from your public bookmark list (NIP-51). Not built yet; the About and FAQ pages described it by mistake until #24.",
+   "text": "Bookmark an article in your Nostr app and it becomes an episode, read from your public bookmark list (NIP-51).",
    "url": "https://github.com/Vozonda/vozonda/issues/34",
    "number": 34,
    "votes": 0
