@@ -509,6 +509,24 @@ function storyMode() {
   apply();
 }
 
+// ---- links: external links in the content open in a new tab (the sovgrid.org convention) -----
+// Same scope as the CSS: links in main content, not buttons; nav and footer stay as they are.
+// rel noopener noreferrer on every external link, nofollow except for our own places.
+const OWN_HOSTS = /^https?:\/\/(www\.)?(vozonda\.com|sovgrid\.org|github\.com\/Vozonda\/)/i;
+function externalLinks() {
+  const main = document.querySelector("main");
+  if (!main) return;
+  const mark = (root) => root.querySelectorAll('a[href^="http"]').forEach((a) => {
+    if (a.classList.contains("btn") || /^https?:\/\/(www\.)?vozonda\.com/i.test(a.href)) return;
+    a.target = "_blank";
+    a.rel = OWN_HOSTS.test(a.href) ? "noopener noreferrer" : "noopener noreferrer nofollow";
+  });
+  mark(main);
+  // samples, results and invoices are rendered later
+  new MutationObserver((list) => list.forEach((m) => m.addedNodes.forEach((n) => { if (n.nodeType === 1) mark(n.matches?.("a") ? n.parentNode : n); })))
+    .observe(main, { childList: true, subtree: true });
+}
+
 // ---- reveal: sections ease in once as they scroll into view (never with reduced motion) ------
 function revealOnScroll() {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
@@ -586,3 +604,4 @@ launchCountdown();
 navOrientation();
 storyMode();
 revealOnScroll();
+externalLinks();
