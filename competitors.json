@@ -12,6 +12,9 @@
   "API for apps and AI agents (MCP)",
   "Languages",
   "Price",
+  "§Modular by design: pick your engines",
+  "Choose the voice engine",
+  "Choose the script model (LLM)",
   "§Nostr & Bitcoin Lightning",
   "Publish shows on Nostr",
   "Log in with Nostr",
@@ -118,6 +121,15 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "y"
+    },
+    "Choose the voice engine": {
+     "text": "Plugins: Kokoro, Piper (CPU), Qwen3-TTS (GPU), Voxtral (hosted); more planned",
+     "mark": "y",
+     "url": "https://github.com/Vozonda/vozonda/issues/35"
+    },
+    "Choose the script model (LLM)": {
+     "text": "Any OpenAI-compatible server: Ollama, vLLM, LM Studio, llama.cpp",
+     "mark": "y"
     }
    }
   },
@@ -211,6 +223,14 @@
     },
     "Share transcript highlights to Nostr": {
      "text": "",
+     "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "No: built-in voices",
+     "mark": "n"
+    },
+    "Choose the script model (LLM)": {
+     "text": "No: Gemini",
      "mark": "n"
     }
    }
@@ -306,6 +326,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "No: ElevenLabs voices",
+     "mark": "n"
+    },
+    "Choose the script model (LLM)": {
+     "text": "No",
+     "mark": "n"
     }
    }
   },
@@ -400,6 +428,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "No: built-in voices",
+     "mark": "n"
+    },
+    "Choose the script model (LLM)": {
+     "text": "Unknown",
+     "mark": ""
     }
    }
   },
@@ -494,6 +530,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "No: built-in voices",
+     "mark": "n"
+    },
+    "Choose the script model (LLM)": {
+     "text": "Unknown",
+     "mark": ""
     }
    }
   },
@@ -588,6 +632,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "No: built-in voices",
+     "mark": "n"
+    },
+    "Choose the script model (LLM)": {
+     "text": "Unknown",
+     "mark": ""
     }
    }
   },
@@ -682,6 +734,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "Yes, through its model providers, local or cloud",
+     "mark": "y"
+    },
+    "Choose the script model (LLM)": {
+     "text": "Yes, many providers, local too",
+     "mark": "y"
     }
    }
   },
@@ -776,6 +836,14 @@
     "Share transcript highlights to Nostr": {
      "text": "",
      "mark": "n"
+    },
+    "Choose the voice engine": {
+     "text": "Cloud services: OpenAI, Google, ElevenLabs, Edge",
+     "mark": ""
+    },
+    "Choose the script model (LLM)": {
+     "text": "Yes, 100+ models, local too",
+     "mark": "y"
     }
    }
   }

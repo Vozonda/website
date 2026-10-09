@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a podcast in your own feed: deep dive, debate, briefing or story.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
 <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=bbfa36ae7f">
+<link rel="stylesheet" href="/site.css?v=5e5675b4b7">
 <script src="/site.js?v=d9ea30692c" defer></script>
 </head>
 <body>
@@ -172,16 +172,19 @@
         </li>
         <li class="story-step" data-step="3">
           <span class="st-n">03</span>
-          <h3>Voices record it at home</h3>
-          <p>One to three voices, or a single narrator. They run on your CPU by default, a GPU unlocks studio voices. Nothing leaves your machine.</p>
+          <h3>Voices record it, with the engine you pick</h3>
+          <p>One to three voices, or a single narrator. Voice engines are plugins: Kokoro and Piper on your CPU, Qwen3-TTS on a GPU, Voxtral as a hosted option, more on the way. This sample is one engine; switching is a setting, and so is the language model that writes the script.</p>
           <figure class="panel panel-voice">
-            <figcaption class="panel-bar"><span>voices · Ryan &amp; Serena</span><span>local · 8:39</span></figcaption>
+            <figcaption class="panel-bar"><span>qwen3-tts · Ryan &amp; Serena</span><span>local · 8:39</span></figcaption>
             <div class="panel-body">
               <div class="pv-row">
                 <button type="button" class="pc-play pv-play" aria-label="Play the episode" data-play="hero"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ico-play" d="M8 5v14l11-7z"/><path class="ico-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
                 <div class="pv-wave" aria-hidden="true"></div>
               </div>
               <p class="pv-line"><b class="va">Ryan</b> Daylight saving time is fundamentally about making better use of the longer daylight available during summer.</p>
+              <ul class="pv-engines" aria-label="Voice engine plugins">
+                <li>kokoro</li><li>piper</li><li class="on" aria-current="true">qwen3-tts</li><li>voxtral</li><li class="more"><a href="https://github.com/Vozonda/vozonda/issues/35">+ more planned</a></li>
+              </ul>
             </div>
           </figure>
         </li>
