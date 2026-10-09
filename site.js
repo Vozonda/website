@@ -415,6 +415,50 @@ function tableFilter() {
   });
 }
 
+// ---- where am I: current page and section in the main nav, back to top -------------------
+// The nav link of this page gets aria-current="page"; on a page whose nav links point at its own
+// sections, the link of the section in view gets aria-current="location" while scrolling.
+function navOrientation() {
+  const nav = document.querySelector('header nav[aria-label="Main"]');
+  const spy = [];
+  if (nav) {
+    for (const a of nav.querySelectorAll("a")) {
+      const u = new URL(a.href, location.href);
+      if (u.pathname !== location.pathname) continue;
+      if (!u.hash) { a.setAttribute("aria-current", "page"); continue; }
+      const target = document.getElementById(decodeURIComponent(u.hash.slice(1)));
+      if (target) spy.push([a, target]);
+    }
+  }
+  const top = el("button", { type: "button", class: "to-top", "aria-label": "Back to top", hidden: "" });
+  top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  top.addEventListener("click", () => {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    document.querySelector(".brand")?.focus({ preventScroll: true });
+  });
+  document.body.append(top);
+  let active = null, queued = false;
+  const update = () => {
+    queued = false;
+    top.hidden = window.scrollY < window.innerHeight;
+    if (!spy.length) return;
+    const line = window.innerHeight * 0.3;
+    const hit = spy.find(([, t]) => { const r = t.getBoundingClientRect(); return r.top <= line && r.bottom > line; });
+    const a = hit ? hit[0] : null;
+    if (a === active) return;
+    active?.removeAttribute("aria-current");
+    active = a;
+    if (!a) return;
+    a.setAttribute("aria-current", "location");
+    if (nav.scrollWidth > nav.clientWidth) nav.scrollLeft = a.offsetLeft - nav.offsetLeft - 16;
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  update();
+}
+
 heroPlayer();
 tableFilter();
 liveKpis();
@@ -427,3 +471,4 @@ interest();
 copyButtons();
 lightningAmounts();
 launchCountdown();
+navOrientation();

@@ -53,7 +53,20 @@ nav { display: flex; gap: 22px; margin-left: 12px; font-size: 15px; }
 nav a { text-decoration: none; color: var(--soft); }
 nav a:hover { color: var(--ink); }
 .nav-cta { margin-left: auto; display: flex; gap: 10px; }
-@media (max-width: 900px) { nav { display: none; } }
+nav a[aria-current] { color: var(--ink); text-decoration: underline 2px var(--brand); text-underline-offset: 8px; }
+/* phones: the nav becomes a second, horizontally scrollable row instead of disappearing */
+@media (max-width: 900px) {
+  html { scroll-padding-top: 116px; }
+  .nav-in { flex-wrap: wrap; height: auto; row-gap: 0; padding-top: 12px; }
+  nav { order: 3; width: 100%; margin: 0; padding: 8px 0 12px; overflow-x: auto; scrollbar-width: none; white-space: nowrap; }
+  nav::-webkit-scrollbar { display: none; }
+}
+.to-top { position: fixed; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); z-index: 30; width: 44px; height: 44px;
+  display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1.5px solid var(--line-strong, var(--line));
+  background: var(--card); color: var(--ink); box-shadow: var(--shadow); cursor: pointer; }
+.to-top:hover { border-color: var(--brand); color: var(--brand); }
+.to-top[hidden] { display: none; }
+.to-top svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 520px) { .nav-cta .ghost { display: none; } }
 
 /* buttons */
