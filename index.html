@@ -22,8 +22,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a podcast in your own feed: deep dive, debate, briefing or story.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
 <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=ed0761d1cd">
-<script src="/site.js?v=e45d04016b" defer></script>
+<link rel="stylesheet" href="/site.css?v=fa1f938a88">
+<script src="/site.js?v=acab020050" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -137,22 +137,71 @@
   </div>
 </section>
 
-<section class="section alt">
-  <div class="wrap split">
-    <div>
-      <p class="kicker">How it works</p>
-      <h2>Drop in. Pick a show. Press play.</h2>
-      <ol class="steps">
-        <li><b>Add sources</b> to the tray, or let a watchlist collect them for you.</li>
-        <li><b>Pick a show</b>: deep dive, debate, critique, feature story, trio roundtable and more, in ten languages.</li>
-        <li><b>Review the script</b>, then let the voices record. Minutes later it is in your feed.</li>
+<section class="section alt story" id="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
+    <h2 id="how-h">From a page you read to an episode you hear</h2>
+    <p class="sub story-sub">One Wikipedia article, followed through the whole pipeline. The script lines and the audio below are from the real episode.</p>
+    <div class="story-grid">
+      <ol class="story-steps">
+        <li class="story-step" data-step="1">
+          <span class="st-n">01</span>
+          <h3>Bring a source</h3>
+          <p>A link, a PDF, a screenshot or your own notes. Vozonda reads it once and keeps what matters, up to ten sources per episode.</p>
+          <figure class="panel panel-source">
+            <figcaption class="panel-bar"><span>source</span><span>en.wikipedia.org · CC BY-SA 4.0</span></figcaption>
+            <div class="panel-body">
+              <p class="src-title">Daylight saving time</p>
+              <p class="src-text"><mark>Daylight saving time</mark> (DST) … is the practice of advancing clocks to (in theory) <mark>make better use of the longer daylight</mark> available during summer by having darkness fall at a later clock time. The typical implementation of DST is to <mark>adjust clocks ahead</mark> of standard time by one hour in spring or late winter, and to set clocks back by one hour in the autumn … The practice of DST was <mark>first tested and widely adopted in the early 20th century</mark>.</p>
+            </div>
+          </figure>
+        </li>
+        <li class="story-step" data-step="2">
+          <span class="st-n">02</span>
+          <h3>Read the script first</h3>
+          <p>Your local model writes the conversation, in one of fourteen show formats. You read every line and fix what is wrong before anything is voiced.</p>
+          <figure class="panel panel-script">
+            <figcaption class="panel-bar"><span>script · debate</span><span>review before voicing</span></figcaption>
+            <div class="panel-body">
+              <p class="ln" style="--i:0"><b class="va">Ryan</b><span>Daylight saving time is fundamentally about making better use of the longer daylight available during summer.</span></p>
+              <p class="ln" style="--i:1"><b class="vb">Serena</b><span>Exactly, and for many, that extra hour of daylight after work is a genuine benefit.</span></p>
+              <p class="ln" style="--i:2"><b class="va">Ryan</b><span>But let's look at the actual data. A 2017 meta-analysis of forty-four studies found that DST leads to electricity savings of only zero point three percent.</span></p>
+              <p class="ln ln-edit" style="--i:3"><b class="vb">Serena</b><span>No way.<span class="caret" aria-hidden="true"></span></span></p>
+            </div>
+          </figure>
+        </li>
+        <li class="story-step" data-step="3">
+          <span class="st-n">03</span>
+          <h3>Voices record it at home</h3>
+          <p>One to three voices, or a single narrator. They run on your CPU by default, a GPU unlocks studio voices. Nothing leaves your machine.</p>
+          <figure class="panel panel-voice">
+            <figcaption class="panel-bar"><span>voices · Ryan &amp; Serena</span><span>local · 8:39</span></figcaption>
+            <div class="panel-body">
+              <div class="pv-row">
+                <button type="button" class="pc-play pv-play" aria-label="Play the episode" data-play="hero"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ico-play" d="M8 5v14l11-7z"/><path class="ico-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+                <div class="pv-wave" aria-hidden="true"></div>
+              </div>
+              <p class="pv-line"><b class="va">Ryan</b> Daylight saving time is fundamentally about making better use of the longer daylight available during summer.</p>
+            </div>
+          </figure>
+        </li>
+        <li class="story-step" data-step="4">
+          <span class="st-n">04</span>
+          <h3>It lands in your own feed</h3>
+          <p>A private RSS feed with chapters and transcripts. Apple Podcasts, Pocket Casts, AntennaPod: it just plays. Publishing to Nostr is optional.</p>
+          <figure class="panel panel-feed">
+            <figcaption class="panel-bar"><span>your feed</span><span>rss · podcasting 2.0</span></figcaption>
+            <div class="panel-body">
+              <div class="fd fd-new"><span class="fd-art" aria-hidden="true"></span><span class="fd-meta"><b>Daylight saving time: keep it or drop it?</b><span>debate · 8:39 · transcript</span></span><span class="fd-tag">new</span></div>
+              <div class="fd"><span class="fd-art fd-art2" aria-hidden="true"></span><span class="fd-meta"><b>Three NASA missions, one question</b><span>balanced · 8:11 · transcript</span></span></div>
+              <div class="fd"><span class="fd-art fd-art3" aria-hidden="true"></span><span class="fd-meta"><b>The Tell-Tale Heart, retold</b><span>storyteller · 9:23 · transcript</span></span></div>
+            </div>
+          </figure>
+        </li>
       </ol>
-      <a class="btn primary" href="#pricing">Run it yourself</a>
+      <div class="story-stage"></div>
     </div>
-    <picture class="shot">
-      <source srcset="/img/tray-dark.webp" media="(prefers-color-scheme: dark)">
-      <img src="/img/tray.webp" width="1200" height="830" loading="lazy" alt="The Vozonda source tray with a PDF, a Wikipedia article and a note marked as context.">
-    </picture>
+    <p class="story-cta"><a class="btn primary" href="#pricing">Run it yourself</a> <a class="btn ghost" href="#listen">Hear more samples</a></p>
   </div>
 </section>
 

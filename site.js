@@ -37,6 +37,14 @@ async function heroPlayer() {
   let peaks = [];
   try { peaks = await getJSON("/img/sample-dst.peaks.json"); } catch { peaks = Array.from({ length: 96 }, (_, i) => 0.35 + 0.3 * Math.abs(Math.sin(i / 3))); }
   const bars = peaks.map((p) => { const b = el("i"); b.style.height = Math.max(8, Math.round(p * 100)) + "%"; wave.append(b); return b; });
+  // the voice panel of "How it works" plays the same episode with the same waveform and transcript
+  const voicePanels = [...document.querySelectorAll(".panel-voice")];
+  const storyBars = voicePanels.flatMap((panel) => peaks.map((p, i) => {
+    const b = el("i", { style: `height:${Math.max(6, Math.round(p * 100))}%;--i:${i}` });
+    panel.querySelector(".pv-wave").append(b);
+    return b;
+  }));
+  const lines = [line, ...document.querySelectorAll(".pv-line")];
 
   let cues = [];
   const loadCues = async () => {
@@ -55,13 +63,14 @@ async function heroPlayer() {
     for (let k = 0; k < cues.length && cues[k].t <= t + 0.05; k++) i = k;
     if (i === shown || i < 0) return;
     shown = i;
-    line.replaceChildren(el("b", { text: names[cues[i].who] || cues[i].who }), cues[i].text);
+    for (const l of lines) l.replaceChildren(el("b", { text: names[cues[i].who] || cues[i].who, class: cues[i].who === "B" ? "vb" : "va" }), cues[i].text);
   };
   const paint = () => {
     const d = audio.duration || 0;
     const f = d ? audio.currentTime / d : 0;
     const on = Math.round(f * bars.length);
     bars.forEach((b, i) => b.classList.toggle("on", i < on));
+    storyBars.forEach((b, i) => b.classList.toggle("on", i % bars.length < on));
     time.textContent = d ? `${fmt(audio.currentTime)} / ${fmt(d)}` : time.textContent;
     show(audio.currentTime);
   };
@@ -69,10 +78,11 @@ async function heroPlayer() {
     await loadCues();
     if (audio.paused) { await audio.play().catch(() => {}); } else { audio.pause(); }
   };
-  audio.addEventListener("play", () => card.classList.add("playing"));
-  audio.addEventListener("pause", () => card.classList.remove("playing"));
+  audio.addEventListener("play", () => [card, ...voicePanels].forEach((x) => x.classList.add("playing")));
+  audio.addEventListener("pause", () => [card, ...voicePanels].forEach((x) => x.classList.remove("playing")));
   audio.addEventListener("timeupdate", paint);
   document.getElementById("hero-play").addEventListener("click", toggle);
+  document.querySelectorAll('[data-play="hero"]').forEach((b) => b.addEventListener("click", toggle));
   document.getElementById("hero-play-cta")?.addEventListener("click", () => {
     card.scrollIntoView({ behavior: "smooth", block: "center" });
     if (audio.paused) toggle();
@@ -415,6 +425,78 @@ function tableFilter() {
   });
 }
 
+// ---- how it works: on wide screens the panels share one sticky stage that follows the step in
+// view; on narrow screens each panel stays under its step and animates when it scrolls in
+function storyMode() {
+  const grid = document.querySelector(".story-grid");
+  const stage = grid?.querySelector(".story-stage");
+  if (!stage || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const steps = [...grid.querySelectorAll(".story-step")];
+  const panels = steps.map((s) => s.querySelector(".panel"));
+  if (panels.some((p) => !p)) return;
+  grid.querySelectorAll(".src-text mark").forEach((m, i) => m.style.setProperty("--i", i));
+  const root = document.documentElement;
+  const wide = matchMedia("(min-width: 901px)");
+  let cur = 0, queued = false;
+  const set = (n) => {
+    if (n === cur) return;
+    cur = n;
+    stage.dataset.n = String(n).padStart(2, "0");
+    steps.forEach((s, i) => s.classList.toggle("is-on", i + 1 === n));
+    panels.forEach((p, i) => {
+      p.classList.toggle("is-on", i + 1 === n);
+      p.classList.toggle("is-past", i + 1 < n);
+      p.inert = i + 1 !== n;
+    });
+  };
+  const update = () => {
+    queued = false;
+    if (!wide.matches) return;
+    const mid = window.innerHeight * 0.55;
+    let n = 1;
+    steps.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) n = i + 1; });
+    set(n);
+    const r = grid.getBoundingClientRect();
+    stage.style.setProperty("--p", Math.min(1, Math.max(0, (mid - r.top) / r.height)).toFixed(3));
+  };
+  const reveal = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("is-on"); reveal.unobserve(e.target); }
+  }, { threshold: 0.35 });
+  const apply = () => {
+    reveal.disconnect();
+    cur = 0;
+    panels.forEach((p) => { p.classList.remove("is-on", "is-past"); p.inert = false; });
+    steps.forEach((s) => s.classList.remove("is-on"));
+    root.classList.toggle("story-live", wide.matches);
+    root.classList.toggle("story-reveal", !wide.matches);
+    if (wide.matches) { stage.append(...panels); update(); }
+    else { panels.forEach((p, i) => { steps[i].append(p); reveal.observe(p); }); }
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  wide.addEventListener("change", apply);
+  apply();
+}
+
+// ---- reveal: sections ease in once as they scroll into view (never with reduced motion) ------
+function revealOnScroll() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const items = [...document.querySelectorAll("main .section .kicker, main .section h2, main .section .sub, .stats > div, .grid3 > *, .plan, #faq details, .final h2, .final p, .final .cta")]
+    .filter((n) => !n.closest(".story-grid") && n.getBoundingClientRect().top > window.innerHeight);
+  if (!items.length) return;
+  for (const n of items) {
+    const sibs = [...n.parentElement.children].filter((c) => items.includes(c));
+    n.style.setProperty("--rv-i", Math.min(sibs.indexOf(n), 5));
+    n.classList.add("rv");
+  }
+  document.documentElement.classList.add("rv-on");
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add("rv-in"); io.unobserve(e.target); }
+  }, { rootMargin: "0px 0px -8% 0px" });
+  items.forEach((n) => io.observe(n));
+}
+
 // ---- where am I: current page and section in the main nav, back to top -------------------
 // The nav link of this page gets aria-current="page"; on a page whose nav links point at its own
 // sections, the link of the section in view gets aria-current="location" while scrolling.
@@ -472,3 +554,5 @@ copyButtons();
 lightningAmounts();
 launchCountdown();
 navOrientation();
+storyMode();
+revealOnScroll();
