@@ -2,16 +2,25 @@
  "as_of": "October 2026",
  "params": [
   "Made for",
-  "Open-source app",
+  "Price",
   "Runs on your hardware",
+  "Open-source app",
+  "§Content sources: what you can feed in",
+  "Web links, PDF, text",
+  "Images",
+  "YouTube videos",
+  "Audio files (MP3 and similar)",
+  "Word files, slides",
+  "Digs beyond your sources",
+  "§The show: voices, languages, control",
+  "Hosts (voices)",
+  "Languages",
+  "Read and edit the script first",
+  "Voice cloning",
+  "§Where it goes: your feed, your agents",
   "Your own podcast feed",
   "Auto episodes from your RSS feeds",
-  "Read and edit the script first",
-  "Hosts (voices)",
-  "Voice cloning",
   "API for apps and AI agents (MCP)",
-  "Languages",
-  "Price",
   "§Modular by design: pick your engines",
   "Choose the voice engine",
   "Choose the script model (LLM)",
@@ -20,19 +29,13 @@
   "Log in with Nostr",
   "Zap episodes, stream sats while listening",
   "Lightning split in your podcast feed",
-  "Share transcript highlights to Nostr",
-  "§Content sources: what you can feed in",
-  "Web links, PDF, text",
-  "Images",
-  "YouTube videos",
-  "Word files, slides",
-  "Audio files (MP3 and similar)",
-  "Digs beyond your sources"
+  "Share transcript highlights to Nostr"
  ],
  "tools": [
   {
    "name": "Vozonda",
    "us": true,
+   "source": "https://github.com/Vozonda/vozonda",
    "cells": {
     "Runs on your hardware": {
      "text": "Yes",
@@ -136,6 +139,7 @@
   {
    "name": "NotebookLM",
    "us": false,
+   "source": "https://notebooklm.google/",
    "cells": {
     "Runs on your hardware": {
      "text": "No",
@@ -238,6 +242,7 @@
   {
    "name": "ElevenLabs GenFM",
    "us": false,
+   "source": "https://elevenreader.io/",
    "cells": {
     "Runs on your hardware": {
      "text": "No",
@@ -340,6 +345,7 @@
   {
    "name": "Jellypod",
    "us": false,
+   "source": "https://www.jellypod.com/",
    "cells": {
     "Runs on your hardware": {
      "text": "No",
@@ -434,7 +440,7 @@
      "mark": "n"
     },
     "Choose the script model (LLM)": {
-     "text": "Unknown",
+     "text": "?",
      "mark": ""
     }
    }
@@ -442,6 +448,7 @@
   {
    "name": "Wondercraft",
    "us": false,
+   "source": "https://www.wondercraft.ai/",
    "cells": {
     "Runs on your hardware": {
      "text": "No",
@@ -536,7 +543,7 @@
      "mark": "n"
     },
     "Choose the script model (LLM)": {
-     "text": "Unknown",
+     "text": "?",
      "mark": ""
     }
    }
@@ -544,13 +551,14 @@
   {
    "name": "Audioread",
    "us": false,
+   "source": "https://audioread.com/",
    "cells": {
     "Runs on your hardware": {
      "text": "No",
      "mark": "n"
     },
     "Voice cloning": {
-     "text": "Unknown",
+     "text": "?",
      "mark": ""
     },
     "Languages": {
@@ -638,7 +646,7 @@
      "mark": "n"
     },
     "Choose the script model (LLM)": {
-     "text": "Unknown",
+     "text": "?",
      "mark": ""
     }
    }
@@ -646,6 +654,7 @@
   {
    "name": "Open Notebook",
    "us": false,
+   "source": "https://github.com/lfnovo/open-notebook",
    "cells": {
     "Runs on your hardware": {
      "text": "Yes",
@@ -748,6 +757,7 @@
   {
    "name": "Podcastfy",
    "us": false,
+   "source": "https://github.com/souzatharsis/podcastfy",
    "cells": {
     "Runs on your hardware": {
      "text": "Partly: voices from a cloud service",

@@ -536,3 +536,27 @@ html.rv-on .rv.rv-in { opacity: 1; transform: none; }
 .pv-engines li.more { border-style: dashed; }
 .pv-engines a { color: inherit; text-decoration: none; }
 .pv-engines a:hover { color: var(--brand); }
+
+/* ---- links: internal vs external (the sovgrid.org convention) --------------------------------
+   Keyed on the href, never on target. Only links in content (text, lists, tables) are touched;
+   the header nav, the footer, buttons and chips keep their own look.
+   internal (relative or vozonda.com): brand green, same tab
+   external: body colour, underlined, a trailing ↗; site.js opens it in a new tab
+   in-page anchors (#...): body colour. The underline stays on all of them (WCAG 1.4.1). */
+main :where(p, li, dd, td, th, figcaption, blockquote) a:not(.btn):not(:where(.pv-engines, .cta, .seg-filter) a) {
+  text-decoration: underline; text-underline-offset: 2px;
+}
+main :where(p, li, dd, td, th, figcaption, blockquote) a:not([href^="http"]):not([href^="#"]):not(.btn):not(:where(.pv-engines, .cta, .seg-filter) a),
+main :where(p, li, dd, td, th, figcaption, blockquote) a[href*="//vozonda.com"]:not(.btn) {
+  color: var(--brand);
+}
+main :where(p, li, dd, td, th, figcaption, blockquote) a[href^="#"]:not(.btn) { color: var(--ink); }
+main :where(p, li, dd, td, th, figcaption, blockquote) a[href^="http"]:not([href*="//vozonda.com"]):not(.btn):not(:where(.pv-engines, .cta, .seg-filter) a) {
+  color: var(--ink);
+}
+main :where(p, li, dd, td, th, figcaption, blockquote) a[href^="http"]:not([href*="//vozonda.com"]):not(.btn):not(:where(.pv-engines, .cta, .seg-filter) a):hover {
+  color: var(--brand);
+}
+main :where(p, li, dd, td, th, figcaption, blockquote) a[href^="http"]:not([href*="//vozonda.com"]):not(.btn)::after {
+  content: "\00A0↗" / ""; font-size: .85em;
+}
