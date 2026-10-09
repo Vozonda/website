@@ -368,9 +368,14 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .ln-amounts { display: flex; flex-wrap: wrap; }
 .ln-invoice { margin: 0 0 8px; }
 .ln-invoice .cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.qr { margin-top: 14px; }
-.qr summary { cursor: pointer; color: var(--soft); font-size: 15px; }
-.qr img { display: block; margin: 12px 0 0; width: 180px; height: 180px; border-radius: var(--radius); border: 1px solid var(--line); }
+.ln-addr-box[hidden], .ln-picker[hidden] { display: none; }
+.ln-addr-box { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 16px; align-items: center; margin: 4px 0 18px; }
+.ln-qr-img { display: block; width: 160px; height: 160px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.ln-hint { margin: 0 0 8px; font-size: 15px; }
+.ln-or { margin: 0 0 8px; }
+.ln-amount { font: 600 1.6rem/1.2 var(--serif); margin: 0; }
+.ln-back { margin-top: 10px; }
+@media (max-width: 520px) { .ln-addr-box { grid-template-columns: 1fr; justify-items: start; } }
 .ln-custom { display: flex; gap: 8px; align-items: center; margin: 0 0 12px; }
 .ln-custom input { width: 9.5em; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); font: 15px var(--mono); }
 .ln-qr svg { display: block; width: 200px; height: 200px; margin: 10px 0; background: #fff; }

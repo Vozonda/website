@@ -287,11 +287,33 @@ function lightningAmounts() {
   const box = document.getElementById("ln-amounts");
   const out = document.getElementById("ln-invoice");
   const form = document.getElementById("ln-custom");
+  const picker = document.getElementById("ln-picker");
+  const addr = document.getElementById("ln-addr-box");
   if (!box || !out) return;
+  // One QR code on screen at a time: the address QR (any amount) or the invoice QR (fixed amount).
+  // Each request has a number; an answer that arrives after a newer request is dropped (website #1).
+  let seq = 0;
+  const controls = () => [...box.querySelectorAll("button"), ...(form ? form.querySelectorAll("input, button") : [])];
+  const busy = (on) => controls().forEach((c) => { c.disabled = on; });
   const say = (t) => out.replaceChildren(el("p", { class: "fine" }, t));
+  const back = () => {
+    seq++;
+    busy(false);
+    out.hidden = true;
+    out.replaceChildren();
+    if (picker) picker.hidden = false;
+    if (addr) addr.hidden = false;
+    form?.elements.sats.focus();
+  };
+  const backBtn = () => {
+    const b = el("button", { type: "button", class: "btn ghost ln-back" }, "← other amount");
+    b.addEventListener("click", back);
+    return b;
+  };
   const pick = async (sats) => {
     if (!Number.isInteger(sats) || sats < 1 || sats > 25000000) { out.hidden = false; say("Enter a whole number of sats, 1 or more."); return; }
-    box.querySelectorAll("[data-sats]").forEach((x) => x.setAttribute("aria-pressed", String(Number(x.dataset.sats) === sats)));
+    const id = ++seq;
+    busy(true);
     out.hidden = false;
     say("Building the invoice…");
     let pr = null;
@@ -299,7 +321,9 @@ function lightningAmounts() {
       const r = await fetch(`/api/ln/callback?amount=${sats * 1000}`, { cache: "no-store" });
       if (r.ok) pr = (await r.json()).pr || null;
     } catch { /* offline */ }
-    if (!pr) { say("No invoice right now. Send any amount to the address below instead."); return; }
+    if (id !== seq) return;
+    busy(false);
+    if (!pr) { say("No invoice right now. Scan the address code instead and choose the amount in your wallet."); return; }
     const qrBox = el("div", { class: "ln-qr" });
     try {
       const qr = (await loadQr())(0, "M");
@@ -307,6 +331,7 @@ function lightningAmounts() {
       qr.make();
       qrBox.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true, alt: `Lightning invoice for ${sats} sats` });
     } catch { /* copy and wallet link still work */ }
+    if (id !== seq) return;
     const copy = el("button", { type: "button", class: "btn ghost" }, "Copy invoice");
     copy.addEventListener("click", async () => {
       try { await navigator.clipboard.writeText(pr); copy.textContent = "Copied"; } catch { copy.textContent = "Copy failed"; }
@@ -320,7 +345,12 @@ function lightningAmounts() {
       });
       actions.append(wl);
     }
-    out.replaceChildren(el("p", { class: "fine" }, `${sats.toLocaleString("en")} sats: scan, open in your wallet, or copy.`), qrBox, actions);
+    if (picker) picker.hidden = true;
+    if (addr) addr.hidden = true;
+    out.replaceChildren(
+      el("p", { class: "ln-amount" }, `${sats.toLocaleString("en")} sats`),
+      el("p", { class: "fine" }, "Invoice for exactly this amount, valid for one hour: scan, open in your wallet, or copy."),
+      qrBox, actions, backBtn());
   };
   box.addEventListener("click", (e) => { const b = e.target.closest("[data-sats]"); if (b) pick(Number(b.dataset.sats)); });
   form?.addEventListener("submit", (e) => { e.preventDefault(); pick(parseInt(form.elements.sats.value, 10)); });
