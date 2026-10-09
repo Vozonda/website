@@ -88,9 +88,8 @@
      "mark": "n"
     },
     "Audio files (MP3 and similar)": {
-     "text": "planned",
-     "mark": "",
-     "url": "/roadmap/#audio-and-podcast-sources"
+     "text": "transcribed locally",
+     "mark": "y"
     },
     "Digs beyond your sources": {
      "text": "citations, counterpoints",

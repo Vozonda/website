@@ -12,14 +12,6 @@
   },
   {
    "status": "Next",
-   "title": "Audio and podcast sources",
-   "text": "Drop in an MP3 or a podcast episode as a source: it is transcribed locally (Whisper), punctuation is restored with a word-for-word check, and it is discussed like any other source. A first implementation exists and is in review.",
-   "url": "https://github.com/Vozonda/vozonda/issues/29",
-   "number": 29,
-   "votes": 0
-  },
-  {
-   "status": "Next",
    "title": "Saved source trays",
    "text": "Save a mix of feeds and notes as a template that a watchlist refills on a schedule, so a recurring show needs no clicks.",
    "url": "https://github.com/Vozonda/vozonda/issues/30",
