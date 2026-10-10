@@ -11,7 +11,9 @@ What it does, in order:
    wrapped around their body.html, with their own title, description and canonical URL.
 2. Comparison table: built from competitors.json and written between the
    <!-- compare:start --> and <!-- compare:end --> markers in index.html and compare/index.html.
-3. Cache busting: every page links site.css and site.js with ?v=<content hash>, so browsers fetch
+3. Social cards: on every page og:url, og:title and og:description follow the page's own canonical URL,
+   <title> and meta description, so a shared subpage shows its own card instead of the home page's.
+4. Cache busting: every page links site.css and site.js with ?v=<content hash>, so browsers fetch
    a changed file instead of a cached one.
 
 Deterministic: running it twice on the same files changes nothing. CI runs it on every pull request
@@ -129,7 +131,33 @@ def comparison_table() -> None:
         page.write_text(s)
 
 
-# 3. cache busting -------------------------------------------------------------------------------
+# 3. social cards --------------------------------------------------------------------------------
+# The head of every page starts as a copy of the home page's, Open Graph tags included. Without this step
+# a shared /blind-test/ link would show the home page's title, and og:url would tell Facebook, LinkedIn
+# and Mastodon that it is the home page. The image (og.png) stays the same on every page. The home page
+# keeps its hand-written card, which deliberately differs from its meta description.
+
+def _meta(page: str, pattern: str) -> str:
+    m = re.search(pattern, page)
+    return m.group(1) if m else ""
+
+
+def social_cards() -> None:
+    for page in sorted(WEB.glob("*/index.html")):
+        s = page.read_text()
+        values = {
+            "og:url": _meta(s, r'<link rel="canonical" href="([^"]*)">'),
+            "og:title": _meta(s, r"<title>(.*?)</title>"),
+            "og:description": _meta(s, r'<meta name="description" content="([^"]*)">'),
+        }
+        for prop, value in values.items():
+            if value:  # values come from the page's own (already escaped) HTML, so they go in as they are
+                s = re.sub(rf'<meta property="{prop}" content="[^"]*">',
+                           lambda m: f'<meta property="{prop}" content="{value}">', s)
+        page.write_text(s)
+
+
+# 4. cache busting -------------------------------------------------------------------------------
 
 def stamp_assets() -> dict:
     stamp = {name: hashlib.sha256((WEB / name).read_bytes()).hexdigest()[:10] for name in ("site.css", "site.js")}
@@ -146,6 +174,7 @@ def main() -> None:
         if (WEB / directory / "body.html").exists():
             shell_page(directory, title, desc)
     comparison_table()
+    social_cards()
     print("stamped", stamp_assets())
 
 
