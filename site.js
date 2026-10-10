@@ -551,15 +551,18 @@ function revealOnScroll() {
 function navOrientation() {
   const nav = document.querySelector('header nav[aria-label="Main"]');
   const spy = [];
+  let current = null;
   if (nav) {
     for (const a of nav.querySelectorAll("a")) {
       const u = new URL(a.href, location.href);
       if (u.pathname !== location.pathname) continue;
-      if (!u.hash) { a.setAttribute("aria-current", "page"); continue; }
+      if (!u.hash) { a.setAttribute("aria-current", "page"); current = a; continue; }
       const target = document.getElementById(decodeURIComponent(u.hash.slice(1)));
       if (target) spy.push([a, target]);
     }
   }
+  // on a phone the nav is one scrollable row: bring the current page's entry into view
+  if (current && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = current.offsetLeft - nav.offsetLeft - 16;
   const top = el("button", { type: "button", class: "to-top", "aria-label": "Back to top", hidden: "" });
   top.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
   top.addEventListener("click", () => {

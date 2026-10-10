@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-09",
+ "updated": "2026-10-10",
  "source": "https://github.com/Vozonda/vozonda/issues?q=is%3Aopen+label%3Aroadmap",
  "items": [
   {
@@ -21,7 +21,7 @@
   {
    "status": "Next",
    "title": "Longer, smoother episodes",
-   "text": "Get closer to NotebookLM in length and flow, measured in the public [blind test](https://vozonda.com/test/) against NotebookLM and Open Notebook rather than guessed.",
+   "text": "Get closer to NotebookLM in length and flow, measured in the public [blind test](https://vozonda.com/blind-test/) against NotebookLM and Open Notebook rather than guessed.",
    "url": "https://github.com/Vozonda/vozonda/issues/31",
    "number": 31,
    "votes": 0
