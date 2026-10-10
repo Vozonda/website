@@ -13,7 +13,7 @@ The website of [Vozonda](https://github.com/Vozonda/vozonda), the self-hosted, o
 It shows what Vozonda does, lets you hear it, and measures it in public against NotebookLM and six other tools.
 
 **[Website](https://vozonda.com)** · **[App repo](https://github.com/Vozonda/vozonda)** ·
-**[Compare](https://vozonda.com/compare/)** · **[Blind test](https://vozonda.com/test/)** ·
+**[Compare](https://vozonda.com/compare/)** · **[Blind test](https://vozonda.com/blind-test/)** ·
 **[Roadmap](https://vozonda.com/roadmap/)**
 
 ## What the site is for
@@ -24,7 +24,7 @@ Every page serves one goal, and every claim on it comes from a file in this repo
 |---|---|---|
 | Show what Vozonda does and let you hear it | [`/`](https://vozonda.com) | `index.html`, `samples.json`, `script.json` |
 | Compare it with the alternatives | [`/compare/`](https://vozonda.com/compare/) | `competitors.json` (8 tools, 29 rows, each with a source) |
-| Measure it, blind, with every vote public | [`/test/`](https://vozonda.com/test/) | `compare.json` (clip ids), the published votes |
+| Measure it, blind, with every vote public | [`/blind-test/`](https://vozonda.com/blind-test/) | `compare.json` (clip ids), the published votes |
 | Show where it is going and what shipped | [`/roadmap/`](https://vozonda.com/roadmap/), [`/changelog/`](https://vozonda.com/changelog/) | GitHub issues and releases of the app |
 | Let people support it without an account | [`/support/`](https://vozonda.com/support/) | Lightning and Nostr |
 
@@ -43,7 +43,7 @@ A comparison written by one of the compared projects is only worth something if 
 - **The blind test is a preference test**, a multi-choice form of the pairwise tests used to evaluate speech
   synthesis: the script and the voices are judged separately, the clips are cut from the same point in each
   episode and loudness-normalised (−16 LUFS, EBU R 128), every side runs its default settings, nothing is
-  regenerated or picked, and every vote is published. The full method is on the [test page](https://vozonda.com/test/).
+  regenerated or picked, and every vote is published. The full method is on the [blind test page](https://vozonda.com/blind-test/).
 
 ## Found a wrong claim?
 
@@ -76,7 +76,7 @@ The pages are plain HTML, built by [`build.py`](build.py) (Python 3.10+, standar
 python3 build.py
 ```
 
-It wraps `compare/`, `test/` and `support/` in the head, navigation and footer of `index.html`, builds the
+It wraps `compare/`, `blind-test/` and `support/` in the head, navigation and footer of `index.html`, builds the
 comparison table from `competitors.json`, and stamps `site.css` and `site.js` with a content hash so browsers
 never use a stale copy. Running it twice changes nothing. A check on every pull request runs it and fails
 when a generated page is out of date, so a change to a `body.html`, `competitors.json`, `site.css` or
@@ -89,7 +89,7 @@ instance and the app's GitHub issues and releases. The maintainers' tooling rebu
 ```
 build.py                           builds the generated pages (see above)
 index.html  site.css  site.js      the home page (also the shell of all pages), shared style and behaviour
-*/body.html                        content of compare/, test/, support/; their index.html is generated
+*/body.html                        content of compare/, blind-test/, support/; their index.html is generated
 competitors.json                   the comparison (tools, rows, sources)
 compare.json  samples.json  script.json  roadmap.json   test pairs, samples, script excerpt, roadmap
 img/  fonts/  vendor/              images, self-hosted fonts (OFL), the QR code library
@@ -117,7 +117,7 @@ pages get it without extra markup.
 
 Vozonda is young, and the most useful help is small:
 
-- **Listen and vote.** Take the [blind test](https://vozonda.com/test/); a few minutes, no account.
+- **Listen and vote.** Take the [blind test](https://vozonda.com/blind-test/); a few minutes, no account.
 - **Try it.** `docker compose up -d` with the [quickstart](https://github.com/Vozonda/vozonda/blob/main/docs/quickstart.md),
   and tell us where you got stuck.
 - **Keep us honest.** Point out a wrong value in the comparison.

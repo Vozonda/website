@@ -7,7 +7,7 @@ Run it from anywhere, Python 3.10+, standard library only:
 
 What it does, in order:
 
-1. Shell pages: compare/, test/ and support/ get the head, navigation and footer of index.html
+1. Shell pages: compare/, blind-test/ and support/ get the head, navigation and footer of index.html
    wrapped around their body.html, with their own title, description and canonical URL.
 2. Comparison table: built from competitors.json and written between the
    <!-- compare:start --> and <!-- compare:end --> markers in index.html and compare/index.html.
@@ -35,7 +35,7 @@ SHELL_PAGES = [
     ("compare", "Compare · Vozonda",
      "Vozonda next to NotebookLM, ElevenLabs GenFM, Jellypod, Wondercraft, Audioread, Open Notebook and "
      "Podcastfy: features and a public blind test."),
-    ("test", "Test · Vozonda",
+    ("blind-test", "Blind test · Vozonda",
      "Read three scripts and hear three clips from the same source, blind: Vozonda vs NotebookLM vs "
      "Open Notebook, results published live."),
     ("support", "Support · Vozonda",
