@@ -1,0 +1,57 @@
+name: Comparison correction
+description: A value in the comparison on vozonda.com/compare/ is wrong or out of date.
+title: "Comparison: <tool>, <row>"
+labels: ["comparison"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for keeping the comparison honest. Corrections are welcome from anyone, including the vendors themselves.
+        Every value in the table needs a public source, so please link one.
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options:
+        - Vozonda
+        - NotebookLM
+        - ElevenLabs GenFM
+        - Jellypod
+        - Wondercraft
+        - Audioread
+        - Open Notebook
+        - Podcastfy
+        - A tool that is missing
+    validations:
+      required: true
+  - type: input
+    id: row
+    attributes:
+      label: Row
+      description: The row as it is named in the table, for example "Languages".
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: What the table says now
+    validations:
+      required: true
+  - type: input
+    id: correct
+    attributes:
+      label: What is correct
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source
+      description: A public page that shows the correct value (documentation, pricing page, changelog).
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else

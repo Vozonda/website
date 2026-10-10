@@ -1,0 +1,32 @@
+name: Website problem
+description: Something on vozonda.com does not work or looks broken.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Problems with the Vozonda app itself go to https://github.com/Vozonda/vozonda/issues.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: https://vozonda.com/
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser, device and operating system
+      placeholder: Firefox 131 on Android 15
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag an image here if it helps.
