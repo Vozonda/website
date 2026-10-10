@@ -11,7 +11,7 @@
     <p class="kicker">Test 1 · script</p>
     <h2>Script test: read and pick</h2>
     <p class="sub">What Vozonda really does is write the conversation. Here you read the same part of three episodes about the
-      same source, as plain text, without voices or names. Which one explains the topic best?</p>
+      same source, as text in turns, without voices or names. Which one explains the topic best?</p>
     <div id="text-pairs" class="pairs" data-src="/script.json"><p class="muted">The test needs JavaScript.</p></div>
   </div>
 </section>
@@ -26,7 +26,7 @@
     <details class="method">
       <summary>Method and fine print (both tests)</summary>
       <ul>
-        <li>Script test: about 150 words from 30 % into each episode, cut at sentence ends, as plain text without speaker names. Every side is transcribed the same way from its audio (Whisper medium, then punctuation restored by the local model with a word-for-word check), so fillers and punctuation do not give a side away.</li>
+        <li>Script test: about 150 words from 30 % into each episode, from the start of a turn to a sentence end, shown as turns without speaker names. Turns are found from the audio alone (the two voices told apart by their sound), the same way for every side. Every side is transcribed the same way from its audio (Whisper medium, then punctuation restored by the local model with a word-for-word check), so fillers and punctuation do not give a side away.</li>
         <li>Preference test with three options and a "no difference" option, a multi-choice form of the pairwise tests used to evaluate speech synthesis. A, B and C are shuffled for each visitor; the order is kept on your device, so a reload does not change it. After your vote the page shows which was which.</li>
         <li>60 seconds from 30 % into each episode, so the intros do not give it away; loudness normalised to −16 LUFS (EBU R 128); same format and bit rate.</li>
         <li>Default settings on every side; Vozonda used local Qwen3-TTS voices and an unedited script. Nothing was regenerated or picked.</li>

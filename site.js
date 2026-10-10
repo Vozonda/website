@@ -203,7 +203,11 @@ async function renderPairs(boxId = "pairs", mode = "audio") {
     if (mode === "text") {
       const grid = el("div", { class: "text-pair" });
       grid.classList.toggle("three", order.length === 3);
-      order.forEach((c, i) => grid.append(el("blockquote", { class: "excerpt" }, el("b", { text: "ABC"[i] }), el("p", { text: c.text }))));
+      // an excerpt is a conversation: one paragraph per turn, the two voices told apart by a bar and an
+      // indent (no names, so nothing gives the system away); older data has one plain "text"
+      const turns = (c) => (c.turns || [c.text]).map((t, j) => el("p", { class: `turn v${j % 2 + 1}` },
+        el("span", { class: "sr", text: `Voice ${j % 2 + 1}: ` }), t));
+      order.forEach((c, i) => grid.append(el("blockquote", { class: "excerpt" }, el("b", { text: "ABC"[i] }), ...turns(c))));
       card.append(grid);
     } else {
       order.forEach((c, i) => {
