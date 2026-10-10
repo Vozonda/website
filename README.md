@@ -65,7 +65,8 @@ welcome. Bugs in the app go to [Vozonda/vozonda](https://github.com/Vozonda/vozo
   together; audio loads only when you press play.
 - **Progressive enhancement:** all text works without JavaScript; the parts that need it (the blind test,
   the Lightning amount) say so.
-- **Findable and verifiable:** schema.org metadata, Open Graph image, sitemap, and a Nostr identity
+- **Findable and verifiable:** descriptive titles, schema.org metadata, a social card per page, a sitemap with
+  real change dates, [IndexNow](https://www.indexnow.org/) instead of tracking scripts, and a Nostr identity
   ([NIP-05](https://github.com/nostr-protocol/nips/blob/master/05.md)) under `.well-known/`.
 
 ## How the site is built
@@ -76,9 +77,10 @@ The pages are plain HTML, built by [`build.py`](build.py) (Python 3.10+, standar
 python3 build.py
 ```
 
-It wraps `compare/`, `blind-test/` and `support/` in the head, navigation and footer of `index.html`, builds the
-comparison table from `competitors.json`, and stamps `site.css` and `site.js` with a content hash so browsers
-never use a stale copy. Running it twice changes nothing. A check on every pull request runs it and fails
+It wraps `compare/`, `blind-test/`, `support/` and the `404/` page in the head, navigation and footer of
+`index.html`, builds the comparison table from `competitors.json`, gives every subpage its own social card,
+stamps `site.css` and `site.js` with a content hash so browsers never use a stale copy, and writes
+`sitemap.xml` with the date each page's content last changed. Running it twice changes nothing. A check on every pull request runs it and fails
 when a generated page is out of date, so a change to a `body.html`, `competitors.json`, `site.css` or
 `site.js` is committed together with its rebuilt pages.
 
@@ -89,11 +91,12 @@ instance and the app's GitHub issues and releases. The maintainers' tooling rebu
 ```
 build.py                           builds the generated pages (see above)
 index.html  site.css  site.js      the home page (also the shell of all pages), shared style and behaviour
-*/body.html                        content of compare/, blind-test/, support/; their index.html is generated
+*/body.html                        content of compare/, blind-test/, support/, 404/; their index.html is generated
 competitors.json                   the comparison (tools, rows, sources)
 compare.json  samples.json  script.json  roadmap.json   test pairs, samples, script excerpt, roadmap
 img/  fonts/  vendor/              images, self-hosted fonts (OFL), the QR code library
 .well-known/                       security.txt, nostr.json
+<key>.txt                          IndexNow key: after a deploy, changed pages are announced to Bing and others
 ```
 
 Audio files and the blind-test results are served from the server and are not in this repo.
