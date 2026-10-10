@@ -356,6 +356,9 @@ nav, .btn, .pill, .kicker, .fine, .strip-in, .stats span, .kpi-label, .kpi-sub, 
 .excerpt { margin: 0; padding: 16px 18px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
 .excerpt b { font: 700 16px var(--mono); color: var(--brand); }
 .excerpt p { margin: 6px 0 0; font-size: 16px; line-height: 1.65; }
+/* script test: one paragraph per turn; voice 1 with a brand bar, voice 2 indented with a neutral bar */
+.excerpt .turn { margin: 10px 0 0; padding-left: 12px; border-left: 3px solid var(--brand); }
+.excerpt .turn.v2 { margin-left: 18px; border-left-color: var(--line); }
 .res-h { font-size: 18px; margin: 26px 0 10px; }
 
 /* support page */
