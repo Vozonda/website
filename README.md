@@ -70,16 +70,26 @@ welcome. Bugs in the app go to [Vozonda/vozonda](https://github.com/Vozonda/vozo
 
 ## How the site is built
 
-The pages are plain HTML. `index.html` is the hand-written home page and the shell (head, navigation, footer)
-for the others; `compare/`, `test/`, `support/`, `roadmap/` and `changelog/` are generated from their
-`body.html`, the JSON files and the app's releases by the maintainers' build script, which also stamps the
-release data into every page. A pull request therefore changes `body.html`, a JSON file,
-`site.css` or `site.js`; the maintainers rebuild the generated pages. After a merge to `main` the site is
-live within about five minutes.
+The pages are plain HTML, built by [`build.py`](build.py) (Python 3.10+, standard library only, no install):
+
+```sh
+python3 build.py
+```
+
+It wraps `compare/`, `test/` and `support/` in the head, navigation and footer of `index.html`, builds the
+comparison table from `competitors.json`, and stamps `site.css` and `site.js` with a content hash so browsers
+never use a stale copy. Running it twice changes nothing. A check on every pull request runs it and fails
+when a generated page is out of date, so a change to a `body.html`, `competitors.json`, `site.css` or
+`site.js` is committed together with its rebuilt pages.
+
+Three parts are not built here: `samples.json`, `changelog/` and `roadmap/` come from the maintainers' Vozonda
+instance and the app's GitHub issues and releases. The maintainers' tooling rebuilds them daily and then runs
+`build.py`. After a merge to `main` the site is live within about five minutes.
 
 ```
-index.html  site.css  site.js      the home page and the shared style and behaviour
-*/body.html                        content of the other pages
+build.py                           builds the generated pages (see above)
+index.html  site.css  site.js      the home page (also the shell of all pages), shared style and behaviour
+*/body.html                        content of compare/, test/, support/; their index.html is generated
 competitors.json                   the comparison (tools, rows, sources)
 compare.json  samples.json  script.json  roadmap.json   test pairs, samples, script excerpt, roadmap
 img/  fonts/  vendor/              images, self-hosted fonts (OFL), the QR code library

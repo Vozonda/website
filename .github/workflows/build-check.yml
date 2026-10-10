@@ -1,0 +1,29 @@
+# Fails a pull request whose generated pages do not match its sources (body.html, competitors.json,
+# site.css, site.js). Fix: run `python3 build.py` and commit the result.
+# Read-only: no secrets, no write token, nothing deployed from here.
+name: build check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  generated-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Rebuild the generated pages
+        run: python3 build.py
+      - name: Fail if anything changed
+        run: |
+          if ! git diff --exit-code --stat; then
+            echo "::error::Generated pages are out of date. Run 'python3 build.py' and commit the result."
+            exit 1
+          fi
+      - name: JSON files parse
+        run: for f in *.json .well-known/*.json; do python3 -m json.tool "$f" > /dev/null || exit 1; done
