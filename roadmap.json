@@ -51,6 +51,14 @@
    "votes": 0
   },
   {
+   "status": "Later",
+   "title": "Speaker turns for audio sources",
+   "text": "Know who said what in audio sources: interviews, podcasts and panels are transcribed as turns per speaker, so the script can attribute claims (\"the guest argues X, the host disagrees\") instead of mixing voices into one block.",
+   "url": "https://github.com/Vozonda/vozonda/issues/53",
+   "number": 53,
+   "votes": 0
+  },
+  {
    "status": "Ideas",
    "title": "Nostr bookmarks as a source",
    "text": "Bookmark an article in your Nostr app and it becomes an episode, read from your public bookmark list (NIP-51).",
