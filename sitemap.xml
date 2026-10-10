@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vozonda.com/</loc></url>
-  <url><loc>https://vozonda.com/compare/</loc></url>
-  <url><loc>https://vozonda.com/blind-test/</loc></url>
-  <url><loc>https://vozonda.com/changelog/</loc></url>
-  <url><loc>https://vozonda.com/roadmap/</loc></url>
-  <url><loc>https://vozonda.com/support/</loc></url>
+  <url><loc>https://vozonda.com/</loc><lastmod>2026-10-10</lastmod></url><!-- 894da97cbc3f:2026-10-10 -->
+  <url><loc>https://vozonda.com/compare/</loc><lastmod>2026-10-10</lastmod></url><!-- fe28f6fd03a0:2026-10-10 -->
+  <url><loc>https://vozonda.com/blind-test/</loc><lastmod>2026-10-10</lastmod></url><!-- 9d514349d2c5:2026-10-10 -->
+  <url><loc>https://vozonda.com/changelog/</loc><lastmod>2026-10-10</lastmod></url><!-- 2a27727f7cf5:2026-10-10 -->
+  <url><loc>https://vozonda.com/roadmap/</loc><lastmod>2026-10-10</lastmod></url><!-- 460eb6ee6963:2026-10-10 -->
+  <url><loc>https://vozonda.com/support/</loc><lastmod>2026-10-10</lastmod></url><!-- 94c445a5dba9:2026-10-10 -->
 </urlset>
