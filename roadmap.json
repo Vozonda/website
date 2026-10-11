@@ -35,6 +35,14 @@
    "votes": 0
   },
   {
+   "status": "Next",
+   "title": "Public feeds ready for Apple Podcasts and Spotify (cover, owner e-mail, channel tags)",
+   "text": "Make a public show's feed ready for Apple Podcasts and Spotify: a square cover per show, the owner's e-mail for verification, and the channel-level tags the directories require.",
+   "url": "https://github.com/Vozonda/vozonda/issues/58",
+   "number": 58,
+   "votes": 0
+  },
+  {
    "status": "Later",
    "title": "Vozonda Cloud",
    "text": "A hosted version, paid per episode with Lightning and without accounts, if enough people ask for it. The [waitlist](https://vozonda.com/#cloud) is one anonymous click.",
