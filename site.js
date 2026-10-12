@@ -459,6 +459,25 @@ function tableFilter() {
   });
 }
 
+function installTabs() {
+  const bar = document.querySelector(".install-switch");
+  if (!bar) return;
+  const snippets = {
+    compose: document.getElementById("snippet-compose"),
+    pypi: document.getElementById("snippet-pypi"),
+    ghcr: document.getElementById("snippet-ghcr"),
+  };
+  bar.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-install]");
+    if (!b) return;
+    const kind = b.dataset.install;
+    Object.entries(snippets).forEach(([k, el]) => {
+      if (el) el.hidden = (k !== kind);
+    });
+    bar.querySelectorAll("[data-install]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  });
+}
+
 // ---- how it works: on wide screens the panels share one sticky stage that follows the step in
 // view; on narrow screens each panel stays under its step and animates when it scrolls in
 function storyMode() {
@@ -598,6 +617,7 @@ function navOrientation() {
 
 heroPlayer();
 tableFilter();
+installTabs();
 liveKpis();
 renderResults();
 renderResults("results-script", "/script.json");

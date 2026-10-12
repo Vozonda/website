@@ -23,8 +23,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vozonda","url":"https://vozonda.com/","description":"Open-source alternative to NotebookLM, ElevenLabs GenFM and Jellypod: turn articles, papers, PDFs and notes into a podcast in your own feed: deep dive, debate, briefing or story.","applicationCategory":"MultimediaApplication","operatingSystem":"Linux, macOS, Windows (Docker)","license":"https://opensource.org/licenses/MIT","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://vozonda.com/og.png","sameAs":["https://github.com/Vozonda/vozonda"]}</script>
 <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=332750d10b">
-<script src="/site.js?v=29cdb93cfe" defer></script>
+<link rel="stylesheet" href="/site.css?v=65ee971d52">
+<script src="/site.js?v=fa30948020" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -250,12 +250,25 @@
           <li>Every feature, no limits</li>
           <li>Everything stays on your machine</li>
           <li>Bring any model server: Ollama, vLLM, LM Studio, llama.cpp</li>
+          <li>Prebuilt containers on GHCR &amp; Python CLI on PyPI</li>
           <li>CPU voices by default; an NVIDIA GPU unlocks the studio voices</li>
           <li>About 16 GB RAM for the default setup</li>
         </ul>
-        <pre><code>git clone https://github.com/Vozonda/vozonda.git
+        <div class="seg-filter install-switch" role="group" aria-label="Installation method">
+          <button type="button" class="btn ghost" data-install="compose" aria-pressed="true">Docker</button>
+          <button type="button" class="btn ghost" data-install="pypi" aria-pressed="false">PyPI</button>
+          <button type="button" class="btn ghost" data-install="ghcr" aria-pressed="false">GHCR</button>
+        </div>
+        <pre id="snippet-compose"><code>git clone https://github.com/Vozonda/vozonda.git
 cd vozonda && cp .env.example .env
 docker compose up -d</code></pre>
+        <pre id="snippet-pypi" hidden><code>pip install vozonda
+# or with uv:
+uv add vozonda
+vozonda</code></pre>
+        <pre id="snippet-ghcr" hidden><code>docker pull ghcr.io/vozonda/vozonda:latest
+docker run -d -p 8765:8765 -p 5173:5173 \
+  ghcr.io/vozonda/vozonda:latest</code></pre>
         <a class="btn primary block" href="https://github.com/Vozonda/vozonda#quickstart">Read the quickstart</a>
       </article>
       <article class="plan" id="cloud">
@@ -279,6 +292,7 @@ docker compose up -d</code></pre>
   <div class="wrap narrow">
     <p class="kicker">FAQ</p>
     <h2>Questions</h2>
+    <details><summary>How can I run or install Vozonda?</summary><p>Run the full self-hosted stack with Docker Compose using prebuilt images from GitHub Container Registry (<code>ghcr.io/vozonda/vozonda</code>), or install the backend orchestrator directly via PyPI (<code>pip install vozonda</code> or <code>uv add vozonda</code>) and npm.</p></details>
     <details><summary>Is it really free?</summary><p>Yes. The software is MIT-licensed and complete. The cloud, if it comes, is for people who would rather not run a model server; it will not get features the open-source version lacks.</p></details>
     <details><summary>What hardware do I need?</summary><p>For the default setup, a recent computer with about 16 GB RAM: voices run on the CPU and a small local model writes the script. An NVIDIA GPU gives you the studio voices and bigger models.</p></details>
     <details><summary>Can I trust what the hosts say?</summary><p>The script is written from your sources only and you can read and fix it before it is voiced. Like any language model it can still get a detail wrong, which is exactly why the review step exists.</p></details>
